@@ -1,18 +1,22 @@
 <template>
-  <div class="container">
-    <div class="h1">Hello hello</div>
+  <div class="content">
+    <share />
+    <about />
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-
+import About from '@/components/About';
+import Share from '@/components/Share';
 export default {
   components: {
-    Logo,
+    about: About,
+    share: Share,
   },
 };
 </script>
+
+<style scoped></style>
 
 <style>
 .container {
