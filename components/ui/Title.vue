@@ -11,7 +11,6 @@ export default {
 <style scoped>
 .title {
   max-width: 400px;
-  font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
