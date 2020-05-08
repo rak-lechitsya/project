@@ -48,21 +48,12 @@ export default {
   max-width: 1440px;
   padding: 100px 60px;
   background-color: #f7f7f7;
-  color: black;
 }
 
 .share__container {
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
-}
-
-.share__subtitle {
-  color: #666;
-}
-
-.share__paragraph {
-  color: #666666;
 }
 
 .share__button {

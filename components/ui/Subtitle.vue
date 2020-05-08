@@ -15,5 +15,6 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  color: #666;
 }
 </style>
