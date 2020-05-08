@@ -28,19 +28,22 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
+  color: #000;
 }
 
 .paragraph__text {
-  width: 645px;
+  width: 640px;
   margin-bottom: 35px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  color: #666666;
 }
 
 .paragraph__span:last-of-type {
   font-weight: normal;
+  color: #A2A2A2;
 }
 
 .paragraph__text:last-of-type {

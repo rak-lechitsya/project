@@ -50,7 +50,6 @@ export default {
   max-width: 1440px;
   padding: 90px 60px 100px;
   background-color: #613a93;
-  color: white;
 }
 
 .about__heading {
@@ -64,7 +63,24 @@ export default {
   justify-content: space-between;
 }
 
-.about__paragraph {
+.about__title {
   color: white;
 }
+
+.about__subtitle {
+  color: #DEDEDE;
+}
+
+.about__paragraph /deep/ .paragraph__span {
+  color: white;
+}
+
+.about__paragraph /deep/ .paragraph__span:last-of-type {
+  color: #C9C9C9;
+}
+
+.about__paragraph /deep/ .paragraph__text {
+  color: #DEDEDE;
+}
+
 </style>
