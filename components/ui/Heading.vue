@@ -12,5 +12,6 @@ export default {};
   font-weight: 800;
   text-transform: uppercase;
   text-align: center;
+  color: #fff;
 }
 </style>
