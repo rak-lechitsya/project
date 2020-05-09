@@ -107,5 +107,8 @@ export default {
   height: 300px;
   width: 300px;
   border: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 </style>
