@@ -24,6 +24,8 @@ export default {
   height: 40px;
   background: #f4f4f4;
   position: relative;
+  min-width: 260px;
+  margin: auto;
 }
 
 .progress-bar__fill {

@@ -8,14 +8,16 @@
             Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
             000 человек.
           </p>
-          <progress-bar
-            :progress="progress"
-            class="progress-bar"
-            :value="1"
-            :maxValue="3"
-          />
-          <h2 class="statistics__title">1 из 3</h2>
-          <p class="statistics__author">Левада-Центр 2018</p>
+          <div class="statistics__box">
+            <progress-bar
+              :progress="progress"
+              class="progress-bar"
+              :value="1"
+              :maxValue="3"
+            />
+            <h2 class="statistics__title">1 из 3</h2>
+            <p class="statistics__author">Левада-Центр 2018</p>
+          </div>
         </div>
         <div class="statistics__item">
           <p class="statistics__text">2,6% Россиян имеют онкозаболевания.</p>
@@ -109,6 +111,23 @@ export default {
   border: 1px solid #efefef;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.statistics__box {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  justify-content: center;
+  margin-right: 20px;
+  text-align: end;
+}
+.statistics__text {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  margin-block-start: 0;
+  max-width: 260px;
+  margin: 20px 20px 0;
+  margin-block-end: 0;
 }
 </style>

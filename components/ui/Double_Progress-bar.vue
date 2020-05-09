@@ -36,6 +36,8 @@ export default {
   height: 40px;
   background: white;
   position: relative;
+  min-width: 260px;
+  margin: auto;
 }
 
 .progress-bar-double__fill {
