@@ -121,6 +121,7 @@ export default {
   margin-right: 20px;
   text-align: end;
 }
+
 .statistics__text {
   font-weight: normal;
   font-size: 12px;
