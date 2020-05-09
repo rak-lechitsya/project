@@ -1,17 +1,19 @@
 <template>
   <div class="instagram">
-    <instagram-title :title="title" class="instagram__title" />
     <div class="instagram__container">
-      <instagram-subtitle :subtitle="subtitle" class="instagram__subtitle" />
+      <div class="instagram__text">
+        <instagram-title :title="title" class="instagram__title" />
+        <instagram-subtitle :subtitle="subtitle" class="instagram__subtitle" />
+      </div>
       <div class="instagram__pictures">
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
-        <div class="instagram__item">1</div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
+        <div class="instagram__item"></div>
       </div>
     </div>
   </div>
@@ -41,7 +43,7 @@ export default {
   margin: 0 auto;
   max-width: 1440px;
   padding: 90px 60px 100px;
-  background-color: #f7f7f7;
+  background-color: white;
   color: black;
 }
 
@@ -53,6 +55,8 @@ export default {
 
 .instagram__title {
   text-decoration: underline;
+  margin-bottom: 32px;
+  margin-top: 0;
 }
 .instagram__subtitle {
   max-width: 343px;
@@ -67,5 +71,6 @@ export default {
 .instagram__item {
   height: 195px;
   width: 195px;
+  background: #ededed;
 }
 </style>

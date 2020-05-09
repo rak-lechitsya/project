@@ -21,45 +21,50 @@
         </div>
         <div class="statistics__item">
           <p class="statistics__text">2,6% Россиян имеют онкозаболевания.</p>
-          <progress-bar
-            :progress="progress"
-            class="progress-bar"
-            :value="2.6"
-            :maxValue="100"
-          />
-          <h2 class="statistics__title">3 700 000</h2>
-          <p class="statistics__author">Росстат 2018</p>
+          <div class="statistics__box">
+            <progress-bar
+              :progress="progress"
+              class="progress-bar"
+              :value="2.6"
+              :maxValue="100"
+            />
+            <h2 class="statistics__title">3 700 000</h2>
+            <p class="statistics__author">Росстат 2018</p>
+          </div>
         </div>
-
         <div class="statistics__item">
           <p class="statistics__text">
             На 28% выросла доля выявления заболеваний на ранней стадии за 10
             лет.
           </p>
-          <double-progress-bar
-            :doubleProgress="doubleProgress"
-            class="progress-bar-double"
-            :oldValue="55"
-            :maxValue="100"
-            :newValue="70"
-          />
-          <h2 class="statistics__title">↑28%</h2>
-          <p class="statistics__author">МНИОИ Герцена 2018</p>
+          <div class="statistics__box">
+            <double-progress-bar
+              :doubleProgress="doubleProgress"
+              class="progress-bar-double"
+              :oldValue="55"
+              :maxValue="100"
+              :newValue="70"
+            />
+            <h2 class="statistics__title">↑28%</h2>
+            <p class="statistics__author">МНИОИ Герцена 2018</p>
+          </div>
         </div>
         <div class="statistics__item">
           <p class="statistics__text">
             На 25% снизилась смертность в течение первого года после постановки
             диагноза.
           </p>
-          <double-progress-bar
-            :doubleProgress="doubleProgress"
-            class="progress-bar-double"
-            :oldValue="70"
-            :maxValue="100"
-            :newValue="55"
-          />
-          <h2 class="statistics__title">↓25%</h2>
-          <p class="statistics__author">МНИОИ Герцена 2018</p>
+          <div class="statistics__box">
+            <double-progress-bar
+              :doubleProgress="doubleProgress"
+              class="progress-bar-double"
+              :oldValue="70"
+              :maxValue="100"
+              :newValue="55"
+            />
+            <h2 class="statistics__title">↓25%</h2>
+            <p class="statistics__author">МНИОИ Герцена 2018</p>
+          </div>
         </div>
       </div>
     </div>
@@ -130,5 +135,21 @@ export default {
   max-width: 260px;
   margin: 20px 20px 0;
   margin-block-end: 0;
+}
+
+.statistics__title {
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 40px;
+  text-align: end;
+  margin-top: 20px;
+}
+.statistics__author {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: end;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>
