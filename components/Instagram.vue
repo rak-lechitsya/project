@@ -68,6 +68,25 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
 }
+
+@media (max-width: 1439px) {
+  .instagram__pictures {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1150px) {
+  .instagram__pictures {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 910px) {
+  .instagram__pictures {
+    grid-template-columns: 1fr;
+  }
+}
+
 .instagram__item {
   height: 195px;
   width: 195px;

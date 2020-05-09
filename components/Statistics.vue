@@ -110,6 +110,19 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 40px;
 }
+
+@media (max-width: 1439px) {
+  .statistics__pictures {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1106px) {
+  .statistics__pictures {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .statistics__item {
   height: 300px;
   width: 300px;
@@ -124,7 +137,7 @@ export default {
   align-self: flex-end;
   justify-content: center;
   margin-right: 20px;
-  text-align: end;
+  text-align: right;
 }
 
 .statistics__text {
