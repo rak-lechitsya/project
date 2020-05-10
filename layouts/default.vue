@@ -1,8 +1,18 @@
 <template>
   <div>
+    <upside />
     <nuxt />
   </div>
 </template>
+
+<script>
+import Header from '@/components/Header';
+export default {
+  components: {
+  upside: Header
+}
+}
+</script>
 
 <style>
 html {
