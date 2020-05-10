@@ -6,6 +6,7 @@
     <share />
     <statistics />
     <about />
+    <footer-x />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import Cover from '@/components/Cover';
 import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
+import Footer from '@/components/Footer';
 export default {
   components: {
     instagram: Instagram,
@@ -24,6 +26,7 @@ export default {
     cover: Cover,
     stories: Stories,
     statistics: Statistics,
+    'footer-x': Footer,
   },
 };
 </script>
