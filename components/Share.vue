@@ -11,7 +11,6 @@
         class="share__paragraph"
       />
     </div>
-    <button class="share__button">Заполнить форму</button>
   </div>
 </template>
 
@@ -56,18 +55,5 @@ export default {
   justify-content: space-between;
 }
 
-.share__button {
-  margin: 56px 0 0 675px;
-  background-color: #613a93;
-  color: white;
-  width: 280px;
-  height: 52px;
-  padding: 0;
-  border: none;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-}
+
 </style>
