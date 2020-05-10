@@ -2,7 +2,9 @@
   <div class="content">
     <cover />
     <videostory />
+    <banner :text="textSml" />
     <stories />
+    <banner :text="textBg"/>
     <instagram />
     <share />
     <statistics />
@@ -20,6 +22,7 @@ import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
 import Footer from '@/components/Footer';
+import Banner from '@/components/ui/Banner'
 export default {
   components: {
     instagram: Instagram,
@@ -30,9 +33,16 @@ export default {
     stories: Stories,
     statistics: Statistics,
     'footer-x': Footer,
+    banner: Banner,
   },
+  
+  data() {
+    return {
+      textSml: 'И в отличии от рака,',
+      textBg: 'рассказывайте ваши истории в инстаграм'
+    }
+  }
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

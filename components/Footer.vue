@@ -41,6 +41,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #FBFBFB;
 }
 
 .footer__author {

@@ -24,7 +24,7 @@
    /* Temp */
   width: 300px;
   height: 300px;
-  background-color: skyblue;
+  background-color: #EDEDED;
 }
 
 .story__name {
