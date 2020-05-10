@@ -29,7 +29,7 @@ export default {
 .mainVideo {
   display: flex;
   justify-content: space-between;
-  padding: 100px 4% 100px;
+  padding: 100px 60px 100px;
   background-color: white;
   min-height: 650px;
 
@@ -37,7 +37,7 @@ export default {
 
 @media screen and (max-width: 1400px) {
   .mainVideo {
-    padding: 90px 4% 90px;
+    padding: 90px 50px 90px;
   }
 }
 .mainVideo__description {
