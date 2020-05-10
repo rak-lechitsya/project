@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
   .main-header {
-    padding: 18px 4% 18px;
+    padding: 18px 60px 18px;
     background-color: white;
     color: black;
     display: flex;
