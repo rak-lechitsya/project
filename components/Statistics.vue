@@ -85,6 +85,8 @@ export default {
   data() {
     return {
       title: 'Статистика по онкозаболеваниям',
+      progress: '',
+      doubleProgress: '',
     };
   },
 };
