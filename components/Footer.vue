@@ -71,11 +71,6 @@ export default {
 
 .footer__title {
   max-width: 340px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1.12;
-  color: #000;
   margin: 0;
 }
 
