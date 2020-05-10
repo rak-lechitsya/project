@@ -32,7 +32,6 @@ export default {
   padding: 100px 4% 100px;
   background-color: white;
   min-height: 650px;
-  border: 1px solid red;
 
 }
 
@@ -44,7 +43,6 @@ export default {
 .mainVideo__description {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 }
 
 .mainVideo__title {
