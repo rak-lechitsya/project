@@ -1,34 +1,42 @@
 <template>
   <form class="form" id="form" name="form" method="post" action="#">
-    <div class="content">
-      <div class="content__title">
-        <h2 class="form__title">Шаг 1 из 12</h2>
-        <button
-          class="button button_close-item"
-          id="close"
-          type="button"
-        ></button>
-      </div>
-      <fieldset class="form__fieldset">
-        <legend class="form__subtitle">Как вас зовут?</legend>
-        <input
-          class="form__input"
-          placeholder="Напишите тут"
-          id="fullname"
-          type="text"
-          name="fullname"
-        />
-      </fieldset>
-      <div class="content__buttons">
-        <button class="button button_before" type="button">Назад</button>
-        <button class="button button_next" type="button">Далее</button>
-      </div>
+    <div class="form__content">
+      <form-title :title='title' class="form__title" />
+      <button
+        class="button button_close-item"
+        id="close"
+        type="button"
+      ></button>
+    </div>
+    <fieldset class="form__fieldset">
+      <legend class="form__subtitle">Как вас зовут?</legend>
+      <input
+        class="form__input"
+        placeholder="Напишите тут"
+        id="fullname"
+        type="text"
+        name="fullname"
+      />
+    </fieldset>
+    <div class='form__buttons'>
+      <button class="button button_before" type="button">Назад</button>
+      <button class="button button_next" type="button">Далее</button>
     </div>
   </form>
 </template>
 
 <script>
-export default {};
+import Title from '@/components/ui/Title';
+export default {
+  components: {
+    'form-title': Title,
+  },
+  data() {
+    return {
+      title: 'Шаг 1 из 12',
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -74,28 +82,6 @@ export default {};
   background-color: rgba(0, 0, 0, 0);
 }
 
-.content {
-  width: 840px;
-  height: 520px;
-  margin: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.content__buttons {
-  display: flex;
-  align-items: center;
-  margin-top: auto;
-}
-
-.content__title {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
 .form {
   width: 920px;
   height: 600px;
@@ -104,6 +90,23 @@ export default {};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 40px;
+}
+
+.form__buttons {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.form__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .form__fieldset {
@@ -126,11 +129,7 @@ export default {};
 }
 
 .form__title {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1.12;
-  color: #000;
+  margin: 0;
 }
 
 .form__subtitle {
