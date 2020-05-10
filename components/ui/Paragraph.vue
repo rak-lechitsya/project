@@ -6,13 +6,19 @@
     </div>
     <div>
       <p class="paragraph__text">{{ textFirst }}</p>
-      <p class="paragraph__text">{{ textSecond }}</p>
+      <share-button v-if = "textSecond === ''" class="paragraph__share-button"  />
+      <p v-else class="paragraph__text">{{ textSecond }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import Button from '@/components/ui/Button';
 export default {
+  components: {
+    'share-button': Button
+  },
+
   props: ['textFirst', 'textSecond', 'spanFirst', 'spanSecond'],
 };
 </script>
@@ -48,5 +54,9 @@ export default {
 
 .paragraph__text:last-of-type {
   margin-bottom: 0;
+}
+
+.paragraph__share-button {
+  margin-top: 78px;
 }
 </style>
