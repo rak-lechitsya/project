@@ -1,24 +1,27 @@
 <template>
   <section class="stories">
-    <h2 class="stories__heading">Истории неизлечимых привычек</h2>
+    <story-title :title='title' class="stories__heading" />
     <ul class="stories__list">
       <li v-for="card in storyArr" :key="card.id" class="story__item">
         <story :url='card.url' :name='card.name' :content='card.content'/>
         </li>
     </ul>
-    <div class="stories__container-page"><a href="#" class="stories__page">Больше статей</a></div>
+    <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
   </section>
 
 </template>
 
 <script>
 import Story from '@/components/Story';
+import Title from '@/components/ui/Title';
 export default {
   components: {
     story: Story,
+    'story-title': Title,
   },
   data () {
     return {
+      title: 'Истории неизлечимых привычек',
       storyArr: [
         {
           id: '1',
