@@ -12,11 +12,11 @@
 
 <style scoped>
 .button {
-  font-family: 'Inter', monospace, Arial, sans-serif;
-  background-color: #613a93;
-  color: white;
+  font-family: 'Inter', Arial, sans-serif;
   width: 280px;
   height: 52px;
+  background-color: #613a93;
+  color: white;
   padding: 0;
   border: none;
   font-style: normal;
@@ -25,6 +25,5 @@
   line-height: 19px;
   text-align: center;
   cursor: pointer;
-
 }
 </style>
