@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
+import Menu from '@/components/ui/Menu'
 export default {
   components: {
     'main-menu': Menu,
@@ -50,7 +50,7 @@ export default {
   }
 
   .main-header /deep/ a:hover {
-    text-decoration: underline;
+    opacity: .5;
   }
 
 </style>

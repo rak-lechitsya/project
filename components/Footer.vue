@@ -92,7 +92,7 @@ export default {
 }
 
 .link:hover {
-  opacity: .8;
+  opacity: .5;
 }
 
 .link_share {

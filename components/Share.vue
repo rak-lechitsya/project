@@ -47,7 +47,7 @@ export default {
 .share {
   margin: 0 auto;
   width: 100%;
-  padding: 100px 0;
+  padding: 100px 60px;
   background-color: #f7f7f7;
 }
 
