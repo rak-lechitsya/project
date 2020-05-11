@@ -93,7 +93,7 @@ export default {
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   padding: 40px;
 }
 

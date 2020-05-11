@@ -6,7 +6,7 @@
     </div>
     <div>
       <p class="paragraph__text">{{ textFirst }}</p>
-      <share-button @btnClick="$emit('btnClick')" v-if = "textSecond === ''" class="paragraph__share-button"  />
+      <share-button :text = 'text' @btnClick="$emit('btnClick')" v-if = "textSecond === ''" class="paragraph__share-button"  />
       <p v-else class="paragraph__text">{{ textSecond }}</p>
     </div>
   </div>
@@ -20,6 +20,12 @@ export default {
   },
 
   props: ['textFirst', 'textSecond', 'spanFirst', 'spanSecond'],
+
+  data() {
+    return {
+      text: 'Заполнить форму'
+    }
+  }
 };
 </script>
 

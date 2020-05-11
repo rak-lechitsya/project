@@ -9,7 +9,6 @@
     <share @btnClick='popupChange' />
     <statistics />
     <about />
-    <footer-x />
     <popup v-if='popupShown' @closeClick='popupChange' />
   </div>
 </template>
@@ -23,8 +22,6 @@ import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
 import Banner from '@/components/ui/Banner';
-import Footer from '@/components/Footer';
-import Banner from '@/components/ui/Banner';
 import Popup from '@/components/Popup';
 export default {
   components: {
@@ -36,8 +33,7 @@ export default {
     stories: Stories,
     statistics: Statistics,
     banner: Banner,
-    popup: Popup,
-    'footer-x': Footer
+    popup: Popup
   },
 
   methods: {
