@@ -49,7 +49,7 @@ export default {
 <style scoped>
 .about {
   margin: 0 auto;
-  padding: 90px 0 100px;
+  padding: 90px 60px 100px;
   max-width: 100%;
   background-color: #613a93;
 }
@@ -72,6 +72,7 @@ export default {
 
 .about__title {
   color: white;
+  margin-top: 70px;
 }
 
 .about__subtitle {

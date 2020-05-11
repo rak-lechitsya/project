@@ -1,7 +1,7 @@
 <template>
     <nav class="main-header__menu">
         <nuxt-link to="/">Главная</nuxt-link>
-        <a href="" target="blanc">Истории</a>
+        <nuxt-link to="/stories" target="blanc">Истории</nuxt-link>
         <a href="" target="blanc">Рассказать историю</a>
   </nav>
 </template>
@@ -12,6 +12,8 @@
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+    a {
+        transition: opacity .8s;
+    }
 </style>
