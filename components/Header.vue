@@ -16,6 +16,8 @@ export default {
 
 <style scoped>
   .main-header {
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 18px 60px 18px;
     background-color: white;
     color: black;

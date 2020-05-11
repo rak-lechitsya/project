@@ -1,6 +1,6 @@
 <template>
     <nav class="main-header__menu">
-        <a href="" target="blanc">Главная</a>
+        <nuxt-link to="/">Главная</nuxt-link>
         <a href="" target="blanc">Истории</a>
         <a href="" target="blanc">Рассказать историю</a>
   </nav>

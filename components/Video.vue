@@ -3,9 +3,16 @@
     <div class="mainVideo__description">
       <mainVideo-title :title="title" class="mainVideo__title" />
       <mainVideo-subtitle :subtitle="subtitle" class="mainVideo__subtitle" />
+      <div class="nextbutton">
+        <img class="lessbutton">
+        <img class="morebutton">  
+      </div>
     </div>
-    <iframe class="mainVideo__item" src="https://www.youtube.com/embed/ou60K0WfcJ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+    <figure class="mainVideo__story">
+      <iframe class="mainVideo__item" src="https://www.youtube.com/embed/ou60K0WfcJ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <figcaption class="captiontext">Все видео вы можете найте на нашем <a class="link" href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F">YouTube канале</a>.</figcaption>
+    </figure>
+   </div>
 </template>
 
 <script>
@@ -27,11 +34,12 @@ export default {
 
 <style scoped>
 .mainVideo {
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding: 100px 60px 100px;
   background-color: white;
-  min-height: 650px;
 
 }
 
@@ -46,23 +54,34 @@ export default {
 }
 
 .mainVideo__title {
-  margin-top: 0;
-  margin-bottom: 32px;
+  margin-top: 10px;
+
 }
 
 .mainVideo__subtitle {
   max-width: 360px;
+  margin-top: 32px;
+}
+
+.mainVideo__story {
+  width: 867px;
+  height: 450px;
 }
 
 .mainVideo__item {
-  width: 867px;
-  height: auto;
+  width: 100%;
+  height: 450px;
 }
 
 @media screen  and (max-width: 1400px) {
+
+  .mainVideo__story {
+    max-width: 773px;
+    height: 400px;
+  }
+
   .mainVideo__item {
-  width: 773px;
-  height: auto;
+    height: 400px;
 }
   .mainVideo__title {
     font-size: 28px;
@@ -75,5 +94,38 @@ export default {
     line-height: 20px;
   }
 }
+
+.nextbutton {
+  display: flex;
+  margin-block-start: auto;
+  
+}
+
+.morebutton {
+    width: 40px;
+    height: 40px;
+    background-color: #FBFBFB;
+    background-image: url(/morebutton.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
+
+}
+ .lessbutton {
+    width: 40px;
+    height: 40px;
+    background-color: #FBFBFB;
+    background-image: url(/lessbutton.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
+    
+ }
+
+ .captiontext {
+   font-size: 12px;
+   line-height: 16px;
+   color: #666666;
+ }
 
 </style>
