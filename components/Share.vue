@@ -1,15 +1,17 @@
 <template>
   <div class="share">
-    <share-title :title="title" class="share__title" />
-    <div class="share__container">
-      <share-subtitle :subtitle="subtitle" class="share__subtitle" />
-      <share-paragraph
-        :textFirst="textFirst"
-        :textSecond="textSecond"
-        :spanFirst="spanFirst"
-        :spanSecond="spanSecond"
-        class="share__paragraph"
-      />
+    <div class="share__content">
+      <share-title :title="title" class="share__title" />
+      <div class="share__container">
+        <share-subtitle :subtitle="subtitle" class="share__subtitle" />
+        <share-paragraph
+          :textFirst="textFirst"
+          :textSecond="textSecond"
+          :spanFirst="spanFirst"
+          :spanSecond="spanSecond"
+          class="share__paragraph"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -44,9 +46,14 @@ export default {
 <style scoped>
 .share {
   margin: 0 auto;
-  max-width: 1440px;
-  padding: 100px 60px;
+  width: 100%;
+  padding: 100px 0;
   background-color: #f7f7f7;
+}
+
+.share__content {
+  margin: 0 auto;
+  max-width: 1320px;
 }
 
 .share__container {

@@ -1,16 +1,18 @@
 <template>
   <div class="about">
-    <about-heading class="about__heading" />
-    <about-title :title="title" class="about__title" />
-    <div class="about__container">
-      <about-subtitle :subtitle="subtitle" class="about__subtitle" />
-      <about-paragraph
-        :textFirst="textFirst"
-        :textSecond="textSecond"
-        :spanFirst="spanFirst"
-        :spanSecond="spanSecond"
-        class="about__paragraph"
-      />
+    <div class = "about__content">
+      <about-heading class="about__heading" />
+      <about-title :title="title" class="about__title" />
+      <div class="about__container">
+        <about-subtitle :subtitle="subtitle" class="about__subtitle" />
+        <about-paragraph
+          :textFirst="textFirst"
+          :textSecond="textSecond"
+          :spanFirst="spanFirst"
+          :spanSecond="spanSecond"
+          class="about__paragraph"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -47,9 +49,14 @@ export default {
 <style scoped>
 .about {
   margin: 0 auto;
-  max-width: 1440px;
-  padding: 90px 60px 100px;
+  padding: 90px 0 100px;
+  max-width: 100%;
   background-color: #613a93;
+}
+
+.about__content {
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
 .about__heading {
