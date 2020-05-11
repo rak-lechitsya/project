@@ -72,6 +72,7 @@ export default {
 
 .about__title {
   color: white;
+  margin-top: 70px;
 }
 
 .about__subtitle {
