@@ -14,7 +14,6 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  margin-top: 70px;
   color: #000;
 }
 </style>

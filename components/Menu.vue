@@ -15,6 +15,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
 
+<style scoped>
+    a {
+        transition: opacity .8s;
+    }
 </style>

@@ -4,13 +4,13 @@
       <mainVideo-title :title="title" class="mainVideo__title" />
       <mainVideo-subtitle :subtitle="subtitle" class="mainVideo__subtitle" />
       <div class="nextbutton">
-        <img class="lessbutton">
-        <img class="morebutton">  
+        <div class="lessbutton"  />
+        <div class="morebutton"  />
       </div>
     </div>
     <figure class="mainVideo__story">
       <iframe class="mainVideo__item" src="https://www.youtube.com/embed/ou60K0WfcJ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <figcaption class="captiontext">Все видео вы можете найте на нашем <a class="link" href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F">YouTube канале</a>.</figcaption>
+      <figcaption class="captiontext">Все видео вы можете найте на нашем <a class="link" href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blank">YouTube канале</a>.</figcaption>
     </figure>
    </div>
 </template>
@@ -109,7 +109,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 8px;
-
+    transition: opacity .5s;
 }
  .lessbutton {
     width: 40px;
@@ -119,13 +119,25 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 8px;
-    
- }
+  }
+
+  .morebutton:hover {
+    opacity: .5;
+  }
 
  .captiontext {
    font-size: 12px;
    line-height: 16px;
    color: #666666;
+ }
+
+ .link {
+   color: #666666;
+   transition: opacity .5s;
+ }
+
+ .link:hover {
+   opacity: .5;
  }
 
 </style>

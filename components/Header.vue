@@ -50,7 +50,7 @@ export default {
   }
 
   .main-header /deep/ a:hover {
-    text-decoration: underline;
+    opacity: .5;
   }
 
 </style>

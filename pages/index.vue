@@ -22,6 +22,7 @@ import Video from '@/components/Video';
 import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
+import Banner from '@/components/ui/Banner';
 import Footer from '@/components/Footer';
 import Banner from '@/components/ui/Banner';
 import Popup from '@/components/Popup';
@@ -34,9 +35,9 @@ export default {
     videostory: Video,
     stories: Stories,
     statistics: Statistics,
-    'footer-x': Footer,
     banner: Banner,
     popup: Popup,
+    'footer-x': Footer
   },
 
   methods: {
