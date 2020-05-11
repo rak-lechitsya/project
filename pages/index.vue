@@ -9,6 +9,7 @@
     <share />
     <statistics />
     <about />
+    <footer-x />
   </div>
 </template>
 
@@ -20,7 +21,8 @@ import Video from '@/components/Video';
 import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
-import Banner from '@/components/ui/Banner'
+import Banner from '@/components/ui/Banner';
+import Footer from '@/components/Footer';
 export default {
   components: {
     instagram: Instagram,
@@ -31,6 +33,7 @@ export default {
     stories: Stories,
     statistics: Statistics,
     banner: Banner,
+    'footer-x': Footer
   },
   
   data() {

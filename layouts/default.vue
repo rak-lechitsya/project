@@ -2,17 +2,16 @@
   <div>
     <upside />
     <nuxt />
-    <footer-x />
+
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 export default {
   components: {
-  upside: Header,
-  'footer-x': Footer
+  upside: Header
 }
 }
 </script>
