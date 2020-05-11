@@ -70,6 +70,11 @@ export default {
   flex-direction: column;
   margin-left: auto;
   margin-right: 60px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #000;
 }
 
 .footer__menu {
@@ -97,6 +102,7 @@ export default {
 
 .link_share {
   margin-top: 44px;
+  color: #121212;
 }
 
 .link_stories {

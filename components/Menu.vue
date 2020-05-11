@@ -1,16 +1,20 @@
 <template>
     <nav class="main-header__menu">
         <nuxt-link to="/">Главная</nuxt-link>
-        <nuxt-link to="/stories" target="blanc">Истории</nuxt-link>
-        <a href="" target="blanc">Рассказать историю</a>
+        <a href="" target="blanc">Истории</a>
+        <header-button @btnClick="$emit('btnClick')">Рассказать историю</header-button>
   </nav>
 </template>
 
 <script>
-    export default {
-        
-    }
+import Button from '@/components/ui/Button';
+export default {
+  components: {
+    'header-button': Button,
+  }
+}
 </script>
+
 
 <style scoped>
     a {

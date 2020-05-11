@@ -6,6 +6,7 @@
         class="button button_close-item"
         id="close"
         type="button"
+        @click="$emit('closeClick')"
       ></button>
     </div>
     <fieldset class="form__fieldset">
