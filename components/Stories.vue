@@ -13,7 +13,7 @@
 
 <script>
 import Title from '@/components/ui/Title';
-import Story from '@/components/ui/Story';
+import Story from '@/components/Story';
 export default {
   components: {
     story: Story,
