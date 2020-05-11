@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="button">Заполнить форму</button>
+        <button class="button" @click="$emit('btnClick')">Заполнить форму</button>
     </div>
 </template>
 
@@ -21,5 +21,6 @@
   font-size: 16px;
   line-height: 19px;
   text-align: center;
+  cursor: pointer;
 }
 </style>

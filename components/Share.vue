@@ -10,6 +10,7 @@
           :spanFirst="spanFirst"
           :spanSecond="spanSecond"
           class="share__paragraph"
+          @btnClick="$emit('btnClick')"
         />
       </div>
     </div>

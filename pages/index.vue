@@ -6,10 +6,11 @@
     <stories />
     <banner :text="textBg"/>
     <instagram />
-    <share />
+    <share @btnClick='popupChange' />
     <statistics />
     <about />
     <footer-x />
+    <popup v-if='popupShown' @closeClick='popupChange' />
   </div>
 </template>
 
@@ -22,7 +23,8 @@ import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
 import Footer from '@/components/Footer';
-import Banner from '@/components/ui/Banner'
+import Banner from '@/components/ui/Banner';
+import Popup from '@/components/Popup';
 export default {
   components: {
     instagram: Instagram,
@@ -34,10 +36,18 @@ export default {
     statistics: Statistics,
     'footer-x': Footer,
     banner: Banner,
+    popup: Popup,
   },
-  
+
+  methods: {
+    popupChange() {
+      this.popupShown = !this.popupShown;
+    }
+  },
+
   data() {
     return {
+      popupShown: false,
       textSml: 'И в отличии от рака,',
       textBg: 'рассказывайте ваши истории в инстаграм'
     }

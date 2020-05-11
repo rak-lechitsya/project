@@ -1,8 +1,8 @@
 <template>
   <header class="main-header">
     <h3 class="main-header__logo"> Проект Благотворительного Фонда Константина Хабенского </h3>
-    <main-menu /> 
-  </header>  
+    <main-menu @btnClick="$emit('btnClick')" />
+  </header>
 </template>
 
 <script>

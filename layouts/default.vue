@@ -1,17 +1,33 @@
 <template>
   <div>
-    <upside />
+    <upside @btnClick='popupChange' />
     <nuxt />
+    <popup v-if='popupShown' @closeClick='popupChange' />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import Popup from '@/components/Popup';
 export default {
   components: {
-  upside: Header
+    upside: Header,
+    popup: Popup,
+  },
+
+  methods: {
+    popupChange() {
+      this.popupShown = !this.popupShown;
+    }
+  },
+
+  data() {
+    return {
+      popupShown: false,
+    }
+  }
 }
-}
+
 </script>
 
 <style>

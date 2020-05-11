@@ -6,7 +6,7 @@
     </div>
     <div>
       <p class="paragraph__text">{{ textFirst }}</p>
-      <share-button v-if = "textSecond === ''" class="paragraph__share-button"  />
+      <share-button @btnClick="$emit('btnClick')" v-if = "textSecond === ''" class="paragraph__share-button"  />
       <p v-else class="paragraph__text">{{ textSecond }}</p>
     </div>
   </div>
