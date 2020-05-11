@@ -6,14 +6,14 @@
         <story :url='card.url' :name='card.name' :content='card.content'/>
       </li>
     </ul>
-    <div class="stories__container-page"><nuxt-link to="/all-stories" class="stories__page">Больше статей</nuxt-link></div>
+    <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
   </section>
 
 </template>
 
 <script>
-import Story from '@/components/ui/Story';
 import Title from '@/components/ui/Title';
+import Story from '@/components/ui/Story';
 export default {
   components: {
     story: Story,

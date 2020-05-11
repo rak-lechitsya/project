@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Stories from '@/components/stories';
+    import Stories from '@/components/Stories';
     export default {
         components: {
             stories: Stories
