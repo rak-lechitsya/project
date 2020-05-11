@@ -1,15 +1,18 @@
 <template>
     <div>
-        <button class="button" @click="$emit('btnClick')">Заполнить форму</button>
+        <button class="button" @click="$emit('btnClick')">{{text}}</button>
     </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+        props: ['text']
+    }
 </script>
 
 <style scoped>
 .button {
+  font-family: 'Inter', monospace, Arial, sans-serif;
   background-color: #613a93;
   color: white;
   width: 280px;
@@ -22,5 +25,6 @@
   line-height: 19px;
   text-align: center;
   cursor: pointer;
+
 }
 </style>

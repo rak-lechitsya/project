@@ -2,17 +2,20 @@
   <div>
     <upside @btnClick='popupChange' />
     <nuxt />
+    <footer-x />
     <popup v-if='popupShown' @closeClick='popupChange' />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Popup from '@/components/Popup';
 export default {
   components: {
     upside: Header,
     popup: Popup,
+    'footer-x': Footer
   },
 
   methods: {

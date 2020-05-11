@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
+import Menu from '@/components/ui/Menu'
 export default {
   components: {
     'main-menu': Menu,
@@ -20,7 +20,6 @@ export default {
     margin: 0 auto;
     padding: 18px 60px 18px;
     background-color: white;
-    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,25 +31,6 @@ export default {
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-
-  }
-
-  .main-header /deep/ a {
     color: black;
-    text-decoration: none;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 24px;
-    margin: 0 40px 0 0;
-
   }
-
-  .main-header /deep/ :last-of-type {
-    margin-right: 0;
-  }
-
-  .main-header /deep/ a:hover {
-    opacity: .5;
-  }
-
 </style>

@@ -9,7 +9,6 @@
 <script>
   export default {
     props: ['url', 'name', 'content'],
-
   }
 </script>
 
