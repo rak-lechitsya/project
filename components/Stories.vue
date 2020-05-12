@@ -3,7 +3,7 @@
     <story-title :title='title' class="stories__heading" />
     <ul class="stories__list">
       <li v-for="card in storyArr" :key="card.id" class="story__item">
-        <story :url='card.url' :name='card.name' :content='card.content'/>
+        <nuxt-link to="#"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
       </li>
     </ul>
     <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
@@ -127,6 +127,8 @@ export default {
   opacity: .5;
 }
 
-
+.stories__link {
+  text-decoration: none;
+}
 
 </style>
