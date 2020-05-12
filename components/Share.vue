@@ -5,6 +5,7 @@
       <div class="share__container">
         <share-subtitle :subtitle="subtitle" class="share__subtitle" />
         <share-paragraph
+          :textToggle="textToggle"
           :textFirst="textFirst"
           :textSecond="textSecond"
           :spanFirst="spanFirst"
@@ -39,6 +40,7 @@ export default {
       textSecond: '',
       spanFirst: '1-й вариант',
       spanSecond: '2-й вариант',
+      textToggle: 'Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.'
     };
   },
 };
@@ -61,6 +63,10 @@ export default {
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
+}
+
+.share__paragraph /deep/ .paragraph__text {
+  min-height: 88px;
 }
 
 
