@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1  class = "example">Story</h1>
+        <h1 class = "example">Policy</h1>
     </div>
 </template>
 
