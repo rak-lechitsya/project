@@ -5,16 +5,11 @@
         <instagram-title :title="title" class="instagram__title" />
         <instagram-subtitle :subtitle="subtitle" class="instagram__subtitle" />
       </div>
-      <div class="instagram__pictures">
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-        <div class="instagram__item"></div>
-      </div>
+      <ul class="instagram__pictures">
+        <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
+        <nuxt-link to="#"  class="instagram__link"><insta-item :url='pic.url' /></nuxt-link>
+      </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -22,15 +17,45 @@
 <script>
 import Title from '@/components/ui/Title';
 import Subtitle from '@/components/ui/Subtitle';
+import InstaItem from '@/components/ui/InstaItem';
 
 export default {
   components: {
     'instagram-title': Title,
     'instagram-subtitle': Subtitle,
+    'insta-item': InstaItem,
   },
   data() {
     return {
       title: 'Инстаграм',
+      InstaItem:'',
+      instaArr: [
+        {
+          url: 'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png'
+        },
+        {
+          url: 'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg'
+        },
+      ],
+ 
       subtitle:
         'Два раза в неделю мы просматриваем все посты по хештегу #этонелечится. Все истории, где нет нецензурных выражений и запрещенного контента попадают сюда. Следите за правильным написанием хештега, чтобы мы не пропустили вашу историю.',
     };
@@ -67,6 +92,8 @@ export default {
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
+  list-style: none;
+  padding-left: 0;
 }
 
 @media (max-width: 1439px) {
