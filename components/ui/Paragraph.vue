@@ -1,13 +1,41 @@
 <template>
   <div class="paragraph">
-    <div>
-      <p class="paragraph__span">{{ spanFirst }}</p>
-      <p class="paragraph__span">{{ spanSecond }}</p>
+    <div class = "paragraph__container">
+      <p 
+        @click="toggle=true" 
+        class="paragraph__span" 
+        :class="{'paragraph__span_is_active': toggle===true}"
+      >{{ spanFirst }}</p>
+      <p 
+        @click="toggle=false" 
+        class="paragraph__span" 
+        :class="{'paragraph__span_is_active': toggle===false}"
+      >{{ spanSecond }}</p>
     </div>
-    <div>
-      <p class="paragraph__text">{{ textFirst }}</p>
-      <share-button :text = 'text' @btnClick="$emit('btnClick')" v-if = "textSecond === ''" class="paragraph__share-button"  />
-      <p v-else class="paragraph__text">{{ textSecond }}</p>
+    <div class = "paragraph__container">
+      <p 
+        v-if="toggle===true" 
+        class="paragraph__text"
+      >{{ textFirst }}</p>
+      <p 
+        v-else 
+        class="paragraph__text"
+      >{{ textToggle }}</p>
+      <share-button 
+        v-if="textSecond === '' && toggle===true" 
+        :text='textForm' 
+        @btnClick="$emit('btnClick')" 
+        class="paragraph__share-button"  
+      />
+      <share-button 
+        v-if="textSecond === '' && toggle===false" 
+        :text='textContact' 
+        class="paragraph__share-button" 
+      />
+      <p 
+        v-if="toggle===true && textSecond !== ''" 
+        class="paragraph__text"
+      >{{ textSecond }}</p>
     </div>
   </div>
 </template>
@@ -19,11 +47,13 @@ export default {
     'share-button': Button
   },
 
-  props: ['textFirst', 'textSecond', 'spanFirst', 'spanSecond'],
+  props: ['textFirst', 'textSecond', 'spanFirst', 'spanSecond', 'textToggle'],
 
   data() {
     return {
-      text: 'Заполнить форму'
+      toggle: true,
+      textForm: 'Заполнить форму',
+      textContact: 'Оставить контакт'
     }
   }
 };
@@ -33,14 +63,21 @@ export default {
 .paragraph {
   display: flex;
 }
+
 .paragraph__span {
   margin: 0 40px 10px 0;
   text-align: right;
   font-style: normal;
-  font-weight: 500;
+  font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  color: #000;
+  color: #A2A2A2;
+  cursor: pointer
+}
+
+.paragraph__span_is_active {
+  font-weight: 500;
+  color: black;
 }
 
 .paragraph__text {
@@ -51,11 +88,6 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #666666;
-}
-
-.paragraph__span:last-of-type {
-  font-weight: normal;
-  color: #A2A2A2;
 }
 
 .paragraph__text:last-of-type {

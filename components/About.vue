@@ -6,6 +6,7 @@
       <div class="about__container">
         <about-subtitle :subtitle="subtitle" class="about__subtitle" />
         <about-paragraph
+          :textToggle="textToggle"
           :textFirst="textFirst"
           :textSecond="textSecond"
           :spanFirst="spanFirst"
@@ -41,6 +42,8 @@ export default {
         'Рак лечится — проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение людей к раку и заставить каждого поверить: онкологическое заболевание — это не приговор.',
       spanFirst: 'Рак Лечится',
       spanSecond: 'Фонд Хабенского',
+      textToggle:
+        'Благотворительный Фонд Константина Хабенского с 2008 года помогает детям с онкологическими и другими тяжелыми заболеваниями головного мозга. Фонд не только поддерживает семью заболевшего ребенка в самый сложный момент, оплачивая обследования, лечение и медицинские препараты, но и в целом меняет систему оказания помощи детям с опухолями мозга в России.',
     };
   },
 };
@@ -79,12 +82,16 @@ export default {
   color: #DEDEDE;
 }
 
-.about__paragraph /deep/ .paragraph__span {
-  color: white;
+.about__paragraph /deep/ .paragraph__container {
+  min-height: 252px;
 }
 
-.about__paragraph /deep/ .paragraph__span:last-of-type {
+.about__paragraph /deep/ .paragraph__span {
   color: #C9C9C9;
+}
+
+.about__paragraph /deep/ .paragraph__span_is_active {
+  color: white;
 }
 
 .about__paragraph /deep/ .paragraph__text {
