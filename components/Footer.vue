@@ -8,7 +8,7 @@
           <nuxt-link class='link link_stories' to='/stories'>Истории</nuxt-link>
         </nav>
         <nav class='footer__links_social'>
-          <p>Мы в <a class='link' href='https://www.instagram.com/raklechitsa/' target='_blank'>Инстаграме</a> и <a class='link' href='https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F' target='_blank'> Youtube</a></p>
+          <p>Мы в <a class='link link_social' href='https://www.instagram.com/raklechitsa/' target='_blank'>Инстаграме</a> и <a class='link link_social' href='https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F' target='_blank'> Youtube</a></p>
           <a class='link link_share' href='#'>Поделитесь &#8599;</a>
         </nav>
       </div>
@@ -93,11 +93,15 @@ export default {
   font-size: 18px;
   line-height: 1.33;
   color: #000;
-  transition: opacity .5s;
+  transition: opacity .3s;
 }
 
 .link:hover {
   opacity: .5;
+}
+
+.link_social {
+  text-decoration: underline;
 }
 
 .link_share {

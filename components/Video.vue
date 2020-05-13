@@ -133,7 +133,7 @@ export default {
 
  .link {
    color: #666666;
-   transition: opacity .5s;
+   transition: opacity .3s;
  }
 
  .link:hover {
