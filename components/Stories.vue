@@ -120,7 +120,7 @@ export default {
   font-size: 16px;
   line-height: 20px;
   color: #000;
-  transition: opacity .5s;
+  transition: opacity .3s;
 }
 
 .stories__page:hover {

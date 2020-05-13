@@ -15,7 +15,7 @@ export default {
 
   data(){
     return {
-      text: 'Рассказать историю'
+      text: 'Рассказать историю',
     }
   }
 }
@@ -34,7 +34,7 @@ export default {
     font-size: 18px;
     line-height: 24px;
     margin-right: 40px;
-    transition: opacity .5s;
+    transition: opacity .3s;
   }
 
   .menu__element:hover {
