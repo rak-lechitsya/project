@@ -1,21 +1,25 @@
 <template>
   <section class="stories">
-    <h3 class="stories__heading">Истории неизлечимых привычек</h3>
-    <ul class="stories__list">
-      <li v-for="card in storyArr" :key="card.id" class="story__item">
-        <nuxt-link to="/stories/card.id"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
-      </li>
-    </ul>
-    <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
+    <story-content class="story__content">
+      <h3 class="stories__heading">Истории неизлечимых привычек</h3>
+      <ul class="stories__list">
+        <li v-for="card in storyArr" :key="card.id" class="story__item">
+          <nuxt-link to="/stories/card.id"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
+        </li>
+      </ul>
+      <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
+    </story-content>
   </section>
 
 </template>
 
 <script>
 import Story from '@/components/ui/Story';
+import Content from '@/components/ui/Content';
 export default {
   components: {
     story: Story,
+    'story-content': Content,
   },
   data () {
     return {
@@ -75,11 +79,6 @@ export default {
 </script>
 
 <style scoped>
-
-.stories {
-  max-width: 1320px;
-  margin: 0 auto;
-}
 
 .stories__list {
   display: grid;
