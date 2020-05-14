@@ -1,48 +1,51 @@
 <template>
   <div class="share">
     <div class="share__content">
-      <share-title :title="title" class="share__title" />
+      <h3 :title="title" class="share__title">Расскажите свою историю</h3>
       <div class="share__container">
-        <share-subtitle :subtitle="subtitle" class="share__subtitle" />
-        <share-paragraph
-          :textToggle="textToggle"
-          :textFirst="textFirst"
-          :textSecond="textSecond"
-          :spanFirst="spanFirst"
-          :spanSecond="spanSecond"
-          class="share__paragraph"
-          @btnClick="$emit('btnClick')"
-        />
+        <p :subtitle="subtitle" class="share__subtitle">Мы публикуем новые истории на сайте раз в неделю. 
+        Есть 2 варианта поделиться своей историей неизлечимых привычек, навязчивых идей и болезненных привязанностей.</p>
+        <div class="share__text">
+          <div class = "share__text-container">
+            <p @click="toggleFirstSpan" :class="['share__text-span', {'share__text-span_is_active': toggle===true}]">1-й вариант</p>
+            <p @click="toggleSecondSpan" :class="['share__text-span', {'share__text-span_is_active': toggle===false}]">2-й вариант</p>
+          </div>
+          <div class = "share__text-container">
+            <p v-if="toggle===true" class="share__text-paragraph">Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки. 
+            Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.</p>
+            <p v-if="toggle===false" class="share__text-paragraph">Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+            зададим вопросы, уточним детали вашей истории.</p>
+            <share-button v-if="toggle===true" :text='textButtonForm' @btnClick="$emit('btnClick')" class="share__text-button"  />
+            <share-button v-if="toggle===false" :text='textButtonContact' class="share__text-button" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Heading from '@/components/ui/Heading';
-import Title from '@/components/ui/Title';
-import Subtitle from '@/components/ui/Subtitle';
-import Paragraph from '@/components/ui/Paragraph';
+import Button from '@/components/ui/Button';
 
 export default {
   components: {
-    'share-title': Title,
-    'share-subtitle': Subtitle,
-    'share-paragraph': Paragraph,
+    'share-button': Button
   },
   data() {
     return {
-      title: 'Расскажите свою историю',
-      subtitle:
-        'Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта поделиться своей историей неизлечимых привычек, навязчивых идей и болезненных привязанностей.',
-      textFirst:
-        'Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки. Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.',
-      textSecond: '',
-      spanFirst: '1-й вариант',
-      spanSecond: '2-й вариант',
-      textToggle: 'Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.'
+      toggle: true,
+      textButtonForm: 'Заполнить форму',
+      textButtonContact: 'Оставить контакт',
     };
   },
+  methods: {
+    toggleFirstSpan() {
+      this.toggle = true;
+    },
+    toggleSecondSpan() {
+      this.toggle = false;
+    }
+  }
 };
 </script>
 
@@ -50,7 +53,7 @@ export default {
 .share {
   margin: 0 auto;
   width: 100%;
-  padding: 100px 60px;
+  padding: 100px 0;
   background-color: #f7f7f7;
 }
 
@@ -59,14 +62,60 @@ export default {
   max-width: 1320px;
 }
 
+.share__title {
+  max-width: 413px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: black;
+}
+
 .share__container {
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
 }
 
-.share__paragraph /deep/ .paragraph__text {
+.share__subtitle {
+  max-width: 340px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #666;
+}
+
+.share__text {
+  display: flex;
+}
+
+.share__text-span {
+  margin: 0 40px 10px 0;
+  text-align: right;
+  font-size: 18px;
+  line-height: 22px;
+  color: #A2A2A2;
+  cursor: pointer
+}
+
+.share__text-span_is_active {
+  font-weight: 500;
+  color: black;
+}
+
+.share__text-paragraph {
+  width: 640px;
   min-height: 88px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #666;
+}
+
+.share__text-button {
+  margin-top: 78px;
+}
+
+.share__text-paragraph:last-of-type {
+  margin-bottom: 0;
 }
 
 

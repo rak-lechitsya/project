@@ -21,17 +21,8 @@
         v-else 
         class="paragraph__text"
       >{{ textToggle }}</p>
-      <share-button 
-        v-if="textSecond === '' && toggle===true" 
-        :text='textForm' 
-        @btnClick="$emit('btnClick')" 
-        class="paragraph__share-button"  
-      />
-      <share-button 
-        v-if="textSecond === '' && toggle===false" 
-        :text='textContact' 
-        class="paragraph__share-button" 
-      />
+      <share-button v-if="textSecond === '' && toggle===true" :text='textForm' @btnClick="$emit('btnClick')" class="paragraph__share-button"  />
+      <share-button v-if="textSecond === '' && toggle===false" :text='textContact' class="paragraph__share-button" />
       <p 
         v-if="toggle===true && textSecond !== ''" 
         class="paragraph__text"
