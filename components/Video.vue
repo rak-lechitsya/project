@@ -1,47 +1,57 @@
 <template>
-  <div class="mainVideo">
-    <div class="mainVideo__description">
-      <h3 class="mainVideo__title">Истории людей, победивших рак, но не свои привычки</h3>
-      <p class="mainVideo__subtitle">Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. 
+  <section class="video">
+    <video-content class="video__content">
+    <div class="video__description">
+      <h3 class="video__title">Истории людей, победивших рак, но не свои привычки</h3>
+      <p class="video__subtitle">Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. 
       Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.</p>
-      <div class="nextbutton">
-        <div class="lessbutton"  />
-        <div class="morebutton"  />
+      <div class="video__button">
+        <button class="morebutton morebutton_less"></button>
+        <button class="morebutton"></button>
       </div>
     </div>
-    <figure class="mainVideo__story">
-      <iframe class="mainVideo__item" src="https://www.youtube.com/embed/ou60K0WfcJ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <figure class="video__story">
+      <iframe class="video__item" src="https://www.youtube.com/embed/ou60K0WfcJ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <figcaption class="captiontext">Все видео вы можете найте на нашем <a class="link" href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blank">YouTube канале</a>.</figcaption>
     </figure>
-   </div>
+    </video-content>
+   </section>
 </template>
 
 <script>
-  export default {};
+import Content from '@/components/ui/Content';
+  export default {
+    components: {
+    'video-content': Content,
+    },
+  };
 </script>
 
 <style scoped>
-.mainVideo {
-  max-width: 1440px;
+.video {
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
   padding: 100px 60px 100px;
   background-color: white;
 
 }
 
 @media screen and (max-width: 1400px) {
-  .mainVideo {
+  .video {
     padding: 90px 50px 90px;
   }
 }
-.mainVideo__description {
+
+.video__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.video__description {
   display: flex;
   flex-direction: column;
 }
 
-.mainVideo__title {
+.video__title {
   margin-top: 10px;
   max-width: 400px;
   font-weight: 600;
@@ -50,7 +60,7 @@
   color: #000;
 }
 
-.mainVideo__subtitle {
+.video__subtitle {
   max-width: 360px;
   margin-top: 32px;
   font-size: 18px;
@@ -58,39 +68,39 @@
   color: #666;
 }
 
-.mainVideo__story {
+.video__story {
   width: 867px;
   height: 450px;
 }
 
-.mainVideo__item {
+.video__item {
   width: 100%;
   height: 450px;
 }
 
 @media screen  and (max-width: 1400px) {
 
-  .mainVideo__story {
+  .video__story {
     max-width: 773px;
     height: 400px;
   }
 
-  .mainVideo__item {
+  .video__item {
     height: 400px;
 }
-  .mainVideo__title {
+  .video__title {
     font-size: 28px;
     line-height: 32px;
     max-width: 367px;
   }
 
-  .mainVideo__subtitle {
+  .video__subtitle {
     font-size: 16px;
     line-height: 20px;
   }
 }
 
-.nextbutton {
+.video__button {
   display: flex;
   margin-block-start: auto;
   
@@ -106,14 +116,8 @@
     background-size: 8px;
     transition: opacity .5s;
 }
- .lessbutton {
-    width: 40px;
-    height: 40px;
-    background-color: #FBFBFB;
+ .morebutton_less {
     background-image: url(/lessbutton.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 8px;
   }
 
   .morebutton:hover {

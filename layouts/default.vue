@@ -1,6 +1,6 @@
 <template>
   <div>
-    <upside @btnClick='popupChange' />
+    <header-x @btnClick='popupChange' />
     <nuxt />
     <footer-x />
     <popup v-if='popupShown' @closeClick='popupChange' />
@@ -13,7 +13,7 @@ import Footer from '@/components/Footer';
 import Popup from '@/components/Popup';
 export default {
   components: {
-    upside: Header,
+    'header-x': Header,
     popup: Popup,
     'footer-x': Footer
   },
