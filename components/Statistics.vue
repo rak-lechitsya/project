@@ -1,5 +1,6 @@
 <template>
   <div class="statistics">
+            <statistics-content class = "statistics__content">
     <h3 class="statistics__title">Статистика по онкозаболеваниям</h3>
     <div class="statistics__container">
       <div class="statistics__pictures">
@@ -68,10 +69,12 @@
         </div>
       </div>
     </div>
+    </statistics-content>
   </div>
 </template>
 
 <script>
+import Content from '@/components/ui/Content';
 import Progress from '@/components/ui/Progress-bar';
 import doubleProgress from '@/components/ui/Double_Progress-bar';
 
@@ -79,6 +82,7 @@ export default {
   components: {
     'progress-bar': Progress,
     'double-progress-bar': doubleProgress,
+    'statistics-content': Content,
   },
   data() {
     return {
@@ -92,7 +96,6 @@ export default {
 <style scoped>
 .statistics {
   margin: 0 auto;
-  max-width: 1440px;
   padding: 90px 60px 100px;
   background-color: white;
   color: black;
