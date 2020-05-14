@@ -2,8 +2,8 @@
   <div class="instagram">
     <div class="instagram__container">
       <div class="instagram__text">
-          <p class="instagram__title">Инстаграм</p>
-            <p class="instagram__subtitle">Два раза в неделю мы просматриваем все посты по хештегу #этонелечится. Все истории, где нет нецензурных выражений и запрещенного контента попадают сюда. Следите за правильным написанием хештега, чтобы мы не пропустили вашу историю.</p>
+        <instagram-title :title="title" class="instagram__title" />
+        <instagram-subtitle :subtitle="subtitle" class="instagram__subtitle" />
       </div>
       <ul class="instagram__pictures">
         <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
@@ -15,14 +15,19 @@
 </template>
 
 <script>
+import Title from '@/components/ui/Title';
+import Subtitle from '@/components/ui/Subtitle';
 import InstaItem from '@/components/ui/InstaItem';
 
 export default {
   components: {
+    'instagram-title': Title,
+    'instagram-subtitle': Subtitle,
     'insta-item': InstaItem,
   },
   data() {
     return {
+      title: 'Инстаграм',
       InstaItem:'',
       instaArr: [
         {
@@ -50,6 +55,9 @@ export default {
           url: 'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg'
         },
       ],
+ 
+      subtitle:
+        'Два раза в неделю мы просматриваем все посты по хештегу #этонелечится. Все истории, где нет нецензурных выражений и запрещенного контента попадают сюда. Следите за правильным написанием хештега, чтобы мы не пропустили вашу историю.',
     };
   },
 };
@@ -74,19 +82,9 @@ export default {
   text-decoration: underline;
   margin-bottom: 32px;
   margin-top: 0;
-  max-width: 400px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000;
 }
 .instagram__subtitle {
   max-width: 343px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #666;
 }
 
 .instagram__pictures {
@@ -116,4 +114,9 @@ export default {
   }
 }
 
+.instagram__item {
+  height: 195px;
+  width: 195px;
+  background: #ededed;
+}
 </style>
