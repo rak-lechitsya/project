@@ -11,8 +11,7 @@
     </div>
     <fieldset class="form__fieldset">
       <legend class="form__subtitle">Как вас зовут?</legend>
-      <input
-        class="form__input"
+      <my-input class='form__input'
         placeholder="Напишите тут"
         id="fullname"
         type="text"
@@ -21,13 +20,25 @@
     </fieldset>
     <div class='form__buttons'>
       <button class="button button_before" type="button">Назад</button>
-      <button class="button button_next" type="button">Далее</button>
+      <my-button class='button button_next' :text='textButtonForm' />
     </div>
   </form>
 </template>
 
 <script>
-  export default {};
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
+export default {
+  components: {
+    'my-input': Input,
+    'my-button': Button,
+  },
+  data() {
+    return {
+      textButtonForm: 'Далее',
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -52,14 +63,6 @@
 
 .button_next {
   width: 226px;
-  height: 52px;
-  background-color: #714dbd;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #fff;
 }
 
 .button_close-item {
@@ -108,15 +111,9 @@
 }
 
 .form__input {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1.33;
-  color: #666;
   border: none;
   border-bottom: 1px solid #e7e7e7;
   padding-bottom: 10px;
-  width: 100%;
 }
 
 .form__title {
