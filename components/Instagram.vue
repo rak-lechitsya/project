@@ -2,8 +2,10 @@
   <div class="instagram">
     <div class="instagram__container">
       <div class="instagram__text">
-          <p class="instagram__title">Инстаграм</p>
-          <p class="instagram__subtitle">Два раза в неделю мы просматриваем все посты по хештегу #этонелечится. Все истории, где нет нецензурных выражений и запрещенного контента попадают сюда. Следите за правильным написанием хештега, чтобы мы не пропустили вашу историю.</p>
+        <h3 class="instagram__title">Инстаграм</h3>
+        <p class="instagram__subtitle">Два раза в неделю мы просматриваем все посты по хештегу #этонелечится. 
+        Все истории, где нет нецензурных выражений и запрещенного контента попадают сюда. 
+        Следите за правильным написанием хештега, чтобы мы не пропустили вашу историю.</p>
       </div>
       <ul class="instagram__pictures">
         <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
@@ -16,7 +18,6 @@
 
 <script>
 import InstaItem from '@/components/ui/InstaItem';
-
 export default {
   components: {
     'insta-item': InstaItem,
@@ -72,18 +73,16 @@ export default {
 
 .instagram__title {
   text-decoration: underline;
-  margin-bottom: 32px;
-  margin-top: 0;
-  max-width: 400px;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000;
+  margin-bottom: 32px;
+  margin-top: 0;
+  color: black;
 }
+
 .instagram__subtitle {
   max-width: 343px;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   color: #666;

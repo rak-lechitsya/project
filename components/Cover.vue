@@ -1,16 +1,11 @@
 <template>
   <section class="cover">
-    <cover-heading class="cover__heading" />
+    <h1 class="cover__heading">#раклечится</h1>
   </section>
 </template>
 
 <script>
-import Heading from '@/components/ui/Heading';
-export default {
-  components: {
-    'cover-heading': Heading,
-  },
-};
+  export default {};
 </script>
 
 <style scoped>
@@ -30,5 +25,6 @@ export default {
   line-height: 111px;
   color: #fff;
   margin: auto;
+  text-transform: uppercase;
 }
 </style>

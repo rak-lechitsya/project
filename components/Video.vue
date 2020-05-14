@@ -1,8 +1,9 @@
 <template>
   <div class="mainVideo">
     <div class="mainVideo__description">
-      <mainVideo-title :title="title" class="mainVideo__title" />
-      <mainVideo-subtitle :subtitle="subtitle" class="mainVideo__subtitle" />
+      <h3 class="mainVideo__title">Истории людей, победивших рак, но не свои привычки</h3>
+      <p class="mainVideo__subtitle">Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. 
+      Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.</p>
       <div class="nextbutton">
         <div class="lessbutton"  />
         <div class="morebutton"  />
@@ -16,20 +17,7 @@
 </template>
 
 <script>
-import Title from '@/components/ui/Title';
-import Subtitle from '@/components/ui/Subtitle';
-export default {
-  components: {
-    'mainVideo-title' : Title,
-    'mainVideo-subtitle' : Subtitle,
-  },
-  data() {
-    return {
-      title: 'Истории людей, победивших рак, но не свои привычки',
-      subtitle: 'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
-    };
-  },
-};
+  export default {};
 </script>
 
 <style scoped>
@@ -55,12 +43,19 @@ export default {
 
 .mainVideo__title {
   margin-top: 10px;
-
+  max-width: 400px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: #000;
 }
 
 .mainVideo__subtitle {
   max-width: 360px;
   margin-top: 32px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #666;
 }
 
 .mainVideo__story {
@@ -133,7 +128,7 @@ export default {
 
  .link {
    color: #666666;
-   transition: opacity .5s;
+   transition: opacity .3s;
  }
 
  .link:hover {

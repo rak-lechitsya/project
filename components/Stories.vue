@@ -1,9 +1,9 @@
 <template>
   <section class="stories">
-    <story-title :title='title' class="stories__heading" />
+    <h3 class="stories__heading">Истории неизлечимых привычек</h3>
     <ul class="stories__list">
       <li v-for="card in storyArr" :key="card.id" class="story__item">
-        <nuxt-link to="#"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
+        <nuxt-link to="/stories/card.id"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
       </li>
     </ul>
     <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
@@ -12,16 +12,13 @@
 </template>
 
 <script>
-import Title from '@/components/ui/Title';
 import Story from '@/components/ui/Story';
 export default {
   components: {
     story: Story,
-    'story-title': Title,
   },
   data () {
     return {
-      title: 'Истории неизлечимых привычек',
       storyArr: [
         {
           id: '1',
@@ -120,7 +117,7 @@ export default {
   font-size: 16px;
   line-height: 20px;
   color: #000;
-  transition: opacity .5s;
+  transition: opacity .3s;
 }
 
 .stories__page:hover {
