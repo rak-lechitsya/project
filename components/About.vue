@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class = "about__content">
+    <about-content class = "about__content">
       <h2 class="about__heading">#раклечится</h2>
       <h3 class="about__title">О проекте</h3>
       <div class="about__container">
@@ -24,12 +24,16 @@
           </div>
         </div>
       </div>
-    </div>
+    </about-content>
   </div>
 </template>
 
 <script>
+import Content from '@/components/ui/Content';
 export default {
+  components: {
+    'about-content': Content,
+  },
   data() {
     return {
       toggle: true
@@ -52,11 +56,6 @@ export default {
   padding: 90px 60px 100px;
   max-width: 100%;
   background-color: #613a93;
-}
-
-.about__content {
-  margin: 0 auto;
-  max-width: 1320px;
 }
 
 .about__heading {

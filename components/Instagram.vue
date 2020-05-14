@@ -20,8 +20,6 @@
 import InstaItem from '@/components/ui/InstaItem';
 export default {
   components: {
-    'instagram-title': Title,
-    'instagram-subtitle': Subtitle,
     'insta-item': InstaItem,
   },
   data() {

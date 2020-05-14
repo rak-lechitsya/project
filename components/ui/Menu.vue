@@ -1,24 +1,12 @@
 <template>
     <nav class="menu">
-        <nuxt-link class = "menu__element" to="/">Главная</nuxt-link>
-        <nuxt-link class = "menu__element" to="/stories">Истории</nuxt-link>
-        <header-button class = "menu__element menu__element_button" :text ='textButtonMenu' @btnClick="$emit('btnClick')" />
+        <nuxt-link class = "menu__link" to="/">Главная</nuxt-link>
+        <nuxt-link class = "menu__link" to="/stories">Истории</nuxt-link>
     </nav>
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-export default {
-  components: {
-    'header-button': Button,
-  },
-
-  data(){
-    return {
-      textButtonMenu: 'Рассказать историю',
-    }
-  }
-}
+export default {}
 </script>
 
 
@@ -27,7 +15,7 @@ export default {
     display: flex;
   }
 
-  .menu__element {
+  .menu__link {
     color: black;
     text-decoration: none;
     font-weight: normal;
@@ -37,22 +25,11 @@ export default {
     transition: opacity .3s;
   }
 
-  .menu__element:hover {
+  .menu__link:hover {
     opacity: .5;
   }
 
-  .menu__element:last-child {
+  .menu__link:last-child {
     margin-right: 0;
-  }
-
-  .menu__element_button {
-    background-color: white;
-    color: black;
-    width: 182px;
-    height: 24px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 24px;
   }
 </style>
