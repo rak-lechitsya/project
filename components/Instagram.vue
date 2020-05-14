@@ -80,6 +80,7 @@ export default {
   margin-top: 0;
   color: black;
 }
+
 .instagram__subtitle {
   max-width: 343px;
   font-size: 18px;
@@ -114,9 +115,4 @@ export default {
   }
 }
 
-.instagram__item {
-  height: 195px;
-  width: 195px;
-  background: #ededed;
-}
 </style>
