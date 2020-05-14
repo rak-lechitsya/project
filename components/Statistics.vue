@@ -1,6 +1,6 @@
 <template>
   <div class="statistics">
-    <statistics-title :title="title" class="statistics__title" />
+    <h3 class="statistics__title">Статистика по онкозаболеваниям</h3>
     <div class="statistics__container">
       <div class="statistics__pictures">
         <div class="statistics__item">
@@ -72,19 +72,16 @@
 </template>
 
 <script>
-import Title from '@/components/ui/Title';
 import Progress from '@/components/ui/Progress-bar';
 import doubleProgress from '@/components/ui/Double_Progress-bar';
 
 export default {
   components: {
-    'statistics-title': Title,
     'progress-bar': Progress,
     'double-progress-bar': doubleProgress,
   },
   data() {
     return {
-      title: 'Статистика по онкозаболеваниям',
       progress: '',
       doubleProgress: '',
     };
@@ -102,7 +99,7 @@ export default {
 }
 
 .statistics__container {
-  margin-top: 32px;
+  margin-top: 70px;
   display: flex;
   justify-content: space-between;
 }
@@ -158,6 +155,8 @@ export default {
   line-height: 40px;
   text-align: end;
   margin-top: 20px;
+  color: black;
+  max-width: 413px;
 }
 .statistics__author {
   font-weight: normal;

@@ -2,7 +2,7 @@
     <nav class="menu">
         <nuxt-link class = "menu__element" to="/">Главная</nuxt-link>
         <nuxt-link class = "menu__element" to="/stories">Истории</nuxt-link>
-        <header-button class = "menu__element menu__element_button" :text = 'text' @btnClick="$emit('btnClick')" />
+        <header-button class = "menu__element menu__element_button" :text ='textButtonMenu' @btnClick="$emit('btnClick')" />
     </nav>
 </template>
 
@@ -15,7 +15,7 @@ export default {
 
   data(){
     return {
-      text: 'Рассказать историю',
+      textButtonMenu: 'Рассказать историю',
     }
   }
 }
@@ -45,7 +45,7 @@ export default {
     margin-right: 0;
   }
 
-  .menu__element_button /deep/ button {
+  .menu__element_button {
     background-color: white;
     color: black;
     width: 182px;

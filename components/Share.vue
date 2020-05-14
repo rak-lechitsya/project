@@ -1,9 +1,9 @@
 <template>
   <div class="share">
     <div class="share__content">
-      <h3 :title="title" class="share__title">Расскажите свою историю</h3>
+      <h3 class="share__title">Расскажите свою историю</h3>
       <div class="share__container">
-        <p :subtitle="subtitle" class="share__subtitle">Мы публикуем новые истории на сайте раз в неделю. 
+        <p class="share__subtitle">Мы публикуем новые истории на сайте раз в неделю. 
         Есть 2 варианта поделиться своей историей неизлечимых привычек, навязчивых идей и болезненных привязанностей.</p>
         <div class="share__text">
           <div class = "share__text-container">
@@ -26,7 +26,6 @@
 
 <script>
 import Button from '@/components/ui/Button';
-
 export default {
   components: {
     'share-button': Button
@@ -53,7 +52,7 @@ export default {
 .share {
   margin: 0 auto;
   width: 100%;
-  padding: 100px 0;
+  padding: 100px 60px;
   background-color: #f7f7f7;
 }
 
