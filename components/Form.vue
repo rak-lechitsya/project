@@ -1,7 +1,7 @@
 <template>
   <form class="form" id="form" name="form" method="post" action="#">
     <div class="form__content">
-      <form-title :title='title' class="form__title" />
+      <h3 class="form__title">Шаг 1 из 12</h3>
       <button
         class="button button_close-item"
         id="close"
@@ -27,17 +27,7 @@
 </template>
 
 <script>
-import Title from '@/components/ui/Title';
-export default {
-  components: {
-    'form-title': Title,
-  },
-  data() {
-    return {
-      title: 'Шаг 1 из 12',
-    };
-  },
-};
+  export default {};
 </script>
 
 <style scoped>
@@ -131,6 +121,10 @@ export default {
 
 .form__title {
   margin: 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: black
 }
 
 .form__subtitle {

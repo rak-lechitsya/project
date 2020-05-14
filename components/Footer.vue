@@ -2,7 +2,7 @@
   <footer class='footer'>
     <div class='footer__content'>
       <div class='footer__menu'>
-        <footer-title :title="title" class="footer__title" />
+        <h3 class="footer__title">Спасибо всем, кто помог состояться этому проекту</h3>
         <nav class='footer__links'>
           <nuxt-link class='link' to='/'>Главная</nuxt-link>
           <nuxt-link class='link link_stories' to='/stories'>Истории</nuxt-link>
@@ -21,17 +21,7 @@
 </template>
 
 <script>
-import Title from '@/components/ui/Title';
-export default {
-  components: {
-    'footer-title': Title,
-  },
-  data() {
-    return {
-      title: 'Спасибо всем, кто помог состояться этому проекту',
-    };
-  },
-};
+  export default {};
 </script>
 
 <style scoped>
@@ -84,6 +74,10 @@ export default {
 .footer__title {
   max-width: 340px;
   margin: 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: black;
 }
 
 .link {
