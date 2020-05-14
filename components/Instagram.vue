@@ -1,5 +1,6 @@
 <template>
   <div class="instagram">
+        <instagram-content class = "instagram__content">
     <div class="instagram__container">
       <div class="instagram__text">
         <h3 class="instagram__title">Инстаграм</h3>
@@ -13,14 +14,17 @@
       </li>
       </ul>
     </div>
+    </instagram-content>
   </div>
 </template>
 
 <script>
+import Content from '@/components/ui/Content';
 import InstaItem from '@/components/ui/InstaItem';
 export default {
   components: {
     'insta-item': InstaItem,
+    'instagram-content': Content,
   },
   data() {
     return {
@@ -59,7 +63,6 @@ export default {
 <style scoped>
 .instagram {
   margin: 0 auto;
-  max-width: 1440px;
   padding: 90px 60px 100px;
   background-color: white;
   color: black;
