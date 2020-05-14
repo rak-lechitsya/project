@@ -34,7 +34,8 @@ export default {
 </script>
 
 <style scoped>
-.footer {
+.footer {  
+  padding: 60px;
   width: 100%;
   background-color: #FBFBFB;
 }
@@ -50,7 +51,7 @@ export default {
 }
 
 .footer__content {
-  padding: 60px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
