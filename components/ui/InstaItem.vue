@@ -13,10 +13,10 @@
 
 
 .insta__image {
-   /* Temp */
-  width: 195px;
-  height: 100%;
   object-fit: cover;
+  height: 195px;
+  width: 195px;
+  background: #ededed;
 }
 
 
