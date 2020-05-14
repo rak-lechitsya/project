@@ -15,7 +15,7 @@ export default {
   components: {
     'header-x': Header,
     popup: Popup,
-    'footer-x': Footer
+    'footer-x': Footer,
   },
 
   methods: {

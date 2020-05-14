@@ -5,9 +5,9 @@
       <h3 class="video__title">Истории людей, победивших рак, но не свои привычки</h3>
       <p class="video__subtitle">Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. 
       Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.</p>
-      <div class="video__button">
-        <button class="morebutton morebutton_less"></button>
-        <button class="morebutton"></button>
+      <div class="video__container">
+        <div class="video__toggle video__toggle_less"></div>
+        <div class="video__toggle video__toggle_more"></div>
       </div>
     </div>
     <figure class="video__story">
@@ -100,27 +100,30 @@ import Content from '@/components/ui/Content';
   }
 }
 
-.video__button {
+.video__container {
   display: flex;
   margin-block-start: auto;
   
 }
 
-.morebutton {
+.video__toggle {
     width: 40px;
     height: 40px;
     background-color: #FBFBFB;
-    background-image: url(/morebutton.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 8px;
-    transition: opacity .5s;
 }
- .morebutton_less {
+
+.video__toggle_more {
+  background-image: url(/morebutton.svg);
+  transition: opacity .5s;
+}
+ .video__toggle_less {
     background-image: url(/lessbutton.svg);
   }
 
-  .morebutton:hover {
+  .video__toggle:hover {
     opacity: .5;
   }
 
