@@ -1,7 +1,7 @@
 <template>
     <nav class="menu">
-        <nuxt-link class = "menu__link" to="/">Главная</nuxt-link>
-        <nuxt-link class = "menu__link" to="/stories">Истории</nuxt-link>
+        <nuxt-link to="/" :class="['menu__link', {'menu__link_is_not-active': $route.path !== '/'}]">Главная</nuxt-link>
+        <nuxt-link to="/stories" :class="['menu__link', {'menu__link_is_not-active': $route.path !== '/stories'}]">Истории</nuxt-link>
     </nav>
 </template>
 
@@ -17,19 +17,25 @@ export default {}
 
   .menu__link {
     color: black;
-    text-decoration: none;
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
     margin-right: 40px;
+    text-decoration: underline;
+    cursor: default;
     transition: opacity .3s;
   }
 
-  .menu__link:hover {
-    opacity: .5;
+  .menu__link_is_not-active:hover {
+    opacity: .8;
   }
 
   .menu__link:last-child {
     margin-right: 0;
+  }
+
+  .menu__link_is_not-active {
+    text-decoration: none;
+    cursor: pointer;
   }
 </style>

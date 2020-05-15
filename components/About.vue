@@ -100,7 +100,8 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #C9C9C9;
-  cursor: pointer
+  cursor: pointer;
+  transition: color .3s;
 }
 
 .about__text-span_is_active {
@@ -118,6 +119,10 @@ export default {
 
 .about__text-paragraph:last-of-type {
   margin-bottom: 0;
+}
+
+.about__text-span:hover {
+  color: white;
 }
 
 </style>

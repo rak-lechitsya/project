@@ -69,6 +69,6 @@ export default {
   }
 
   .main-header__button:hover {
-    opacity: .5;
+    opacity: .8;
   }
 </style>

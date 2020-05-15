@@ -89,7 +89,8 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #A2A2A2;
-  cursor: pointer
+  cursor: pointer;
+  transition: color .3s;
 }
 
 .share__text-span_is_active {
@@ -114,5 +115,7 @@ export default {
   margin-bottom: 0;
 }
 
-
+.share__text-span:hover {
+  color: black;
+}
 </style>
