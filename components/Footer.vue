@@ -99,7 +99,7 @@ export default {
 }
 
 .link:hover {
-  opacity: .5;
+  opacity: .8;
 }
 
 .link_author {

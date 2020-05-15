@@ -7,7 +7,7 @@
           <nuxt-link to="/stories/card.id"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
         </li>
       </ul>
-      <div class="stories__container-page"><nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link></div>
+      <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </section>
 
@@ -98,29 +98,23 @@ export default {
   color: #000;
 }
 
-.stories__container-page {
-  display: flex;
+.stories__page {
+  margin: 70px auto 100px;
   max-width: 1320px;
   min-height: 82px;
-  background-color: #fbfbfb;
-  margin: 70px auto 100px;
-}
-
-.stories__page {
-  display: block;
-  width: 200px;
-  text-align: center;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  font-weight: normal;
   font-size: 16px;
   line-height: 20px;
   color: #000;
-  transition: opacity .3s;
+  background-color: #fbfbfb;
+  transition: background-color .3s;
 }
 
 .stories__page:hover {
-  opacity: .5;
+  background-color: #F8F8F8;
 }
 
 .stories__link {

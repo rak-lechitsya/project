@@ -23,5 +23,10 @@
   line-height: 19px;
   text-align: center;
   cursor: pointer;
+  transition: opacity .3s;
+}
+
+.button:hover {
+    opacity: 0.9;
 }
 </style>
