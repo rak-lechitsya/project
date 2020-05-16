@@ -2,6 +2,10 @@
   <section class="stories">
     <story-content class="story__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
+      <div class = "stories__box">
+      <input-stories v-model="storiesName" addClass='stories__form-button'></input-stories>
+      <input-button class='button button_search' :text='textButtonForm'></input-button>
+      </div>
       <ul class="stories__list">
         <li v-for="card in storyArr" :key="card.id" class="story__item">
           <nuxt-link to="/stories/card.id"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
@@ -16,13 +20,20 @@
 <script>
 import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 export default {
   components: {
     story: Story,
+    'input-stories': Input,
     'story-content': Content,
+    'input-button': Button,
+    
   },
   data () {
     return {
+      textButtonForm: 'Поиск',
+      storiesName: '',
       storyArr: [
         {
           id: '1',
@@ -89,7 +100,7 @@ export default {
 }
 
 .stories__heading {
-  margin: 100px 0 70px;
+  margin: 100px 0 60px;
   padding: 0;
   max-width: 410px;
   font-weight: 600;
@@ -116,9 +127,21 @@ export default {
 .stories__page:hover {
   background-color: #F8F8F8;
 }
-
+.stories__box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 .stories__link {
   text-decoration: none;
 }
-
+.stories__form-button {
+  border: 1px solid #E8E8E8;
+  margin-bottom: 70px;
+  width: 1074px;
+  height: 52px;
+}
+.button_search {
+  width: 226px;
+}
 </style>
