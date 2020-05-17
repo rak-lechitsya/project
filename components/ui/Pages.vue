@@ -23,26 +23,28 @@ export default {
 <style scoped>
   .pages {
     display: flex;
-  }
+}
 
 .page {
-width: 58px;
-height: 58px;
-background: #F4F4F4;
-margin-right: 10px;
-font-weight: 500;
-font-size: 18px;
-line-height: 22px;
-text-align: center;
-color: #000000;
-text-decoration: none;
+  width: 58px;
+  height: 58px;
+  background: #F4F4F4;
+  margin-right: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pages__link:last-child {
     margin-right: 0;
-  }
+}
 
 .pages__link_is_not-active {
-background: #FBFBFB;
+  background: #FBFBFB;
   }
 </style>
