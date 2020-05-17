@@ -51,7 +51,8 @@
       class='button'
       :text='textButtonForm'
       type='submit' />
-      <p class="form__politic">Нажимая на кнопку «отправить», вы даете согласие на <a class='form__link'>обработку персональных данных</a></p>
+      <p class="form__politic">Нажимая на кнопку «отправить», вы даете согласие на 
+      <nuxt-link to="/policy" target="_blank" class='form__link'>обработку персональных данных</nuxt-link></p>
     </div>
   </form>
 </template>
@@ -98,6 +99,7 @@ export default {
   text-decoration: underline;
   cursor: pointer;
   transition: opasity .3s;
+  color: #666666;
 }
 
 .form__link:hover {

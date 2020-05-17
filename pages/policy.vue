@@ -119,9 +119,7 @@
     .policy {
         margin: 0 auto;
         padding: 100px 330px 230px;
-        border: 1px solid red;
-
-}
+    }
     .policy__content {
         max-width: 780px;
         margin: 0 auto;
@@ -181,5 +179,10 @@
         font-weight: 400;
         line-height: 30px;
         margin-bottom: 30px;
+   }
+
+   .link {
+       color: black;
+       text-decoration: none;
    }
 </style>
