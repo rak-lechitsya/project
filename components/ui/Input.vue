@@ -1,8 +1,10 @@
 <template>
-  <input 
+  <input
   :class="['input', addClass, {
-    'input-bottom-bordered': bottomBordered
+    'input_bottom-bordered': bottomBordered
   }]"
+  :type='type'
+  :placeholder="placeholder"
   >
 </template>
 
@@ -43,4 +45,11 @@ export default {
   color: #666;
   width: 100%;
 }
+
+.input_bottom-bordered {
+  border: none;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 10px;
+}
+
 </style>

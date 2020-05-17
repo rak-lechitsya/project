@@ -1,20 +1,14 @@
 <template>
   <form class="form" id="form" name="form" method="post" action="#">
-    <div class="form__content">
-      <h3 class="form__title">Шаг 1 из 12</h3>
-      <button
-        class="button button_close-item"
-        id="close"
-        type="button"
-        @click="$emit('closeClick')"
-      ></button>
-    </div>
+    <h3 class="form__title">{{title}}</h3>
     <fieldset class="form__fieldset">
-      <legend class="form__subtitle">Как вас зовут?</legend>
-      <my-input class='form__input'
+      <legend class="form__subtitle">{{subtitle}}</legend>
+      <my-input
+        addClass='form__input'
         placeholder="Напишите тут"
         id="fullname"
         type="text"
+        :bottomBordered='true'
         name="fullname"
       />
     </fieldset>
@@ -29,6 +23,14 @@
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 export default {
+  props: {
+    title: {
+      type: String
+    },
+    subtitle: {
+      type: String
+    }
+  },
   components: {
     'my-input': Input,
     'my-button': Button,
@@ -44,8 +46,6 @@ export default {
 <style scoped>
 .button {
   border: none;
-  padding: 0;
-  cursor: pointer;
 }
 
 .button_before {
@@ -59,48 +59,24 @@ export default {
   text-align: center;
   color: #c0c0c0;
   margin-right: 30px;
+  cursor: pointer;
 }
 
 .button_next {
   width: 226px;
 }
 
-.button_close-item {
-  background-image: url(/button-close.svg);
-  width: 20px;
-  height: 20px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 30px 30px;
-  background-color: rgba(0, 0, 0, 0);
-}
-
 .form {
-  width: 920px;
-  height: 600px;
-  background-color: #fff;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 840px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 40px;
 }
 
 .form__buttons {
   display: flex;
   align-items: center;
   margin-top: auto;
-}
-
-.form__content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 40px;
 }
 
 .form__fieldset {
@@ -111,13 +87,11 @@ export default {
 }
 
 .form__input {
-  border: none;
-  border-bottom: 1px solid #e7e7e7;
-  padding-bottom: 10px;
+  margin-bottom: 200px;
 }
 
 .form__title {
-  margin: 0;
+  margin: 0 0 40px;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
