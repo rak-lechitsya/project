@@ -6,7 +6,7 @@
         <my-menu class='footer__links' />
         <nav class='footer__links-social'>
           <p>Мы в <a class='link link_social' href='https://www.instagram.com/raklechitsa/' target='_blank'>Инстаграме</a> и <a class='link link_social' href='https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F' target='_blank'> Youtube</a></p>
-          <a class='link link_share' href='#'>Поделитесь &#8599;</a>
+          <p class='footer__share' @click="$emit('clickSocial')" >Поделитесь &#8599;</p>
         </nav>
       </div>
       <div class='footer__author'>
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
-.footer {  
+.footer {
   padding: 60px;
   width: 100%;
   background-color: #FBFBFB;
@@ -115,12 +115,19 @@ export default {
   text-decoration: underline;
 }
 
-.link_share {
-  margin-top: 44px;
-  color: #121212;
-}
-
 .link_stories {
   margin-left: 40px;
+}
+
+.footer__share {
+  margin-top: 44px;
+  color: #121212;
+  cursor: pointer;
+  transition: opacity .3s;
+  width: fit-content;
+}
+
+.footer__share:hover {
+  opacity: .8;
 }
 </style>
