@@ -2,10 +2,6 @@
   <section class="stories">
     <story-content class="story__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
-      <div class = "stories__box">
-      <input-stories v-model="storiesName" addClass='stories__form-button'></input-stories>
-      <input-button class='button button_search' :text='textButtonForm'></input-button>
-      </div>
       <ul class="stories__list">
         <li v-for="card in storyArr" :key="card.id" class="story__item">
           <nuxt-link to="/stories/card.id"  class="stories__link"><story :url='card.url' :name='card.name' :content='card.content'/></nuxt-link>
