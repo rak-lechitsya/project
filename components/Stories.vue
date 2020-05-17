@@ -18,15 +18,13 @@ import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
-import Pages from '@/components/ui/Pages';
 export default {
   components: {
     story: Story,
-    pages: Pages,
     'input-stories': Input,
     'story-content': Content,
     'input-button': Button,
-    
+
   },
   data () {
     return {
