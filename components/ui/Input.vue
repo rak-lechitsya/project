@@ -2,8 +2,7 @@
   <input 
   :class="['input', addClass, {
     'input-bottom-bordered': bottomBordered
-  }]"
-  }>
+  }]">
 </template>
 
 <script>

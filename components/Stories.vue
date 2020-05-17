@@ -128,7 +128,7 @@ export default {
   background-color: #F8F8F8;
 }
 .stories__box {
-      display: flex;
+    display: flex;
     width: 100%;
     justify-content: space-between;
 }
