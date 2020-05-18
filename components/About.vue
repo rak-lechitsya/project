@@ -128,7 +128,7 @@ export default {
 
 @media (min-width : 320px) and (max-width : 499px) {
   .about {
-    padding: 50px 10px;
+    padding: 50px 14px;
     min-height: 628px;
   }
 

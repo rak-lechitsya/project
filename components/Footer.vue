@@ -10,7 +10,7 @@
         </nav>
       </div>
       <div class='footer__author'>
-        <p>Рак лечится {{year}}</p>
+        <p class = 'footer__year'>Рак лечится {{year}}</p>
         <p>Сделано студентами <a class='link link_author' href='https://praktikum.yandex.ru/' target='_blank'>Яндекс Практикум</a></p>
       </div>
     </my-content>
@@ -51,7 +51,6 @@ export default {
 }
 
 .footer__content {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -106,17 +105,13 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 1;
+  line-height: 18px;
   color: #898989;
   text-decoration: underline;
 }
 
 .link_social {
   text-decoration: underline;
-}
-
-.link_stories {
-  margin-left: 40px;
 }
 
 .footer__share {
@@ -129,5 +124,194 @@ export default {
 
 .footer__share:hover {
   opacity: .8;
+}
+
+@media (min-width : 320px) and (max-width : 744px) {
+  .footer {
+    padding: 50px 15px 50px;
+    width: 100%;
+  }
+
+  .footer__content {
+    max-width: 290px;
+  }
+  .footer__menu {
+    flex-direction: column;
+  }
+
+  .footer__author {
+    font-size: 13px;
+    display: block;
+  }
+
+  .footer__links {
+    margin-left: 0;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    margin-bottom: 18px;
+  }
+
+  .footer__links-social {
+    margin: 0;
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .footer__menu {
+    margin-bottom: 50px;
+  }
+
+  .footer__title {
+    max-width: 268px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .link {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .footer__share {
+    margin-top: 18px;
+  }
+
+  .footer__year {
+    margin-bottom: 10px;
+  }
+
+  .footer__links /deep/ .menu__link {
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .footer__links /deep/ .menu__link:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width : 745px) and (max-width : 879px) {
+  .footer {
+    padding: 50px;
+    width: 100%;
+  }
+
+  .footer__author {
+    font-size: 16px;
+  }
+
+  .footer__links {
+    margin-left: 30px;
+  }
+
+  .footer__links {
+    flex-direction: column;
+  }
+
+  .footer__links-social {
+    margin-right: 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer__menu {
+    margin-bottom: 90px;
+  }
+
+  .footer__title {
+    max-width: 268px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .link {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer__links /deep/ .menu__link {
+    margin-bottom: 14px;
+    font-size: 16px;
+  }
+
+  .footer__links /deep/ .menu__link:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width : 880px) and (max-width : 1199px) {
+  .footer {
+    padding: 50px;
+    width: 100%;
+  }
+
+  .footer__author {
+    font-size: 16px;
+  }
+
+  .footer__links {
+    margin-left: 30px;
+  }
+
+  .footer__links-social {
+    margin-right: 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer__menu {
+    margin-bottom: 90px;
+  }
+
+  .footer__title {
+    max-width: 288px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .link {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (min-width : 1200px) and (max-width : 1280px) {
+  .footer {
+    padding: 50px;
+    width: 100%;
+  }
+
+  .footer__author {
+    font-size: 16px;
+  }
+
+  .footer__links {
+    margin-left: 102px;
+  }
+
+  .footer__links-social {
+    margin-right: 50px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer__menu {
+    margin-bottom: 104px;
+  }
+
+  .footer__title {
+    max-width: 305px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .link {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 </style>
