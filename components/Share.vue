@@ -6,7 +6,7 @@
         <p class="share__subtitle">Мы публикуем новые истории на сайте раз в неделю.
         Есть 2 варианта поделиться своей историей неизлечимых привычек, навязчивых идей и болезненных привязанностей.</p>
         <div class="share__text">
-          <div class = "share__text-container">
+          <div class = "share__span-container">
             <p @click="toggleFirstSpan" :class="['share__text-span', {'share__text-span_is_active': toggle===true}]">1-й вариант</p>
             <p @click="toggleSecondSpan" :class="['share__text-span', {'share__text-span_is_active': toggle===false}]">2-й вариант</p>
           </div>
@@ -99,12 +99,15 @@ export default {
 }
 
 .share__text-paragraph {
-  width: 640px;
   min-height: 88px;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 22px;
   color: #666;
+}
+
+.share__text-container {
+  max-width: 640px;
 }
 
 .share__text-button {
