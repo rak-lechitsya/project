@@ -1,34 +1,40 @@
 <template>
   <div>
-    <section class="title">
-      <img :src="storyArr[0].url" alt="" class="title__image" />
-      <div class="title__container">
-        <p class="title__content">
-          <span class="title__content-name">{{ storyArr[0].name }}: </span
-          ><span class="title__content-text">«{{ storyArr[0].content }}»</span>
-        </p>
-        <div class="title__footer">
-          <p class="share" @click="$emit('clickSocial')">Поделитесь &#8599;</p>
-          <p class="title__date">{{ storyArr[0].date }}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="main">
-      <p class="main__content">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt similique
-        totam nesciunt atque dolores enim deleniti autem quisquam sit! Dolorum
-        nemo accusantium dignissimos recusandae autem vel cupiditate ut adipisci
-        asperiores?
-      </p>
-      <div class="main__share">
-        <p class="share" @click="$emit('clickSocial')">
-          Поделитесь этой статьей в своих социальных сетях &#8599;
-        </p>
-      </div>
-    </section>
-
     <story-content class="story__content">
+      <section class="title">
+        <div class="title__image-wrapper">
+          <img :src="storyArr[0].url" alt="" class="title__image" />
+        </div>
+        <div class="title__container">
+          <p class="title__content">
+            <span class="title__content-name">{{ storyArr[0].name }}: </span
+            ><span class="title__content-text"
+              >«{{ storyArr[0].content }}»</span
+            >
+          </p>
+          <div class="title__footer">
+            <p class="share" @click="$emit('clickSocial')">
+              Поделитесь &#8599;
+            </p>
+            <p class="title__date">{{ storyArr[0].date }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="main">
+        <p class="main__content">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
+          similique totam nesciunt atque dolores enim deleniti autem quisquam
+          sit! Dolorum nemo accusantium dignissimos recusandae autem vel
+          cupiditate ut adipisci asperiores?
+        </p>
+        <div class="main__share">
+          <p class="share" @click="$emit('clickSocial')">
+            Поделитесь этой статьей в своих социальных сетях &#8599;
+          </p>
+        </div>
+      </section>
+
       <ul class="stories__list">
         <li v-for="card in storyArr" :key="card.id" class="story__item">
           <nuxt-link to="/stories/card.id" class="stories__link"
@@ -90,11 +96,15 @@ export default {
 </script>
 
 <style scoped>
+.story__content {
+  max-width: 1440px;
+  padding: 0 60px 0;
+}
+
 .title {
   display: flex;
   justify-content: space-between;
-  max-width: 1320px;
-  margin: 100px auto 0;
+  margin-top: 100px;
 }
 
 .title__container {
@@ -104,6 +114,7 @@ export default {
   max-width: 680px;
   border-bottom: 1px solid #efefef;
   border-top: 1px solid #efefef;
+  margin-left: 60px;
 }
 
 .title__content {
@@ -114,16 +125,29 @@ export default {
   color: #000;
 }
 
+.title__image-wrapper {
+  position: relative;
+  width: 43.94%;
+  padding-bottom: 43.94%;
+}
+
 .title__image {
-  display: flex;
-  width: 580px;
-  height: 580px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .title__footer {
   display: flex;
   justify-content: space-between;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #121212;
   margin-bottom: 30px;
 }
 
@@ -183,5 +207,37 @@ export default {
 
 .stories__link {
   text-decoration: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .story__content {
+    padding: 0 50px 0;
+  }
+
+  .title__container {
+    max-width: 602px;
+  }
+
+  .title__content {
+    font-size: 34px;
+    line-height: 44px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .title__container {
+    max-width: 477px;
+    margin-left: 40px;
+  }
+
+  .title__content {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .title__footer {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
 }
 </style>
