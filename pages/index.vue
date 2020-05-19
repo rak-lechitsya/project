@@ -1,48 +1,68 @@
 <template>
-  <div class="container">
-    <div class="h1">Hello hello</div>
+  <div class="content">
+    <cover />
+    <videostory />
+    <banner :text="textSml" />
+    <stories />
+    <banner :text="textBg" />
+    <instagram />
+    <share @btnClick="popupChange" @btnClickContacts="popupChangeContacts" />
+    <statistics />
+    <about />
+    <popup v-if="popupShown" @closeClick="popupChange">
+      <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
+    </popup>
+    <popup v-if="popupContacts" @closeClick="popupChangeContacts">
+      <form-contacts />
+    </popup>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-
+import About from '@/components/About';
+import Share from '@/components/Share';
+import Cover from '@/components/Cover';
+import Video from '@/components/Video';
+import Stories from '@/components/Stories';
+import Instagram from '@/components/Instagram';
+import Statistics from '@/components/Statistics';
+import Banner from '@/components/ui/Banner';
+import Popup from '@/components/Popup';
+import Form from '@/components/Form';
+import FormContacts from '@/components/FormContacts';
 export default {
   components: {
-    Logo,
+    instagram: Instagram,
+    about: About,
+    share: Share,
+    cover: Cover,
+    videostory: Video,
+    stories: Stories,
+    statistics: Statistics,
+    banner: Banner,
+    popup: Popup,
+    'my-form': Form,
+    'form-contacts': FormContacts,
+  },
+
+  methods: {
+    popupChange() {
+      this.popupShown = !this.popupShown;
+    },
+    popupChangeContacts() {
+      this.popupContacts = !this.popupContacts;
+    },
+  },
+
+  data() {
+    return {
+      popupShown: false,
+      popupContacts: false,
+      textSml: 'И в отличии от рака,',
+      textBg: 'рассказывайте ваши истории в инстаграм',
+    };
   },
 };
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style scoped></style>

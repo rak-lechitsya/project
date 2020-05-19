@@ -1,13 +1,53 @@
 <template>
   <div>
+    <my-header @btnClick="popupChange" />
     <nuxt />
+    <my-footer @clickSocial="popupChangeSocial" />
+    <popup v-if="popupShown" @closeClick="popupChange">
+      <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
+    </popup>
+    <popup v-if="popupSocial" @closeClick="popupChangeSocial">
+      <form-social />
+    </popup>
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Popup from '@/components/Popup';
+import Form from '@/components/Form';
+import FormSocial from '@/components/FormSocial';
+export default {
+  components: {
+    'my-header': Header,
+    popup: Popup,
+    'my-footer': Footer,
+    'my-form': Form,
+    'form-social': FormSocial,
+  },
+
+  methods: {
+    popupChange() {
+      this.popupShown = !this.popupShown;
+    },
+    popupChangeSocial() {
+      this.popupSocial = !this.popupSocial;
+    },
+  },
+
+  data() {
+    return {
+      popupShown: false,
+      popupSocial: false,
+    };
+  },
+};
+</script>
+
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
