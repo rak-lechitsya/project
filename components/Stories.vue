@@ -90,13 +90,19 @@ export default {
 .stories__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 40px 40px;
+  grid-gap: 70px 40px ;
   padding: 0;
   list-style-type: none;
 }
 
+
+
+
+
+
+
 .stories__heading {
-  margin: 100px 0 60px;
+    margin: 100px 0 70px;
   padding: 0;
   max-width: 410px;
   font-weight: 600;
@@ -104,6 +110,16 @@ export default {
   line-height: 36px;
   color: #000;
 }
+
+
+
+
+
+
+
+
+    
+
 
 .stories__page {
   margin: 70px auto 100px;
@@ -119,6 +135,16 @@ export default {
   background-color: #fbfbfb;
   transition: background-color .3s;
 }
+
+
+
+
+
+
+
+
+
+
 
 .stories__page:hover {
   background-color: #F8F8F8;
@@ -140,4 +166,97 @@ export default {
 .button_search {
   width: 226px;
 }
+
+@media (max-width: 1350px) {
+  .stories__heading {
+margin: 90px 0 60px;
+font-size: 28px;
+line-height: 32px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .stories__page {
+margin-bottom: 90px;
+margin-top: 60px;
+  }
+}
+@media (max-width: 1350px) {
+  .stories__list {
+grid-template-columns: repeat(auto-fill, 265px);
+grid-gap: 60px 40px ;
+  }
+}
+
+@media (max-width: 1250px) {
+  .stories__list {
+grid-template-columns: repeat(auto-fill, 208px);
+grid-gap: 46px 30px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .stories__heading {
+margin: 80px 0 46px;
+font-size: 24px;
+line-height: 28px;
+max-width: 288px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .stories__page {
+margin-bottom: 80px;
+margin-top: 46px;
+font-size: 13px;
+line-height: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .stories__list {
+grid-template-columns: repeat(auto-fill, 216px);
+grid-gap: 40px 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .stories__heading {
+margin: 80px auto 60px;
+text-align: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .stories__page {
+margin-bottom: 80px;
+margin-top: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .stories__page {
+margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .stories__heading {
+    margin: 50px auto 40px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: inherit;
+  }
+}
+
+@media (max-width: 700px) {
+  .stories__list {
+grid-template-columns: repeat(auto-fill, 290px);
+grid-gap: 30px 20px;
+  }
+}
+
+
+
+
 </style>
