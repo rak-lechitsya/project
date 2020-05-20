@@ -51,4 +51,16 @@ export default {};
   text-decoration: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1350px) {
+  .menu__link {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .menu__link {
+    margin-right: 30px;
+  }
+}
 </style>

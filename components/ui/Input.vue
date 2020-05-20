@@ -45,7 +45,7 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 1.33;
+  line-height: 24px;
   color: #666;
   width: 100%;
 }
@@ -54,5 +54,26 @@ export default {
   border: none;
   border-bottom: 1px solid #e7e7e7;
   padding-bottom: 10px;
+}
+
+@media (max-width: 1350px) {
+  .input {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .input {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+@media (max-width: 450px) {
+  .input {
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
 </style>

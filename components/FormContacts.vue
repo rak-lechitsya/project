@@ -169,4 +169,131 @@ export default {
   line-height: 1.33;
   color: #000;
 }
+
+@media (max-width: 1350px) {
+  .form {
+    width: 720px;
+  }
+
+  .form__question {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .form__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .form__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 37px;
+    margin-bottom: 47px;
+  }
+
+  .button {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+@media (max-width: 900px) {
+  .button {
+    width: 200px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .form {
+    width: 500px;
+  }
+
+  .form__fieldset {
+    margin-bottom: 57px;
+  }
+
+  .form__politic {
+    max-width: 270px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .form__question {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .form__title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .form__subtitle {
+    font-size: 15px;
+    line-height: 19px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 620px) {
+  .form {
+    width: 350px;
+  }
+}
+
+@media (max-width: 450px) {
+  .button {
+    width: 260px;
+    height: 40px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .form {
+    width: 260px;
+  }
+
+  .form__buttons {
+    flex-direction: column;
+  }
+
+  .form__fieldset {
+    margin-bottom: 29px;
+  }
+
+  .form__mail-tel {
+    flex-direction: column;
+  }
+
+  .form__politic {
+    font-size: 11px;
+    line-height: 13px;
+    margin-top: 10px;
+    margin-left: 0;
+    min-width: 260px;
+  }
+
+  .form__question {
+    margin-top: 26px;
+    margin-bottom: 17px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .form__title {
+    font-size: 18px;
+    line-height: 21px;
+    max-width: 185px;
+  }
+
+  .form__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 32px;
+    margin-bottom: 27px;
+  }
+}
 </style>

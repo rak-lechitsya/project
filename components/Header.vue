@@ -44,6 +44,7 @@ export default {
   background-color: white;
   align-items: center;
   min-height: 76px;
+  border-bottom: 1px solid #efefef;
 }
 
 .main-header__content {
@@ -52,7 +53,7 @@ export default {
 }
 
 .main-header__logo {
-  max-width: 340px;
+  width: 340px;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
@@ -79,5 +80,47 @@ export default {
 
 .main-header__button:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 1350px) {
+  .main-header {
+    padding: 18px 50px 18px;
+  }
+
+  .main-header__logo {
+    line-height: 18px;
+  }
+
+  .main-header__button {
+    width: 162px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .main-header__button {
+    margin-left: 30px;
+  }
+
+  .main-header {
+    min-height: 36px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-header {
+    padding: 18px 15px 18px;
+    min-height: 28px;
+  }
+
+  .main-header__logo {
+    width: 216px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .main-header__container {
+    display: none;
+  }
 }
 </style>
