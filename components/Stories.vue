@@ -94,13 +94,6 @@ export default {
   padding: 0;
   list-style-type: none;
 }
-
-
-
-
-
-
-
 .stories__heading {
     margin: 100px 0 70px;
   padding: 0;
@@ -110,17 +103,6 @@ export default {
   line-height: 36px;
   color: #000;
 }
-
-
-
-
-
-
-
-
-    
-
-
 .stories__page {
   margin: 70px auto 100px;
   max-width: 1320px;
@@ -135,17 +117,6 @@ export default {
   background-color: #fbfbfb;
   transition: background-color .3s;
 }
-
-
-
-
-
-
-
-
-
-
-
 .stories__page:hover {
   background-color: #F8F8F8;
 }
