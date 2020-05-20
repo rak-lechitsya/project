@@ -126,7 +126,7 @@ export default {
   opacity: .8;
 }
 
-@media (min-width : 320px) and (max-width : 744px) {
+@media (max-width : 700px) {
   .footer {
     padding: 50px 15px 50px;
     width: 100%;
@@ -194,7 +194,7 @@ export default {
   }
 }
 
-@media (min-width : 745px) and (max-width : 879px) {
+@media (min-width : 701px) and (max-width : 1000px) {
   .footer {
     padding: 50px;
     width: 100%;
@@ -243,7 +243,7 @@ export default {
   }
 }
 
-@media (min-width : 880px) and (max-width : 1199px) {
+@media (min-width : 1001px) and (max-width : 1250px) {
   .footer {
     padding: 50px;
     width: 100%;
@@ -279,7 +279,7 @@ export default {
   }
 }
 
-@media (min-width : 1200px) and (max-width : 1280px) {
+@media (min-width : 1251px) and (max-width : 1350px) {
   .footer {
     padding: 50px;
     width: 100%;

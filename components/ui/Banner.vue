@@ -40,7 +40,7 @@
     line-height: 1;
 }
 
-@media (min-width : 320px) and (max-width : 599px) {
+@media (max-width : 599px) {
     .banner {
         padding: 10px 20px;
     }
@@ -52,6 +52,8 @@
     .banner__text {
         font-size: 16px;
         line-height: 18px;
+        max-width: 220px;
+        margin: 0 auto;
     }
 
     .banner__hashtag {
