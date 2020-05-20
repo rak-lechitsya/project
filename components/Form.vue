@@ -1,20 +1,20 @@
 <template>
   <form class="form" id="form" name="form" method="post" action="#">
-    <h3 class="form__title">{{title}}</h3>
+    <h3 class="form__title">{{ title }}</h3>
     <fieldset class="form__fieldset">
-      <legend class="form__subtitle">{{subtitle}}</legend>
+      <legend class="form__subtitle">{{ subtitle }}</legend>
       <my-input
-        addClass='form__input'
+        addClass="form__input"
         placeholder="Напишите тут"
         id="fullname"
         type="text"
-        :bottomBordered='true'
+        :bottomBordered="true"
         name="fullname"
       />
     </fieldset>
-    <div class='form__buttons'>
+    <div class="form__buttons">
       <button class="button button_before" type="button">Назад</button>
-      <my-button class='button button_next' :text='textButtonForm' />
+      <my-button class="button button_next" :text="textButtonForm" />
     </div>
   </form>
 </template>
@@ -25,11 +25,11 @@ import Button from '@/components/ui/Button';
 export default {
   props: {
     title: {
-      type: String
+      type: String,
     },
     subtitle: {
-      type: String
-    }
+      type: String,
+    },
   },
   components: {
     'my-input': Input,
@@ -38,8 +38,8 @@ export default {
   data() {
     return {
       textButtonForm: 'Далее',
-    }
-  }
+    };
+  },
 };
 </script>
 
@@ -95,7 +95,7 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: black
+  color: black;
 }
 
 .form__subtitle {
@@ -118,7 +118,7 @@ export default {
   .form__title {
     font-size: 28px;
     line-height: 32px;
-}
+  }
 
   .form__subtitle {
     font-size: 16px;
@@ -140,7 +140,7 @@ export default {
   .form__title {
     font-size: 26px;
     line-height: 30px;
-}
+  }
 
   .form__subtitle {
     font-size: 15px;
@@ -170,7 +170,6 @@ export default {
   .form__input {
     margin-bottom: 171px;
   }
-
 }
 
 @media (max-width: 620px) {
@@ -188,7 +187,7 @@ export default {
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 30px;
-}
+  }
 
   .form__subtitle {
     font-size: 13px;
@@ -214,5 +213,4 @@ export default {
     margin-right: 15px;
   }
 }
-
 </style>

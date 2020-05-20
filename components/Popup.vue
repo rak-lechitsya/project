@@ -1,10 +1,7 @@
 <template>
   <div :class="['popup', addClass]">
-    <div class='popup__content'>
-      <button
-      class='popup__close'
-      type='button'
-      @click="$emit('closeClick')" />
+    <div class="popup__content">
+      <button class="popup__close" type="button" @click="$emit('closeClick')" />
       <slot></slot>
     </div>
   </div>
@@ -13,7 +10,7 @@
 <script>
 export default {
   props: ['addClass'],
-}
+};
 </script>
 
 <style scoped>
@@ -23,7 +20,7 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup__close {
@@ -40,11 +37,11 @@ export default {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   cursor: pointer;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 .popup__close:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .popup__content {
@@ -67,5 +64,4 @@ export default {
     background-size: 25px 25px;
   }
 }
-
 </style>

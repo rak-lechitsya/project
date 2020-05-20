@@ -1,58 +1,70 @@
 <template>
-  <form class="form" id="form-contacts" name="form-contacts" method="post" action="#">
+  <form
+    class="form"
+    id="form-contacts"
+    name="form-contacts"
+    method="post"
+    action="#"
+  >
     <h3 class="form__title">Оставьте контакт для связи</h3>
-    <p class="form__subtitle">Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории и разместить ее на сайте.</p>
+    <p class="form__subtitle">
+      Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
+      и разместить ее на сайте.
+    </p>
     <fieldset class="form__fieldset">
       <legend class="form__question">Как вас зовут?</legend>
       <my-input
-        addClass='form__input'
+        addClass="form__input"
         placeholder="Напишите тут"
         id="fullname"
         type="text"
-        :bottomBordered='true'
+        :bottomBordered="true"
         name="fullname"
       />
       <div class="form__mail-tel">
         <div class="form__block">
           <legend class="form__question">Электронная почта</legend>
           <my-input
-            addClass='form__input'
+            addClass="form__input"
             placeholder="pochta@example.com"
             id="e-mail"
             type="email"
-            :bottomBordered='true'
+            :bottomBordered="true"
             name="e-mail"
           />
         </div>
         <div class="form__block">
           <legend class="form__question">Телефон</legend>
           <my-input
-            addClass='form__input'
+            addClass="form__input"
             placeholder="+7 000 000 00 00"
             id="tel"
             type="tel"
-            :bottomBordered='true'
+            :bottomBordered="true"
             name="tel"
           />
         </div>
       </div>
-      <legend class="form__question">Напишите, если есть предпочтительный способ связи и удобное время</legend>
+      <legend class="form__question">
+        Напишите, если есть предпочтительный способ связи и удобное время
+      </legend>
       <my-input
-        addClass='form__input'
+        addClass="form__input"
         placeholder="Телефон / почта и удобное время"
         id="time"
         type="text"
-        :bottomBordered='true'
+        :bottomBordered="true"
         name="time"
       />
     </fieldset>
-    <div class='form__buttons'>
-      <my-button
-      class='button'
-      :text='textButtonForm'
-      type='submit' />
-      <p class="form__politic">Нажимая на кнопку «отправить», вы даете согласие на
-      <nuxt-link to="/policy" target="_blank" class='form__link'>обработку персональных данных</nuxt-link></p>
+    <div class="form__buttons">
+      <my-button class="button" :text="textButtonForm" type="submit" />
+      <p class="form__politic">
+        Нажимая на кнопку «отправить», вы даете согласие на
+        <nuxt-link to="/policy" target="_blank" class="form__link"
+          >обработку персональных данных</nuxt-link
+        >
+      </p>
     </div>
   </form>
 </template>
@@ -68,8 +80,8 @@ export default {
   data() {
     return {
       textButtonForm: 'Отправить',
-    }
-  }
+    };
+  },
 };
 </script>
 
@@ -98,12 +110,12 @@ export default {
 .form__link {
   text-decoration: underline;
   cursor: pointer;
-  transition: opasity .3s;
+  transition: opasity 0.3s;
   color: #666666;
 }
 
 .form__link:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .form__mail-tel {
@@ -171,7 +183,7 @@ export default {
   .form__title {
     font-size: 28px;
     line-height: 32px;
-}
+  }
 
   .form__subtitle {
     font-size: 16px;
@@ -216,7 +228,7 @@ export default {
   .form__title {
     font-size: 26px;
     line-height: 30px;
-}
+  }
 
   .form__subtitle {
     font-size: 15px;
@@ -224,7 +236,6 @@ export default {
     margin-top: 50px;
     margin-bottom: 40px;
   }
-
 }
 
 @media (max-width: 620px) {
@@ -276,7 +287,7 @@ export default {
     font-size: 18px;
     line-height: 21px;
     max-width: 185px;
-}
+  }
 
   .form__subtitle {
     font-size: 13px;

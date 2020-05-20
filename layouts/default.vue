@@ -1,14 +1,12 @@
 <template>
   <div>
-    <my-header @btnClick='popupChange' />
+    <my-header @btnClick="popupChange" />
     <nuxt />
-    <my-footer @clickSocial='popupChangeSocial' />
-    <popup v-if='popupShown' @closeClick='popupChange'>
-      <my-form
-      title='Шаг 1 из 12'
-      subtitle='Как вас зовут?' />
+    <my-footer @clickSocial="popupChangeSocial" />
+    <popup v-if="popupShown" @closeClick="popupChange">
+      <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
     </popup>
-    <popup v-if='popupSocial' @closeClick='popupChangeSocial'>
+    <popup v-if="popupSocial" @closeClick="popupChangeSocial">
       <form-social />
     </popup>
   </div>
@@ -35,17 +33,16 @@ export default {
     },
     popupChangeSocial() {
       this.popupSocial = !this.popupSocial;
-    }
+    },
   },
 
   data() {
     return {
       popupShown: false,
       popupSocial: false,
-    }
-  }
-}
-
+    };
+  },
+};
 </script>
 
 <style>

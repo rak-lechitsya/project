@@ -1,74 +1,74 @@
 <template>
   <div class="statistics">
-            <statistics-content class = "statistics__content">
-    <h3 class="statistics__title">Статистика по онкозаболеваниям</h3>
-    <div class="statistics__container">
-      <div class="statistics__pictures">
-        <div class="statistics__item">
-          <p class="statistics__text">
-            Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
-            000 человек.
-          </p>
-          <div class="statistics__box">
-            <progress-bar
-              :progress="progress"
-              class="progress-bar"
-              :value="1"
-              :maxValue="3"
-            />
-            <h2 class="statistics__title">1 из 3</h2>
-            <p class="statistics__author">Левада-Центр 2018</p>
+    <statistics-content class="statistics__content">
+      <h3 class="statistics__title">Статистика по онкозаболеваниям</h3>
+      <div class="statistics__container">
+        <div class="statistics__pictures">
+          <div class="statistics__item">
+            <p class="statistics__text">
+              Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48
+              918 000 человек.
+            </p>
+            <div class="statistics__box">
+              <progress-bar
+                :progress="progress"
+                class="progress-bar"
+                :value="1"
+                :maxValue="3"
+              />
+              <h2 class="statistics__title">1 из 3</h2>
+              <p class="statistics__author">Левада-Центр 2018</p>
+            </div>
           </div>
-        </div>
-        <div class="statistics__item">
-          <p class="statistics__text">2,6% Россиян имеют онкозаболевания.</p>
-          <div class="statistics__box">
-            <progress-bar
-              :progress="progress"
-              class="progress-bar"
-              :value="2.6"
-              :maxValue="100"
-            />
-            <h2 class="statistics__title">3 700 000</h2>
-            <p class="statistics__author">Росстат 2018</p>
+          <div class="statistics__item">
+            <p class="statistics__text">2,6% Россиян имеют онкозаболевания.</p>
+            <div class="statistics__box">
+              <progress-bar
+                :progress="progress"
+                class="progress-bar"
+                :value="2.6"
+                :maxValue="100"
+              />
+              <h2 class="statistics__title">3 700 000</h2>
+              <p class="statistics__author">Росстат 2018</p>
+            </div>
           </div>
-        </div>
-        <div class="statistics__item">
-          <p class="statistics__text">
-            На 28% выросла доля выявления заболеваний на ранней стадии за 10
-            лет.
-          </p>
-          <div class="statistics__box">
-            <double-progress-bar
-              :doubleProgress="doubleProgress"
-              class="progress-bar-double"
-              :oldValue="55"
-              :maxValue="100"
-              :newValue="70"
-            />
-            <h2 class="statistics__title">↑28%</h2>
-            <p class="statistics__author">МНИОИ Герцена 2018</p>
+          <div class="statistics__item">
+            <p class="statistics__text">
+              На 28% выросла доля выявления заболеваний на ранней стадии за 10
+              лет.
+            </p>
+            <div class="statistics__box">
+              <double-progress-bar
+                :doubleProgress="doubleProgress"
+                class="progress-bar-double"
+                :oldValue="55"
+                :maxValue="100"
+                :newValue="70"
+              />
+              <h2 class="statistics__title">↑28%</h2>
+              <p class="statistics__author">МНИОИ Герцена 2018</p>
+            </div>
           </div>
-        </div>
-        <div class="statistics__item">
-          <p class="statistics__text">
-            На 25% снизилась смертность в течение первого года после постановки
-            диагноза.
-          </p>
-          <div class="statistics__box">
-            <double-progress-bar
-              :doubleProgress="doubleProgress"
-              class="progress-bar-double"
-              :oldValue="70"
-              :maxValue="100"
-              :newValue="55"
-            />
-            <h2 class="statistics__title">↓25%</h2>
-            <p class="statistics__author">МНИОИ Герцена 2018</p>
+          <div class="statistics__item">
+            <p class="statistics__text">
+              На 25% снизилась смертность в течение первого года после
+              постановки диагноза.
+            </p>
+            <div class="statistics__box">
+              <double-progress-bar
+                :doubleProgress="doubleProgress"
+                class="progress-bar-double"
+                :oldValue="70"
+                :maxValue="100"
+                :newValue="55"
+              />
+              <h2 class="statistics__title">↓25%</h2>
+              <p class="statistics__author">МНИОИ Герцена 2018</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </statistics-content>
   </div>
 </template>

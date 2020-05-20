@@ -3,20 +3,55 @@
     <share-content class="share__content">
       <h3 class="share__title">Расскажите свою историю</h3>
       <div class="share__container">
-        <p class="share__subtitle">Мы публикуем новые истории на сайте раз в неделю.
-        Есть 2 варианта поделиться своей историей неизлечимых привычек, навязчивых идей и болезненных привязанностей.</p>
+        <p class="share__subtitle">
+          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+          поделиться своей историей неизлечимых привычек, навязчивых идей и
+          болезненных привязанностей.
+        </p>
         <div class="share__text">
-          <div class = "share__span-container">
-            <p @click="toggleFirstSpan" :class="['share__text-span', {'share__text-span_is_active': toggle===true}]">1-й вариант</p>
-            <p @click="toggleSecondSpan" :class="['share__text-span', {'share__text-span_is_active': toggle===false}]">2-й вариант</p>
+          <div class="share__span-container">
+            <p
+              @click="toggleFirstSpan"
+              :class="[
+                'share__text-span',
+                { 'share__text-span_is_active': toggle === true },
+              ]"
+            >
+              1-й вариант
+            </p>
+            <p
+              @click="toggleSecondSpan"
+              :class="[
+                'share__text-span',
+                { 'share__text-span_is_active': toggle === false },
+              ]"
+            >
+              2-й вариант
+            </p>
           </div>
-          <div class = "share__text-container">
-            <p v-if="toggle===true" class="share__text-paragraph">Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки.
-            Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.</p>
-            <p v-if="toggle===false" class="share__text-paragraph">Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-            зададим вопросы, уточним детали вашей истории.</p>
-            <share-button v-if="toggle===true" :text='textButtonForm' @btnClick="$emit('btnClick')" class="share__text-button"  />
-            <share-button v-if="toggle===false" :text='textButtonContact' @btnClick="$emit('btnClickContacts')" class="share__text-button" />
+          <div class="share__text-container">
+            <p v-if="toggle === true" class="share__text-paragraph">
+              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+              историю после проверки. Пожалуйста, заполняйте все пункты
+              корректно, если вы испытаете какие-то сложности, воспользуйтесь
+              2-м вариантом.
+            </p>
+            <p v-if="toggle === false" class="share__text-paragraph">
+              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+              зададим вопросы, уточним детали вашей истории.
+            </p>
+            <share-button
+              v-if="toggle === true"
+              :text="textButtonForm"
+              @btnClick="$emit('btnClick')"
+              class="share__text-button"
+            />
+            <share-button
+              v-if="toggle === false"
+              :text="textButtonContact"
+              @btnClick="$emit('btnClickContacts')"
+              class="share__text-button"
+            />
           </div>
         </div>
       </div>
@@ -45,8 +80,8 @@ export default {
     },
     toggleSecondSpan() {
       this.toggle = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -88,9 +123,9 @@ export default {
   text-align: right;
   font-size: 18px;
   line-height: 22px;
-  color: #A2A2A2;
+  color: #a2a2a2;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .share__text-span_is_active {
@@ -122,7 +157,7 @@ export default {
   color: black;
 }
 
-@media (max-width : 700px) {
+@media (max-width: 700px) {
   .share {
     padding: 50px 10px;
   }
@@ -171,7 +206,7 @@ export default {
   }
 
   .share__text-span_is_active {
-    border-bottom: 2px solid #613A93;
+    border-bottom: 2px solid #613a93;
   }
 
   .share__text-button {
@@ -183,7 +218,7 @@ export default {
   }
 }
 
-@media (min-width : 701px) and (max-width : 1000px) {
+@media (min-width: 701px) and (max-width: 1000px) {
   .share {
     padding: 80px 50px;
   }
@@ -233,7 +268,7 @@ export default {
   }
 
   .share__text-span_is_active {
-    border-bottom: 2px solid #613A93;
+    border-bottom: 2px solid #613a93;
   }
 
   .share__text-button {
@@ -245,8 +280,7 @@ export default {
   }
 }
 
-
-@media (min-width : 1001px) and (max-width : 1250px) {
+@media (min-width: 1001px) and (max-width: 1250px) {
   .share {
     padding: 80px 50px;
   }
@@ -288,7 +322,7 @@ export default {
   }
 }
 
-@media (min-width : 1251px) and (max-width : 1350px) {
+@media (min-width: 1251px) and (max-width: 1350px) {
   .share {
     padding: 80px 50px 90px;
   }

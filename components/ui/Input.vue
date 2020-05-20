@@ -1,11 +1,15 @@
 <template>
   <input
-  :class="['input', addClass, {
-    'input_bottom-bordered': bottomBordered
-  }]"
-  :type='type'
-  :placeholder="placeholder"
-  >
+    :class="[
+      'input',
+      addClass,
+      {
+        'input_bottom-bordered': bottomBordered,
+      },
+    ]"
+    :type="type"
+    :placeholder="placeholder"
+  />
 </template>
 
 <script>
@@ -18,22 +22,22 @@ export default {
     type: {
       type: String,
       default: 'text',
-      validator: value => 'text|number|email|password|search|url|tel'.split('|').indexOf(value)
-        > -1
-    }
+      validator: value =>
+        'text|number|email|password|search|url|tel'.split('|').indexOf(value) >
+        -1,
+    },
   },
-  data () {
+  data() {
     return {
-      content: this.value
-    }
+      content: this.value,
+    };
   },
   methods: {
-    handleInput (e) {
-      this.$emit('input', this.content)
-    }
-  }
-
-}
+    handleInput(e) {
+      this.$emit('input', this.content);
+    },
+  },
+};
 </script>
 
 <style scoped>

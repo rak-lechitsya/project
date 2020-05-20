@@ -1,11 +1,11 @@
 <template>
-    <button class="button" @click="$emit('btnClick')">{{text}}</button>
+  <button class="button" @click="$emit('btnClick')">{{ text }}</button>
 </template>
 
 <script>
-    export default {
-        props: ['text']
-    }
+export default {
+  props: ['text'],
+};
 </script>
 
 <style scoped>
@@ -23,10 +23,10 @@
   line-height: 19px;
   text-align: center;
   cursor: pointer;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 .button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 </style>
