@@ -122,7 +122,7 @@ export default {
   color: black;
 }
 
-@media (min-width : 320px) and (max-width : 499px) {
+@media (max-width : 700px) {
   .share {
     padding: 50px 10px;
   }
@@ -183,7 +183,7 @@ export default {
   }
 }
 
-@media (min-width : 500px) and (max-width : 979px) {
+@media (min-width : 701px) and (max-width : 1000px) {
   .share {
     padding: 80px 50px;
   }
@@ -246,7 +246,7 @@ export default {
 }
 
 
-@media (min-width : 980px) and (max-width : 1199px) {
+@media (min-width : 1001px) and (max-width : 1250px) {
   .share {
     padding: 80px 50px;
   }
@@ -288,7 +288,7 @@ export default {
   }
 }
 
-@media (min-width : 1200px) and (max-width : 1280px) {
+@media (min-width : 1251px) and (max-width : 1350px) {
   .share {
     padding: 80px 50px 90px;
   }

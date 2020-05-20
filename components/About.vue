@@ -126,7 +126,7 @@ export default {
   color: white;
 }
 
-@media (min-width : 320px) and (max-width : 499px) {
+@media (max-width : 700px) {
   .about {
     padding: 50px 14px;
     min-height: 628px;
@@ -183,7 +183,7 @@ export default {
   }
 }
 
-@media (min-width : 500px) and (max-width : 979px) {
+@media (min-width : 701px) and (max-width : 1000px) {
   .about {
     padding: 80px 50px;
     min-height: 687px;
@@ -242,7 +242,7 @@ export default {
 }
 
 
-@media (min-width : 980px) and (max-width : 1199px) {
+@media (min-width : 1001px) and (max-width : 1250px) {
   .about {
     padding: 80px 50px;
     min-height: 586px;
@@ -281,7 +281,7 @@ export default {
   }
 }
 
-@media (min-width : 1200px) and (max-width : 1280px) {
+@media (min-width : 1251px) and (max-width : 1350px) {
   .about {
     padding: 80px 50px 90px;
     min-height: 641px;
