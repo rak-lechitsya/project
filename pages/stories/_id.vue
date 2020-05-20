@@ -1,16 +1,14 @@
 <template>
   <div>
     <story-content class="story__content">
-      <section class="title">
+      <section class="title title_desctop">
         <div class="title__image-wrapper">
           <img :src="storyArr[0].url" alt="" class="title__image" />
         </div>
         <div class="title__container">
           <p class="title__content">
-            <span class="title__content-name">{{ storyArr[0].name }}: </span
-            ><span class="title__content-text"
-              >«{{ storyArr[0].content }}»</span
-            >
+            <span class="title__content-name">{{ storyArr[0].name }}: </span>
+            <span class="title__content-text">«{{ storyArr[0].content }}»</span>
           </p>
           <div class="title__footer">
             <p class="share" @click="$emit('clickSocial')">
@@ -18,6 +16,21 @@
             </p>
             <p class="title__date">{{ storyArr[0].date }}</p>
           </div>
+        </div>
+      </section>
+      <section class="title title_mobile">
+        <div class="title__image-wrapper">
+          <img :src="storyArr[0].url" alt="" class="title__image" />
+        </div>
+        <p class="title__content">
+          <span class="title__content-name">{{ storyArr[0].name }}: </span>
+          <span class="title__content-text">«{{ storyArr[0].content }}»</span>
+        </p>
+        <div class="title__footer">
+          <p class="share" @click="$emit('clickSocial')">
+            Поделитесь &#8599;
+          </p>
+          <p class="title__date">{{ storyArr[0].date }}</p>
         </div>
       </section>
 
@@ -126,6 +139,8 @@ export default {
 }
 
 .title__image-wrapper {
+  margin-right: 40px;
+  float: left;
   position: relative;
   width: 43.94%;
   padding-bottom: 43.94%;
@@ -165,6 +180,10 @@ export default {
 .main__content {
   max-width: 780px;
   margin: 130px auto 70px;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 30px;
+  color: #000;
 }
 
 .main__share {
@@ -209,7 +228,16 @@ export default {
   text-decoration: none;
 }
 
+.title_mobile {
+  display: none;
+}
+
 @media screen and (max-width: 1280px) {
+  .main__content {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
   .story__content {
     padding: 0 50px 0;
   }
@@ -225,6 +253,11 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
+  .main__content {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
   .title__container {
     max-width: 477px;
     margin-left: 40px;
@@ -238,6 +271,77 @@ export default {
   .title__footer {
     font-size: 16px;
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .title__content {
+    order: 0;
+    margin-bottom: 60px;
+    margin-top: 0;
+  }
+
+  .title__footer {
+    order: 2;
+  }
+
+  .title__image-wrapper {
+    position: relative;
+    width: 65.65%;
+    padding-bottom: 65.65%;
+    margin: 0 auto 60px;
+    order: 1;
+  }
+
+  .story__content {
+    padding: 0 64px 0;
+  }
+
+  .main__content {
+    margin: 100px auto 80px;
+  }
+
+  .main__share {
+    margin-bottom: 120px;
+  }
+
+  .stories__page {
+    margin: 40px 0 80px;
+  }
+
+  .title_desctop {
+    display: none;
+  }
+
+  @media screen and (max-width: 420px) {
+    .main__content {
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+    .title__content {
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    .title__footer {
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .story__content {
+      padding: 0 15px 0;
+    }
+
+    .title__image-wrapper {
+      width: 100%;
+      padding-bottom: 100%;
+    }
   }
 }
 </style>
