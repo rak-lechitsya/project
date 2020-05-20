@@ -42,4 +42,48 @@
   background-position: center;
   transform: translateX(-50%);
 }
+
+@media screen and (max-width: 1350px) {
+  .cover {
+    height: 620px;
+  }
+
+  .cover__heading {
+    font-size: 78px;
+    line-height: 94px;
+  }  
+}
+
+@media screen and (max-width: 1250px) {
+  .cover {
+    height: 540px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .cover {
+    height: 780px;
+  }
+
+  .cover__heading {
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+}
+}
+
+@media screen and (max-width: 1000px) {
+  .cover {
+    height: 480px;
+  }
+
+  .cover__heading {
+    font-size: 36px;
+    line-height: 44px;
+  } 
+
+  .cover__arrow {
+    bottom: 30px;
+  }
+}
 </style>

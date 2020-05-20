@@ -158,7 +158,6 @@
         font-style: normal;
         font-weight: 600;
         line-height: 30px;
-        margin-top:30px;
         margin-bottom: 40px
 
     }
@@ -184,5 +183,120 @@
    .link {
        color: black;
        text-decoration: none;
+   }
+
+   @media screen and (max-width: 1350px) {
+    .policy {
+        padding: 90px 290px 220px;
+    }
+
+    .policy__content {
+        max-width: 700px;
+    }
+
+    .policy__container {
+        min-height: 148px;
+        margin-bottom: 90px;
+    }
+
+    .policy__title {
+        font-size: 34px;
+        max-width: 700px;
+        
+    }
+
+     .policy__subtitle {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .policy__paragraph {
+        font-size: 20px;
+        line-height: 28px;
+    }  
+   }
+
+    @media screen and (max-width: 1250px) {
+    .policy {
+        padding: 80px 192px 210px;
+    }
+
+    .policy__content {
+        max-width: 640px;
+    }
+
+    .policy__container {
+        min-height: 136px;
+        margin-bottom: 80px;
+    }
+
+    .policy__title {
+        font-size: 30px;
+        max-width: 640px;
+        
+    }
+
+     .policy__subtitle {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .policy__paragraph {
+        font-size: 18px;
+        line-height: 27px;
+    }  
+
+    .policy__item {
+        font-size: 18px;
+        line-height: 27px;
+   }
+   }
+
+     @media screen and (max-width: 1000px) {
+    .policy {
+        padding: 64px 80px 190px;
+    }
+
+      .policy__condition {
+        margin-bottom: 40px;
+    }
+   }
+
+   @media screen and (max-width: 700px) {
+    .policy {
+        padding: 50px 15px 140px;
+    }
+
+    .policy__content {
+        max-width: 290px;
+    }
+
+    .policy__container {
+        min-height: 103px;
+        margin-bottom: 40px;
+    }
+
+    .policy__title {
+        font-size: 18px;
+        line-height: 21px;
+        max-width: 290px;
+        margin-top: 20px;   
+    }
+
+     .policy__subtitle {
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+
+    .policy__paragraph {
+        font-size: 13px;
+        line-height: 16px;
+    }  
+
+    .policy__item {
+        font-size: 13px;
+        line-height: 16px;
+   }
    }
 </style>
