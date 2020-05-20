@@ -55,4 +55,17 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media (max-width: 450px) {
+  .popup__content {
+    padding: 15px;
+  }
+
+  .popup__close {
+    top: 15px;
+    right: 15px;
+    background-size: 25px 25px;
+  }
+}
+
 </style>
