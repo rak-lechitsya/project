@@ -1,24 +1,22 @@
 <template>
   <div class="instagram">
     <instagram-content class="instagram__content">
-      <div class="instagram__container">
-        <div class="instagram__text">
-          <h3 class="instagram__title">Инстаграм</h3>
-          <p class="instagram__subtitle">
-            Два раза в неделю мы просматриваем все посты по хештегу
-            #этонелечится. Все истории, где нет нецензурных выражений и
-            запрещенного контента попадают сюда. Следите за правильным
-            написанием хештега, чтобы мы не пропустили вашу историю.
-          </p>
-        </div>
-        <ul class="instagram__pictures">
-          <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
-            <nuxt-link to="#" class="instagram__link"
-              ><insta-item :url="pic.url"
-            /></nuxt-link>
-          </li>
-        </ul>
+      <div class="instagram__text">
+        <h3 class="instagram__title">Инстаграм</h3>
+        <p class="instagram__subtitle">
+          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+          Все истории, где нет нецензурных выражений и запрещенного контента
+          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+          пропустили вашу историю.
+        </p>
       </div>
+      <ul class="instagram__pictures">
+        <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
+          <nuxt-link to="#" class="instagram__link"
+            ><insta-item :url="pic.url"
+          /></nuxt-link>
+        </li>
+      </ul>
     </instagram-content>
   </div>
 </template>
@@ -76,13 +74,12 @@ export default {
 <style scoped>
 .instagram {
   margin: 0 auto;
-  padding: 90px 60px 100px;
+  padding: 90px 0px 100px;
   background-color: white;
   color: black;
 }
 
-.instagram__container {
-  margin-top: 32px;
+.instagram__content {
   display: flex;
   justify-content: space-between;
 }
@@ -113,21 +110,97 @@ export default {
   padding-left: 0;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1350px) {
+  .instagram {
+    padding: 90px 0;
+  }
   .instagram__pictures {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 27px;
+  }
+  .insta__image {
+    width: 171px;
+    height: 171px;
+  }
+  .instagram__title {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+  .instagram__subtitle {
+    max-width: 305px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
+  .instagram {
+    padding: 80px 0px;
+  }
+  .instagram__pictures {
+    grid-gap: 20px;
+  }
+  .insta__image {
+    width: 136px;
+    height: 136px;
+  }
+  .instagram__title {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+  .instagram__subtitle {
+    max-width: 260px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .instagram__content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .insta__image {
+    width: 157px;
+    height: 157px;
+  }
+  .instagram__title {
+    margin-bottom: 26px;
+    text-align: center;
+  }
+  .instagram__subtitle {
+    max-width: 380px;
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .instagram {
+    padding: 60px 0 50px;
+  }
+  .insta__image {
+    width: 140px;
+    height: 140px;
+  }
   .instagram__pictures {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
   }
-}
-
-@media (max-width: 910px) {
-  .instagram__pictures {
-    grid-template-columns: 1fr;
+  .instagram__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 26px;
+    text-align: left;
+  }
+  .instagram__subtitle {
+    max-width: 290px;
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 40px;
   }
 }
 </style>
