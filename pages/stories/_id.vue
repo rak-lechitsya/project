@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="story-page">
     <story-content class="story__content">
       <section class="title title_desctop">
         <div class="title__image-wrapper">
@@ -109,11 +109,6 @@ export default {
 </script>
 
 <style scoped>
-.story__content {
-  max-width: 1440px;
-  padding: 0 60px 0;
-}
-
 .title {
   display: flex;
   justify-content: space-between;
@@ -171,6 +166,7 @@ export default {
   cursor: pointer;
   transition: opacity 0.3s;
   width: fit-content;
+  text-align: center;
 }
 
 .footer__share:hover {
@@ -200,7 +196,7 @@ export default {
 .stories__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 40px 40px;
+  grid-gap: 40px;
   padding: 0;
   list-style-type: none;
 }
@@ -224,6 +220,10 @@ export default {
   background-color: #f8f8f8;
 }
 
+.share:hover {
+  opacity: 0.8;
+}
+
 .stories__link {
   text-decoration: none;
 }
@@ -232,14 +232,24 @@ export default {
   display: none;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1350px) {
   .main__content {
     font-size: 20px;
     line-height: 28px;
+    margin: 120px auto 60px;
   }
 
-  .story__content {
-    padding: 0 50px 0;
+  .stories__list {
+    grid-template-columns: repeat(auto-fill, 265px);
+    grid-gap: 60px 40px;
+  }
+
+  .main__share {
+    margin-bottom: 150px;
+  }
+
+  .stories__page {
+    margin: 60px auto 90px;
   }
 
   .title__container {
@@ -252,10 +262,26 @@ export default {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1250px) {
   .main__content {
     font-size: 18px;
     line-height: 27px;
+    margin: 90px auto 46px;
+  }
+
+  .stories__list {
+    grid-template-columns: repeat(auto-fill, 208px);
+    grid-gap: 46px 30px;
+  }
+
+  .main__share {
+    margin-bottom: 120px;
+    min-height: 72px;
+  }
+
+  .stories__page {
+    margin: 46px auto 80px;
+    min-height: 78px;
   }
 
   .title__container {
@@ -274,10 +300,21 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .title {
     display: flex;
     flex-flow: column;
+  }
+
+  .stories__list {
+    grid-template-columns: repeat(auto-fill, 216px);
+    grid-gap: 40px 20px;
+  }
+
+  .title_mobile {
+    padding-top: 20px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
   }
 
   .title__content {
@@ -298,35 +335,44 @@ export default {
     order: 1;
   }
 
-  .story__content {
-    padding: 0 64px 0;
-  }
-
   .main__content {
     margin: 100px auto 80px;
   }
 
-  .main__share {
-    margin-bottom: 120px;
-  }
-
   .stories__page {
     margin: 40px 0 80px;
+    min-height: 50px;
   }
 
   .title_desctop {
     display: none;
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 700px) {
     .main__content {
       font-size: 13px;
       line-height: 16px;
+      margin: 40px auto;
+    }
+
+    .main__share {
+      margin-bottom: 100px;
+      min-height: 64px;
     }
 
     .title__content {
+      margin-bottom: 30px;
       font-size: 18px;
       line-height: 21px;
+    }
+
+    .stories__list {
+      grid-template-columns: repeat(auto-fill, 290px);
+      grid-gap: 30px 20px;
+    }
+
+    .title {
+      margin-top: 70px;
     }
 
     .title__footer {
@@ -334,13 +380,14 @@ export default {
       margin-bottom: 16px;
     }
 
-    .story__content {
-      padding: 0 15px 0;
+    .stories__page {
+      margin: 40px 0 50px;
     }
 
     .title__image-wrapper {
       width: 100%;
       padding-bottom: 100%;
+      margin: 0 auto 30px;
     }
   }
 }
