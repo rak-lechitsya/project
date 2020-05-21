@@ -11,7 +11,7 @@
             <span class="title__content-text">«{{ storyArr[0].content }}»</span>
           </p>
           <div class="title__footer">
-            <p class="share" @click="$emit('clickSocial')">
+            <p class="share" @click="popupChangeSocial">
               Поделитесь &#8599;
             </p>
             <p class="title__date">{{ storyArr[0].date }}</p>
@@ -27,7 +27,7 @@
           <span class="title__content-text">«{{ storyArr[0].content }}»</span>
         </p>
         <div class="title__footer">
-          <p class="share" @click="$emit('clickSocial')">
+          <p class="share" @click="popupChangeSocial">
             Поделитесь &#8599;
           </p>
           <p class="title__date">{{ storyArr[0].date }}</p>
@@ -42,7 +42,7 @@
           cupiditate ut adipisci asperiores?
         </p>
         <div class="main__share">
-          <p class="share" @click="$emit('clickSocial')">
+          <p class="share" @click="popupChangeSocial">
             Поделитесь этой статьей в своих социальных сетях &#8599;
           </p>
         </div>
@@ -57,19 +57,34 @@
       </ul>
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
+    <popup v-if="popupSocial" @closeClick="popupChangeSocial">
+      <form-social />
+    </popup>
   </div>
 </template>
 
 <script>
 import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
+import Popup from '@/components/Popup';
+import FormSocial from '@/components/FormSocial';
 export default {
   components: {
+    popup: Popup,
     story: Story,
     'story-content': Content,
+    'form-social': FormSocial,
   },
+
+  methods: {
+    popupChangeSocial() {
+      this.popupSocial = !this.popupSocial;
+    },
+  },
+
   data() {
     return {
+      popupSocial: false,
       storyArr: [
         {
           id: '1',
