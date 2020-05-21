@@ -35,4 +35,24 @@ export default {
   height: 100%;
   background: #613a93;
 }
+
+@media (max-width: 1350px) {
+  .progress-bar {
+    min-width: 229px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .progress-bar {
+    min-width: 188px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .progress-bar {
+    min-width: 196px;
+  }
+}
 </style>
