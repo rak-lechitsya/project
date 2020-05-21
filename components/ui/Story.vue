@@ -14,6 +14,7 @@ export default {
 
 <style scoped>
 .story {
+  max-width: 300px;
   display: flex;
   flex-flow: column;
 }
@@ -52,28 +53,18 @@ export default {
   .story__content {
     font-size: 13px;
     line-height: 16px;
+    max-width: 190px;
   }
-}
 
-@media (max-width: 1250px) {
   .story__name {
     padding: 16px 0 16px 0;
     font-size: 18px;
     line-height: 22px;
   }
-}
 
-@media (max-width: 1250px) {
   .story__image {
     width: 208px;
     height: 208px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .story__image {
-    width: 216px;
-    height: 216px;
   }
 }
 
@@ -84,12 +75,16 @@ export default {
     font-size: 18px;
     line-height: 22px;
   }
-}
 
-@media (max-width: 1000px) {
   .story__content {
     font-size: 13px;
     line-height: 16px;
+    max-width: 200px;
+  }
+
+  .story__image {
+    width: 216px;
+    height: 216px;
   }
 }
 
@@ -97,6 +92,10 @@ export default {
   .story__image {
     width: 290px;
     height: 290px;
+  }
+
+  .story__content {
+    max-width: 290px;
   }
 }
 </style>
