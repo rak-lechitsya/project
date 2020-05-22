@@ -3,88 +3,78 @@
     <story-content class="story__content">
       <section class="title title_desctop">
         <div class="title__image-wrapper">
-          <img :src="storyArr[0].url" alt="" class="title__image" />
+          <img
+            :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
+            alt=""
+            class="title__image"
+          />
         </div>
         <div class="title__container">
           <p class="title__content">
-            <span class="title__content-name">{{ storyArr[0].name }}: </span>
-            <span class="title__content-text">«{{ storyArr[0].content }}»</span>
+            <span class="title__content-name">{{ story.author }}: </span>
+            <span class="title__content-text">«{{ story.title }}»</span>
           </p>
           <div class="title__footer">
             <p class="share" @click="toggleSocialPopup">
               Поделитесь &#8599;
             </p>
-            <p class="title__date">{{ storyArr[0].date }}</p>
+            <p class="title__date">{{ story.date }}</p>
           </div>
         </div>
       </section>
       <section class="title title_mobile">
         <div class="title__image-wrapper">
-          <img :src="storyArr[0].url" alt="" class="title__image" />
+          <img alt="" class="title__image" />
         </div>
         <p class="title__content">
-          <span class="title__content-name">{{ storyArr[0].name }}: </span>
-          <span class="title__content-text">«{{ storyArr[0].content }}»</span>
+          <span class="title__content-name">{{ story.author }}: </span>
+          <span class="title__content-text">«{{ story.title }}»</span>
         </p>
         <div class="title__footer">
           <p class="share" @click="toggleSocialPopup">
             Поделитесь &#8599;
           </p>
-          <p class="title__date">{{ storyArr[0].date }}</p>
+          <p class="title__date">{{ story.date }}</p>
         </div>
       </section>
 
       <section class="main">
-        <p class="main__content">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
-          similique totam nesciunt atque dolores enim deleniti autem quisquam
-          sit! Dolorum nemo accusantium dignissimos recusandae autem vel
-          cupiditate ut adipisci asperiores?
-        </p>
+        <p class="main__content" v-html="story.text"></p>
         <div class="main__share">
           <p class="share" @click="toggleSocialPopup">
             Поделитесь этой статьей в своих социальных сетях &#8599;
           </p>
         </div>
       </section>
-
-      <ul class="stories__list">
-        <li v-for="card in storyArr" :key="card.id" class="story__item">
-          <story
-            :url="card.url"
-            :name="card.name"
-            :content="card.content"
-            @storyClick="goToStory(card.id)"
-          />
-        </li>
-      </ul>
+      <stories-grid class="stories__list" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </div>
 </template>
 
 <script>
-import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
+import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
   components: {
-    story: Story,
     'story-content': Content,
+    'stories-grid': StoriesGrid,
   },
 
   methods: {
     toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
-    goToStory(id) {
-      this.$router.push(`/stories/${id}`);
-    },
   },
 
   computed: {
-    storyArr() {
-      return this.$store.getters['stories/getStoryArr'];
+    story() {
+      return this.$store.getters['stories/getCurrentStory'];
     },
+  },
+
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
   },
 
   data() {

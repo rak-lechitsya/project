@@ -1,14 +1,18 @@
 <template>
   <div class="story" @click="$emit('storyClick')">
-    <img :src="url" :alt="name" class="story__image" />
-    <h2 class="story__name">{{ name }}</h2>
-    <p class="story__content">{{ content }}</p>
+    <img
+      :src="`https://strapi.kruzhok.io${url}`"
+      :alt="author"
+      class="story__image"
+    />
+    <h2 class="story__name">{{ author }}</h2>
+    <p class="story__content">{{ title }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['url', 'name', 'content'],
+  props: ['url', 'author', 'title'],
 };
 </script>
 

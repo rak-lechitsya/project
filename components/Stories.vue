@@ -2,43 +2,25 @@
   <section class="stories">
     <stories-content class="stories__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
-      <ul class="stories__list">
-        <li v-for="card in storyArr" :key="card.id" class="stories__item">
-          <story
-            :url="card.url"
-            :name="card.name"
-            :content="card.content"
-            @storyClick="goToStory(card.id)"
-          />
-        </li>
-      </ul>
+      <stories-grid class="stories__list" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </stories-content>
   </section>
 </template>
 
 <script>
-import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
   components: {
-    story: Story,
     'input-stories': Input,
     'stories-content': Content,
     'input-button': Button,
+    'stories-grid': StoriesGrid,
   },
-  methods: {
-    goToStory(id) {
-      this.$router.push(`/stories/${id}`);
-    },
-  },
-  computed: {
-    storyArr() {
-      return this.$store.getters['stories/getStoryArr'];
-    },
-  },
+
   data() {
     return {
       textButtonForm: 'Поиск',

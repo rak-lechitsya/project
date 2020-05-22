@@ -12,45 +12,27 @@
           :text="textButtonForm"
         ></input-button>
       </div>
-      <ul class="stories__list">
-        <li v-for="card in storyArr" :key="card.id" class="story__item">
-          <story
-            :url="card.url"
-            :name="card.name"
-            :content="card.content"
-            @storyClick="goToStory(card.id)"
-          />
-        </li>
-      </ul>
+      <stories-grid class="stories__list" />
       <pages class="stories__menu"></pages>
     </story-content>
   </section>
 </template>
 
 <script>
-import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Pages from '@/components/ui/Pages';
+import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
   components: {
-    story: Story,
     pages: Pages,
     'input-stories': Input,
     'story-content': Content,
     'input-button': Button,
+    'stories-grid': StoriesGrid,
   },
-  methods: {
-    goToStory(id) {
-      this.$router.push(`/stories/${id}`);
-    },
-  },
-  computed: {
-    storyArr() {
-      return this.$store.getters['stories/getStoryArr'];
-    },
-  },
+
   data() {
     return {
       textButtonForm: 'Поиск',

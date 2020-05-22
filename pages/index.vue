@@ -60,6 +60,10 @@ export default {
       textBg: 'рассказывайте ваши истории в инстаграм',
     };
   },
+
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStoryArr');
+  },
 };
 </script>
 
