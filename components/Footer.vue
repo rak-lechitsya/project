@@ -24,7 +24,7 @@
               Youtube</a
             >
           </p>
-          <p class="footer__share" @click="showSocialPopup">
+          <p class="footer__share" @click="toggleSocialPopup">
             Поделитесь &#8599;
           </p>
         </div>
@@ -59,7 +59,7 @@ export default {
     };
   },
   methods: {
-    showSocialPopup() {
+    toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
   },

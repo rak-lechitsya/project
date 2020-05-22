@@ -43,13 +43,13 @@
             <share-button
               v-if="toggle === true"
               :text="textButtonForm"
-              @btnClick="showStoryPopup"
+              @btnClick="toggleStoryPopup"
               class="share__text-button"
             />
             <share-button
               v-if="toggle === false"
               :text="textButtonContact"
-              @btnClick="showContactsPopup"
+              @btnClick="toggleContactsPopup"
               class="share__text-button"
             />
           </div>
@@ -81,10 +81,10 @@ export default {
     toggleSecondSpan() {
       this.toggle = false;
     },
-    showContactsPopup() {
+    toggleContactsPopup() {
       this.$store.commit('popup/toggleContactsPopup');
     },
-    showStoryPopup() {
+    toggleStoryPopup() {
       this.$store.commit('popup/toggleStoryPopup');
     },
   },

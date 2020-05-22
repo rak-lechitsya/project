@@ -11,7 +11,7 @@
             <span class="title__content-text">«{{ storyArr[0].content }}»</span>
           </p>
           <div class="title__footer">
-            <p class="share" @click="showSocialPopup">
+            <p class="share" @click="toggleSocialPopup">
               Поделитесь &#8599;
             </p>
             <p class="title__date">{{ storyArr[0].date }}</p>
@@ -27,7 +27,7 @@
           <span class="title__content-text">«{{ storyArr[0].content }}»</span>
         </p>
         <div class="title__footer">
-          <p class="share" @click="showSocialPopup">
+          <p class="share" @click="toggleSocialPopup">
             Поделитесь &#8599;
           </p>
           <p class="title__date">{{ storyArr[0].date }}</p>
@@ -42,7 +42,7 @@
           cupiditate ut adipisci asperiores?
         </p>
         <div class="main__share">
-          <p class="share" @click="showSocialPopup">
+          <p class="share" @click="toggleSocialPopup">
             Поделитесь этой статьей в своих социальных сетях &#8599;
           </p>
         </div>
@@ -73,7 +73,7 @@ export default {
   },
 
   methods: {
-    showSocialPopup() {
+    toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
     goToStory(id) {

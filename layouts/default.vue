@@ -3,10 +3,10 @@
     <my-header />
     <nuxt />
     <my-footer />
-    <popup v-if="popupStoryShown" @closeClick="showStoryPopup">
+    <popup v-if="popupStoryShown" @closeClick="toggleStoryPopup">
       <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
     </popup>
-    <popup v-if="popupSocialShown" @closeClick="showSocialPopup">
+    <popup v-if="popupSocialShown" @closeClick="toggleSocialPopup">
       <social />
     </popup>
   </div>
@@ -35,10 +35,10 @@ export default {
     },
   },
   methods: {
-    showStoryPopup() {
+    toggleStoryPopup() {
       this.$store.commit('popup/toggleStoryPopup');
     },
-    showSocialPopup() {
+    toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
   },

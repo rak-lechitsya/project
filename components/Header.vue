@@ -11,7 +11,7 @@
         <header-button
           class="main-header__button"
           :text="textButtonMenu"
-          @btnClick="showStoryPopup"
+          @btnClick="toggleStoryPopup"
         />
       </div>
     </header-content>
@@ -34,7 +34,7 @@ export default {
     };
   },
   methods: {
-    showStoryPopup() {
+    toggleStoryPopup() {
       this.$store.commit('popup/toggleStoryPopup');
     },
   },

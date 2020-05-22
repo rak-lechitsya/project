@@ -9,7 +9,7 @@
     <share />
     <statistics />
     <about />
-    <popup v-if="popupContactsShown" @closeClick="showContactsPopup">
+    <popup v-if="popupContactsShown" @closeClick="toggleContactsPopup">
       <form-contacts />
     </popup>
   </div>
@@ -47,7 +47,7 @@ export default {
   },
 
   methods: {
-    showContactsPopup() {
+    toggleContactsPopup() {
       this.$store.commit('popup/toggleContactsPopup');
     },
   },
