@@ -1,6 +1,6 @@
 <template>
-  <div class="banner__background">
-    <div class="banner">
+  <div class="banner">
+    <div class="banner__background">
       <h2 class="banner__text">
         {{ text }}<span class="banner__hashtag"> #этонелечится</span>
       </h2>
@@ -15,11 +15,11 @@ export default {
 </script>
 
 <style scoped>
-.banner__background {
+.banner {
   padding: 0 60px;
 }
 
-.banner {
+.banner__background {
   padding: 20px 20px;
   margin: 0 auto;
   max-width: 1320px;
@@ -43,11 +43,11 @@ export default {
 }
 
 @media (max-width: 599px) {
-  .banner {
+  .banner__background {
     padding: 10px 20px;
   }
 
-  .banner__background {
+  .banner {
     padding: 0 15px;
   }
 
@@ -64,11 +64,11 @@ export default {
 }
 
 @media (min-width: 600px) and (max-width: 799px) {
-  .banner {
+  .banner__background {
     padding: 12px 65px;
   }
 
-  .banner__background {
+  .banner {
     padding: 0 40px;
   }
 
@@ -83,7 +83,7 @@ export default {
 }
 
 @media (min-width: 800px) and (max-width: 1199px) {
-  .banner__background {
+  .banner {
     padding: 0 50px;
   }
 
@@ -98,7 +98,7 @@ export default {
 }
 
 @media (min-width: 1200px) and (max-width: 1300px) {
-  .banner__background {
+  .banner {
     padding: 0 50px;
   }
 

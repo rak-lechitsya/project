@@ -1,5 +1,5 @@
 <template>
-  <form class="form" id="form" name="form" method="post" action="#">
+  <form class="form" id="form" name="form">
     <h3 class="form__title">{{ title }}</h3>
     <fieldset class="form__fieldset">
       <legend class="form__subtitle">{{ subtitle }}</legend>

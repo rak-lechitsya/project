@@ -105,7 +105,7 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
-  color: #000000;
+  color: #000;
   text-decoration: none;
   display: flex;
   justify-content: center;

@@ -1,9 +1,11 @@
 <template>
   <header class="main-header">
     <header-content class="main-header__content">
-      <h3 class="main-header__logo">
-        Проект Благотворительного Фонда Константина Хабенского
-      </h3>
+      <nuxt-link to="/" class="main-header__logo-container">
+        <h3 class="main-header__logo">
+          Проект Благотворительного Фонда Константина Хабенского
+        </h3>
+      </nuxt-link>
       <div class="main-header__container">
         <main-menu
           class="main-header__menu"
@@ -53,11 +55,15 @@ export default {
 }
 
 .main-header__logo {
-  width: 340px;
+  width: 290px;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   color: black;
+}
+
+.main-header__logo-container {
+  text-decoration: none;
 }
 
 .main-header__container {

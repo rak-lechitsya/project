@@ -2,7 +2,12 @@
   <div class="instagram">
     <instagram-content class="instagram__content">
       <div class="instagram__text">
-        <h3 class="instagram__title">Инстаграм</h3>
+        <a
+          href="https://www.instagram.com/raklechitsa/"
+          target="_blank"
+          class="instagram__link"
+          ><h3 class="instagram__title">Инстаграм</h3></a
+        >
         <p class="instagram__subtitle">
           Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
           Все истории, где нет нецензурных выражений и запрещенного контента
@@ -12,9 +17,9 @@
       </div>
       <ul class="instagram__pictures">
         <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
-          <nuxt-link to="#" class="instagram__link"
+          <a href="#" target="_blank" class="instagram__link"
             ><insta-item :url="pic.url"
-          /></nuxt-link>
+          /></a>
         </li>
       </ul>
     </instagram-content>

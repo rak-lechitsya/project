@@ -58,7 +58,7 @@
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
     <popup v-if="popupSocial" @closeClick="popupChangeSocial">
-      <form-social />
+      <social />
     </popup>
   </div>
 </template>
@@ -67,13 +67,13 @@
 import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
 import Popup from '@/components/Popup';
-import FormSocial from '@/components/FormSocial';
+import Social from '@/components/Social';
 export default {
   components: {
     popup: Popup,
     story: Story,
     'story-content': Content,
-    'form-social': FormSocial,
+    social: Social,
   },
 
   methods: {

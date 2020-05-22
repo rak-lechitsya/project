@@ -1,16 +1,16 @@
 <template>
   <section class="stories">
-    <story-content class="story__content">
+    <stories-content class="stories__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
       <ul class="stories__list">
-        <li v-for="card in storyArr" :key="card.id" class="story__item">
+        <li v-for="card in storyArr" :key="card.id" class="stories__item">
           <nuxt-link to="/stories/card.id" class="stories__link"
             ><story :url="card.url" :name="card.name" :content="card.content"
           /></nuxt-link>
         </li>
       </ul>
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
-    </story-content>
+    </stories-content>
   </section>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   components: {
     story: Story,
     'input-stories': Input,
-    'story-content': Content,
+    'stories-content': Content,
     'input-button': Button,
   },
   data() {
