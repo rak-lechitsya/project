@@ -23,10 +23,10 @@
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-        <figcaption class="captiontext">
+        <figcaption class="video__captiontext">
           Все видео вы можете найте на нашем
           <a
-            class="link"
+            class="video__link"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
             target="_blank"
             >YouTube канале</a
@@ -117,13 +117,13 @@ export default {
   opacity: 0.8;
 }
 
-.captiontext {
+.video__captiontext {
   font-size: 12px;
   line-height: 16px;
   color: #666666;
 }
 
-.link {
+.video__link {
   color: #666666;
   transition: opacity 0.3s;
 }
@@ -270,7 +270,7 @@ export default {
     max-width: 310px;
   }
 
-  .captiontext {
+  .video__captiontext {
     visibility: hidden;
   }
 

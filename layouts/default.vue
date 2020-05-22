@@ -7,7 +7,7 @@
       <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
     </popup>
     <popup v-if="popupSocial" @closeClick="popupChangeSocial">
-      <form-social />
+      <social />
     </popup>
   </div>
 </template>
@@ -17,14 +17,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Popup from '@/components/Popup';
 import Form from '@/components/Form';
-import FormSocial from '@/components/FormSocial';
+import Social from '@/components/Social';
 export default {
   components: {
     'my-header': Header,
     popup: Popup,
     'my-footer': Footer,
     'my-form': Form,
-    'form-social': FormSocial,
+    social: Social,
   },
 
   methods: {

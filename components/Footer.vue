@@ -6,7 +6,7 @@
           Спасибо всем, кто помог состояться этому проекту
         </h3>
         <my-menu class="footer__links" />
-        <nav class="footer__links-social">
+        <div class="footer__links-social">
           <p>
             Мы в
             <a
@@ -27,7 +27,7 @@
           <p class="footer__share" @click="$emit('clickSocial')">
             Поделитесь &#8599;
           </p>
-        </nav>
+        </div>
       </div>
       <div class="footer__author">
         <p class="footer__year">Рак лечится {{ year }}</p>

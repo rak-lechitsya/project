@@ -1,12 +1,19 @@
 <template>
-  <section class="cover">
+  <section class="cover" ref="cover">
     <h1 class="cover__heading">#раклечится</h1>
-    <div class="cover__arrow"></div>
+    <button @click="scroll" class="cover__arrow"></button>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    scroll() {
+      const intro = this.$refs.cover.nextElementSibling;
+      intro.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -31,16 +38,26 @@ export default {};
 }
 
 .cover__arrow {
+  margin: 0;
+  padding: 0;
+  width: 54px;
+  height: 31px;
+  border: none;
   position: absolute;
-  width: 36px;
-  height: 12px;
+  bottom: 32px;
   left: 50%;
-  bottom: 40px;
-  background-image: url('/cover-row.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   transform: translateX(-50%);
+  background-color: transparent;
+  background-image: url('/cover-row.svg');
+  background-size: 38px 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.cover__arrow:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 1350px) {

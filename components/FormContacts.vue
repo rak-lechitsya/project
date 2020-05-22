@@ -1,11 +1,5 @@
 <template>
-  <form
-    class="form"
-    id="form-contacts"
-    name="form-contacts"
-    method="post"
-    action="#"
-  >
+  <form class="form" id="form-contacts" name="form-contacts">
     <h3 class="form__title">Оставьте контакт для связи</h3>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории

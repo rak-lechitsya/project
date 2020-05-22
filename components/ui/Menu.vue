@@ -1,21 +1,27 @@
 <template>
   <nav class="menu">
-    <nuxt-link
-      to="/"
-      :class="[
-        'menu__link',
-        { 'menu__link_is_not-active': $route.path !== '/' },
-      ]"
-      >Главная</nuxt-link
-    >
-    <nuxt-link
-      to="/stories"
-      :class="[
-        'menu__link',
-        { 'menu__link_is_not-active': $route.path !== '/stories' },
-      ]"
-      >Истории</nuxt-link
-    >
+    <ul class="menu__list">
+      <li class="menu__item">
+        <nuxt-link
+          to="/"
+          :class="[
+            'menu__link',
+            { 'menu__link_is_not-active': $route.path !== '/' },
+          ]"
+          >Главная</nuxt-link
+        >
+      </li>
+      <li class="menu__item">
+        <nuxt-link
+          to="/stories"
+          :class="[
+            'menu__link',
+            { 'menu__link_is_not-active': $route.path !== '/stories' },
+          ]"
+          >Истории</nuxt-link
+        >
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -24,8 +30,13 @@ export default {};
 </script>
 
 <style scoped>
-.menu {
+.menu__list {
+  list-style-type: none;
   display: flex;
+}
+
+.menu__item {
+  margin-right: 40px;
 }
 
 .menu__link {
@@ -33,9 +44,7 @@ export default {};
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  margin-right: 40px;
   text-decoration: underline;
-  cursor: default;
   transition: opacity 0.3s;
 }
 
@@ -43,13 +52,12 @@ export default {};
   opacity: 0.8;
 }
 
-.menu__link:last-child {
+.menu__item:last-child {
   margin-right: 0;
 }
 
 .menu__link_is_not-active {
   text-decoration: none;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 1350px) {
