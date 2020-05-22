@@ -17,6 +17,8 @@ export default {
   max-width: 300px;
   display: flex;
   flex-flow: column;
+  cursor: pointer;
+  transition: all 0.4s;
 }
 
 .story__image {
@@ -40,6 +42,10 @@ export default {
   font-size: 14px;
   line-height: 18px;
   color: #666;
+}
+
+.story:hover {
+  transform: translate(0, -5px);
 }
 
 @media (max-width: 1350px) {
