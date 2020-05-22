@@ -2,12 +2,14 @@
   <div class="instagram">
     <instagram-content class="instagram__content">
       <div class="instagram__text">
-        <a
-          href="https://www.instagram.com/raklechitsa/"
-          target="_blank"
-          class="instagram__link"
-          ><h3 class="instagram__title">Инстаграм</h3></a
-        >
+        <h3 class="instagram__title">
+          <a
+            href="https://www.instagram.com/raklechitsa/"
+            target="_blank"
+            class="instagram__title-link"
+            >Инстаграм</a
+          >
+        </h3>
         <p class="instagram__subtitle">
           Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
           Все истории, где нет нецензурных выражений и запрещенного контента
@@ -90,13 +92,17 @@ export default {
 }
 
 .instagram__title {
-  text-decoration: underline;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
   margin-bottom: 32px;
   margin-top: 0;
   color: black;
+}
+
+.instagram__title-link {
+  color: black;
+  transition: opacity 0.3s;
 }
 
 .instagram__subtitle {
@@ -113,6 +119,10 @@ export default {
   grid-gap: 30px;
   list-style: none;
   padding-left: 0;
+}
+
+.instagram__title-link:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 1350px) {
