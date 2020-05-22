@@ -24,7 +24,7 @@
               Youtube</a
             >
           </p>
-          <p class="footer__share" @click="$emit('clickSocial')">
+          <p class="footer__share" @click="showSocialPopup">
             Поделитесь &#8599;
           </p>
         </div>
@@ -57,6 +57,11 @@ export default {
     return {
       year: new Date().getFullYear(),
     };
+  },
+  methods: {
+    showSocialPopup() {
+      this.$store.commit('popup/toggleSocialPopup');
+    },
   },
 };
 </script>
