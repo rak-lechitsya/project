@@ -1,5 +1,5 @@
 <template>
-  <div class="story">
+  <div class="story" @click="$emit('storyClick')">
     <img :src="url" :alt="name" class="story__image" />
     <h2 class="story__name">{{ name }}</h2>
     <p class="story__content">{{ content }}</p>

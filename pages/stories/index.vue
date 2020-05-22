@@ -14,9 +14,12 @@
       </div>
       <ul class="stories__list">
         <li v-for="card in storyArr" :key="card.id" class="story__item">
-          <nuxt-link to="/stories/card.id" class="stories__link"
-            ><story :url="card.url" :name="card.name" :content="card.content"
-          /></nuxt-link>
+          <story
+            :url="card.url"
+            :name="card.name"
+            :content="card.content"
+            @storyClick="goToStory(card.id)"
+          />
         </li>
       </ul>
       <pages class="stories__menu"></pages>
@@ -37,6 +40,11 @@ export default {
     'input-stories': Input,
     'story-content': Content,
     'input-button': Button,
+  },
+  methods: {
+    goToStory(id) {
+      this.$router.push(`/stories/${id}`);
+    },
   },
   data() {
     return {
