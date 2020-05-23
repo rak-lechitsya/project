@@ -19,6 +19,7 @@ export default {};
 .menu__list {
   list-style-type: none;
   display: flex;
+  padding: 0;
 }
 
 .menu__item {
@@ -50,15 +51,41 @@ export default {};
   margin-right: 0;
 }
 
-@media screen and (max-width: 1350px) {
+@media (max-width: 1350px) {
   .menu__link {
     font-size: 16px;
   }
 }
 
-@media screen and (max-width: 1250px) {
-  .menu__link {
+@media (max-width: 1250px) {
+  .menu__item {
     margin-right: 30px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .menu__list {
+    flex-direction: column;
+  }
+
+  .menu__item {
+    margin-left: 0;
+    margin-bottom: 18px;
+  }
+
+  .menu__item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu__item {
+    margin-left: 0;
+    margin-bottom: 18px;
+  }
+
+  .menu__item:last-child {
+    margin-bottom: 0;
   }
 }
 </style>
