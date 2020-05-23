@@ -7,14 +7,11 @@
         </h3>
       </nuxt-link>
       <div class="main-header__container">
-        <main-menu
-          class="main-header__menu"
-          @btnClick="$emit('btnClick')"
-        ></main-menu>
+        <main-menu class="main-header__menu" />
         <header-button
           class="main-header__button"
           :text="textButtonMenu"
-          @btnClick="$emit('btnClick')"
+          @btnClick="toggleStoryPopup"
         />
       </div>
     </header-content>
@@ -35,6 +32,11 @@ export default {
     return {
       textButtonMenu: 'Рассказать историю',
     };
+  },
+  methods: {
+    toggleStoryPopup() {
+      this.$store.commit('popup/toggleStoryPopup');
+    },
   },
 };
 </script>

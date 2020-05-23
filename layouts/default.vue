@@ -1,12 +1,12 @@
 <template>
   <div>
-    <my-header @btnClick="popupChange" />
+    <my-header />
     <nuxt />
-    <my-footer @clickSocial="popupChangeSocial" />
-    <popup v-if="popupShown" @closeClick="popupChange">
+    <my-footer />
+    <popup v-if="popupStoryShown" @closeClick="toggleStoryPopup">
       <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
     </popup>
-    <popup v-if="popupSocial" @closeClick="popupChangeSocial">
+    <popup v-if="popupSocialShown" @closeClick="toggleSocialPopup">
       <social />
     </popup>
   </div>
@@ -26,21 +26,21 @@ export default {
     'my-form': Form,
     social: Social,
   },
-
-  methods: {
-    popupChange() {
-      this.popupShown = !this.popupShown;
+  computed: {
+    popupStoryShown() {
+      return this.$store.getters['popup/getPopupStoryShown'];
     },
-    popupChangeSocial() {
-      this.popupSocial = !this.popupSocial;
+    popupSocialShown() {
+      return this.$store.getters['popup/getPopupSocialShown'];
     },
   },
-
-  data() {
-    return {
-      popupShown: false,
-      popupSocial: false,
-    };
+  methods: {
+    toggleStoryPopup() {
+      this.$store.commit('popup/toggleStoryPopup');
+    },
+    toggleSocialPopup() {
+      this.$store.commit('popup/toggleSocialPopup');
+    },
   },
 };
 </script>

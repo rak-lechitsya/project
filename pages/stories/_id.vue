@@ -3,121 +3,84 @@
     <story-content class="story__content">
       <section class="title title_desctop">
         <div class="title__image-wrapper">
-          <img :src="storyArr[0].url" alt="" class="title__image" />
+          <img
+            :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
+            alt=""
+            class="title__image"
+          />
         </div>
         <div class="title__container">
           <p class="title__content">
-            <span class="title__content-name">{{ storyArr[0].name }}: </span>
-            <span class="title__content-text">«{{ storyArr[0].content }}»</span>
+            <span class="title__content-name">{{ story.author }}: </span>
+            <span class="title__content-text">«{{ story.title }}»</span>
           </p>
           <div class="title__footer">
-            <p class="share" @click="popupChangeSocial">
+            <p class="share" @click="toggleSocialPopup">
               Поделитесь &#8599;
             </p>
-            <p class="title__date">{{ storyArr[0].date }}</p>
+            <p class="title__date">{{ story.date }}</p>
           </div>
         </div>
       </section>
       <section class="title title_mobile">
         <div class="title__image-wrapper">
-          <img :src="storyArr[0].url" alt="" class="title__image" />
+          <img alt="" class="title__image" />
         </div>
         <p class="title__content">
-          <span class="title__content-name">{{ storyArr[0].name }}: </span>
-          <span class="title__content-text">«{{ storyArr[0].content }}»</span>
+          <span class="title__content-name">{{ story.author }}: </span>
+          <span class="title__content-text">«{{ story.title }}»</span>
         </p>
         <div class="title__footer">
-          <p class="share" @click="popupChangeSocial">
+          <p class="share" @click="toggleSocialPopup">
             Поделитесь &#8599;
           </p>
-          <p class="title__date">{{ storyArr[0].date }}</p>
+          <p class="title__date">{{ story.date }}</p>
         </div>
       </section>
 
       <section class="main">
-        <p class="main__content">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
-          similique totam nesciunt atque dolores enim deleniti autem quisquam
-          sit! Dolorum nemo accusantium dignissimos recusandae autem vel
-          cupiditate ut adipisci asperiores?
-        </p>
+        <p class="main__content" v-html="story.text"></p>
         <div class="main__share">
-          <p class="share" @click="popupChangeSocial">
+          <p class="share" @click="toggleSocialPopup">
             Поделитесь этой статьей в своих социальных сетях &#8599;
           </p>
         </div>
       </section>
-
-      <ul class="stories__list">
-        <li v-for="card in storyArr" :key="card.id" class="story__item">
-          <nuxt-link to="/stories/card.id" class="stories__link"
-            ><story :url="card.url" :name="card.name" :content="card.content"
-          /></nuxt-link>
-        </li>
-      </ul>
+      <stories-grid class="stories__list" :start="0" :limit="4" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
-    <popup v-if="popupSocial" @closeClick="popupChangeSocial">
-      <social />
-    </popup>
   </div>
 </template>
 
 <script>
-import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
-import Popup from '@/components/Popup';
-import Social from '@/components/Social';
+import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
   components: {
-    popup: Popup,
-    story: Story,
     'story-content': Content,
-    social: Social,
+    'stories-grid': StoriesGrid,
   },
 
   methods: {
-    popupChangeSocial() {
-      this.popupSocial = !this.popupSocial;
+    toggleSocialPopup() {
+      this.$store.commit('popup/toggleSocialPopup');
     },
+  },
+
+  computed: {
+    story() {
+      return this.$store.getters['stories/getCurrentStory'];
+    },
+  },
+
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
+    await store.dispatch('stories/fetchStoryArr');
   },
 
   data() {
     return {
       popupSocial: false,
-      storyArr: [
-        {
-          id: '1',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-          date: '20 апреля 2018',
-        },
-        {
-          id: '2',
-          name: 'Владимир Познер',
-          content: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          url:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-        },
-        {
-          id: '3',
-          name: 'Александр Тарханов',
-          content: 'Я не могу победить свою пунктуальность в отличии от рака.',
-          url:
-            'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png',
-        },
-        {
-          id: '4',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-      ],
     };
   },
 };

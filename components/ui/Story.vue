@@ -1,14 +1,18 @@
 <template>
-  <div class="story">
-    <img :src="url" :alt="name" class="story__image" />
-    <h2 class="story__name">{{ name }}</h2>
-    <p class="story__content">{{ content }}</p>
+  <div class="story" @click="$emit('storyClick')">
+    <img
+      :src="`https://strapi.kruzhok.io${url}`"
+      :alt="author"
+      class="story__image"
+    />
+    <h2 class="story__name">{{ author }}</h2>
+    <p class="story__content">{{ title }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['url', 'name', 'content'],
+  props: ['url', 'author', 'title'],
 };
 </script>
 
@@ -17,6 +21,8 @@ export default {
   max-width: 300px;
   display: flex;
   flex-flow: column;
+  cursor: pointer;
+  transition: all 0.4s;
 }
 
 .story__image {
@@ -40,6 +46,10 @@ export default {
   font-size: 14px;
   line-height: 18px;
   color: #666;
+}
+
+.story:hover {
+  transform: translate(0, -5px);
 }
 
 @media (max-width: 1350px) {

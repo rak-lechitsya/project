@@ -6,13 +6,10 @@
     <stories />
     <banner :text="textBg" />
     <instagram />
-    <share @btnClick="popupChange" @btnClickContacts="popupChangeContacts" />
+    <share />
     <statistics />
     <about />
-    <popup v-if="popupShown" @closeClick="popupChange">
-      <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
-    </popup>
-    <popup v-if="popupContacts" @closeClick="popupChangeContacts">
+    <popup v-if="popupContactsShown" @closeClick="toggleContactsPopup">
       <form-contacts />
     </popup>
   </div>
@@ -28,7 +25,6 @@ import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
 import Banner from '@/components/ui/Banner';
 import Popup from '@/components/Popup';
-import Form from '@/components/Form';
 import FormContacts from '@/components/FormContacts';
 export default {
   components: {
@@ -41,16 +37,18 @@ export default {
     statistics: Statistics,
     banner: Banner,
     popup: Popup,
-    'my-form': Form,
     'form-contacts': FormContacts,
   },
 
-  methods: {
-    popupChange() {
-      this.popupShown = !this.popupShown;
+  computed: {
+    popupContactsShown() {
+      return this.$store.getters['popup/getPopupContactsShown'];
     },
-    popupChangeContacts() {
-      this.popupContacts = !this.popupContacts;
+  },
+
+  methods: {
+    toggleContactsPopup() {
+      this.$store.commit('popup/toggleContactsPopup');
     },
   },
 
@@ -61,6 +59,10 @@ export default {
       textSml: 'И в отличии от рака,',
       textBg: 'рассказывайте ваши истории в инстаграм',
     };
+  },
+
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStoryArr');
   },
 };
 </script>

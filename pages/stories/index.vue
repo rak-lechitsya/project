@@ -12,163 +12,36 @@
           :text="textButtonForm"
         ></input-button>
       </div>
-      <ul class="stories__list">
-        <li v-for="card in storyArr" :key="card.id" class="story__item">
-          <nuxt-link to="/stories/card.id" class="stories__link"
-            ><story :url="card.url" :name="card.name" :content="card.content"
-          /></nuxt-link>
-        </li>
-      </ul>
+      <stories-grid class="stories__list" />
       <pages class="stories__menu"></pages>
     </story-content>
   </section>
 </template>
 
 <script>
-import Story from '@/components/ui/Story';
 import Content from '@/components/ui/Content';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Pages from '@/components/ui/Pages';
+import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
   components: {
-    story: Story,
     pages: Pages,
     'input-stories': Input,
     'story-content': Content,
     'input-button': Button,
+    'stories-grid': StoriesGrid,
   },
+
   data() {
     return {
       textButtonForm: 'Поиск',
       storiesName: '',
-      storyArr: [
-        {
-          id: '1',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '2',
-          name: 'Владимир Познер',
-          content: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          url:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-        },
-        {
-          id: '3',
-          name: 'Александр Тарханов',
-          content: 'Я не могу победить свою пунктуальность в отличии от рака.',
-          url:
-            'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png',
-        },
-        {
-          id: '4',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '5',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '6',
-          name: 'Владимир Познер',
-          content: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          url:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-        },
-        {
-          id: '7',
-          name: 'Александр Тарханов',
-          content: 'Я не могу победить свою пунктуальность в отличии от рака.',
-          url:
-            'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png',
-        },
-        {
-          id: '8',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '9',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '10',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '11',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '12',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '13',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '14',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '15',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          id: '16',
-          name: 'Владимир Тен',
-          content:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-      ],
     };
+  },
+
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStoryArr');
   },
 };
 </script>
