@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mobile-menu class="mobile-menu" />
+    <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu" />
     <my-header />
     <nuxt />
     <my-footer />
@@ -35,6 +35,9 @@ export default {
     },
     popupSocialShown() {
       return this.$store.getters['popup/getPopupSocialShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
   },
   methods: {

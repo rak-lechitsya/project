@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .mobile-menu {
-  padding: 18px 50px 0;
+  padding: 18px 50px 18px;
 }
 
 .mobile-menu__list {
@@ -91,7 +91,7 @@ export default {
 
 @media (max-width: 700px) {
   .mobile-menu {
-    padding: 18px 15px 0;
+    padding: 18px 15px 18px;
   }
 
   .mobile-menu__list {

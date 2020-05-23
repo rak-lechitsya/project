@@ -14,6 +14,7 @@
           @btnClick="toggleStoryPopup"
         />
       </div>
+      <mobile-icon class="main-header__mobile-icon" />
     </header-content>
   </header>
 </template>
@@ -22,11 +23,13 @@
 import Content from '@/components/ui/Content';
 import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
+import MobileIcon from '@/components/ui/MobileIcon';
 export default {
   components: {
     'header-content': Content,
     'main-menu': Menu,
     'header-button': Button,
+    'mobile-icon': MobileIcon,
   },
   data() {
     return {
@@ -90,6 +93,10 @@ export default {
   opacity: 0.8;
 }
 
+.main-header__mobile-icon {
+  display: none;
+}
+
 @media screen and (max-width: 1350px) {
   .main-header {
     padding: 18px 50px 18px;
@@ -118,6 +125,7 @@ export default {
 @media screen and (max-width: 1000px) {
   .main-header {
     min-height: 28px;
+    border-top: 1px solid #efefef;
   }
 
   .main-header__logo {
@@ -128,6 +136,10 @@ export default {
 
   .main-header__container {
     display: none;
+  }
+
+  .main-header__mobile-icon {
+    display: block;
   }
 }
 
