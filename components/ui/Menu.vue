@@ -2,24 +2,10 @@
   <nav class="menu">
     <ul class="menu__list">
       <li class="menu__item">
-        <nuxt-link
-          to="/"
-          :class="[
-            'menu__link',
-            { 'menu__link_is_not-active': $route.path !== '/' },
-          ]"
-          >Главная</nuxt-link
-        >
+        <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
       </li>
       <li class="menu__item">
-        <nuxt-link
-          to="/stories"
-          :class="[
-            'menu__link',
-            { 'menu__link_is_not-active': $route.path !== '/stories' },
-          ]"
-          >Истории</nuxt-link
-        >
+        <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -44,20 +30,24 @@ export default {};
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  text-decoration: underline;
+  text-decoration: none;
   transition: opacity 0.3s;
 }
 
-.menu__link_is_not-active:hover {
+.menu__link.nuxt-link-exact-active {
+  text-decoration: underline;
+}
+
+.menu__link.nuxt-link-exact-active:hover {
+  opacity: 1;
+}
+
+.menu__link:hover {
   opacity: 0.8;
 }
 
 .menu__item:last-child {
   margin-right: 0;
-}
-
-.menu__link_is_not-active {
-  text-decoration: none;
 }
 
 @media screen and (max-width: 1350px) {

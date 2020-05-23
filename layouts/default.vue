@@ -1,5 +1,6 @@
 <template>
   <div>
+    <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu" />
     <my-header />
     <nuxt />
     <my-footer />
@@ -18,6 +19,7 @@ import Footer from '@/components/Footer';
 import Popup from '@/components/Popup';
 import Form from '@/components/Form';
 import Social from '@/components/Social';
+import MobileMenu from '@/components/ui/MobileMenu';
 export default {
   components: {
     'my-header': Header,
@@ -25,6 +27,7 @@ export default {
     'my-footer': Footer,
     'my-form': Form,
     social: Social,
+    'mobile-menu': MobileMenu,
   },
   computed: {
     popupStoryShown() {
@@ -32,6 +35,9 @@ export default {
     },
     popupSocialShown() {
       return this.$store.getters['popup/getPopupSocialShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
   },
   methods: {
@@ -64,32 +70,13 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.mobile-menu {
+  display: none;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media (max-width: 1000px) {
+  .mobile-menu {
+    display: block;
+  }
 }
 </style>
