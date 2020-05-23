@@ -25,9 +25,18 @@ export default {
   width: 32px;
   height: 32px;
   background-image: url(/burger.svg);
+  background-position: center;
+  background-size: cover;
 }
 
 .mobile-button.mobile-button_type_close {
   background-image: url(/button-close.svg);
+}
+
+@media screen and (max-width: 700px) {
+  .mobile-button {
+    width: 26px;
+    height: 26px;
+  }
 }
 </style>
