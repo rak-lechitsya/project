@@ -27,9 +27,6 @@ export default {
       this.$router.push(`/stories/${id}`);
     },
   },
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStoryArr');
-  },
 };
 </script>
 

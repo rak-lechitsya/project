@@ -20,13 +20,6 @@ export default {
     'input-button': Button,
     'stories-grid': StoriesGrid,
   },
-
-  data() {
-    return {
-      textButtonForm: 'Поиск',
-      storiesName: '',
-    };
-  },
 };
 </script>
 
