@@ -54,6 +54,7 @@ export default {
   background-repeat: no-repeat;
   transition: opacity 0.3s;
   cursor: pointer;
+  outline: none;
 }
 
 .cover__arrow:hover {
