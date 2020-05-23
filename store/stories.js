@@ -33,8 +33,8 @@ export const actions = {
 };
 
 export const getters = {
-  getStoryArr(state) {
-    return state.storyArr;
+  getStoryArr: state => (start, limit) => {
+    return state.storyArr.slice(start, limit);
   },
   getCurrentStory(state) {
     return state.currentStory;

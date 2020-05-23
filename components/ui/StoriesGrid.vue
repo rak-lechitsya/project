@@ -17,9 +17,13 @@ export default {
   components: {
     story: Story,
   },
+  props: {
+    start: Number,
+    limit: Number,
+  },
   computed: {
     storyArr() {
-      return this.$store.getters['stories/getStoryArr'];
+      return this.$store.getters['stories/getStoryArr'](this.start, this.limit);
     },
   },
   methods: {

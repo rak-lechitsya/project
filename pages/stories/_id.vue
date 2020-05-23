@@ -46,7 +46,7 @@
           </p>
         </div>
       </section>
-      <stories-grid class="stories__list" />
+      <stories-grid class="stories__list" :start="0" :limit="4" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </div>

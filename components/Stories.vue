@@ -2,7 +2,7 @@
   <section class="stories">
     <stories-content class="stories__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
-      <stories-grid class="stories__list" />
+      <stories-grid class="stories__list" :start="0" :limit="8" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </stories-content>
   </section>
