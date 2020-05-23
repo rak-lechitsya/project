@@ -115,9 +115,8 @@ export default {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   .main-header {
-    padding: 18px 15px 18px;
     min-height: 28px;
   }
 
@@ -129,6 +128,12 @@ export default {
 
   .main-header__container {
     display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-header {
+    padding: 18px 15px 18px;
   }
 }
 </style>
