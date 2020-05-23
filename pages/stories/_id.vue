@@ -5,7 +5,7 @@
         <div class="title__image-wrapper">
           <img
             :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
-            alt=""
+            :alt="story.author"
             class="title__image"
           />
         </div>
@@ -24,7 +24,11 @@
       </section>
       <section class="title title_mobile">
         <div class="title__image-wrapper">
-          <img alt="" class="title__image" />
+          <img
+            :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
+            :alt="story.author"
+            class="title__image"
+          />
         </div>
         <p class="title__content">
           <span class="title__content-name">{{ story.author }}: </span>
