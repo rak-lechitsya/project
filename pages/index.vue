@@ -44,6 +44,9 @@ export default {
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
     },
+    blocks() {
+      return this.$store.getters['blocks/getBlock'];
+    },
   },
 
   methods: {
@@ -63,6 +66,7 @@ export default {
 
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryArr');
+    await store.dispatch('blocks/fetchBlockArr');
   },
 };
 </script>

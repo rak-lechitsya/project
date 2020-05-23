@@ -1,7 +1,7 @@
 <template>
   <section class="stories">
     <stories-content class="stories__content">
-      <h3 class="stories__heading">Истории неизлечимых привычек</h3>
+      <h3 class="stories__heading">{{ blockArr[4].title }}</h3>
       <stories-grid class="stories__list" :start="0" :limit="8" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </stories-content>
@@ -14,6 +14,13 @@ import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
+  props: ['title'],
+
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'input-stories': Input,
     'stories-content': Content,

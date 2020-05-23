@@ -1,13 +1,10 @@
 <template>
   <div class="about">
     <about-content class="about__content">
-      <h2 class="about__heading">#раклечится</h2>
-      <h3 class="about__title">О проекте</h3>
+      <h2 class="about__heading">{{ blockArr[10].hashtag }}</h2>
+      <h3 class="about__title">{{ blockArr[10].title }}</h3>
       <div class="about__container">
-        <p class="about__subtitle">
-          Этот проект был создан благотворительным фондом Константина
-          Хабенского.
-        </p>
+        <p class="about__subtitle" v-html="blockArr[10].text"></p>
         <div class="about__text">
           <div class="about__span-container">
             <p
@@ -16,42 +13,29 @@
                 'about__text-span',
                 { 'about__text-span_is_active': toggle === true },
               ]"
-            >
-              Рак Лечится
-            </p>
+              v-text="blockArr[10].extraTexts[0].title"
+            ></p>
             <p
               @click="toggleSecondSpan"
               :class="[
                 'about__text-span',
                 { 'about__text-span_is_active': toggle === false },
               ]"
-            >
-              Фонд Хабенского
-            </p>
+              v-text="blockArr[10].extraTexts[1].title"
+            ></p>
           </div>
           <div class="about__text-container">
-            <p v-if="toggle === true" class="about__text-paragraph">
-              Есть вещи, которые не лечатся. Особенности характера, страстные
-              увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
-              приобрели в детстве. Список можно продолжать до бесконечности, но
-              одна болезнь в него точно не войдет. Эта болезнь — рак. Рак
-              лечится, и лучшее доказательство — люди с их неизлечимыми
-              особенностями, которые сумели победить рак.
-            </p>
-            <p v-if="toggle === true" class="about__text-paragraph">
-              Рак лечится — проект Благотворительного Фонда Константина
-              Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
-              изменить отношение людей к раку и заставить каждого поверить:
-              онкологическое заболевание — это не приговор.
-            </p>
-            <p v-else class="about__text-paragraph">
-              Благотворительный Фонд Константина Хабенского с 2008 года помогает
-              детям с онкологическими и другими тяжелыми заболеваниями головного
-              мозга. Фонд не только поддерживает семью заболевшего ребенка в
-              самый сложный момент, оплачивая обследования, лечение и
-              медицинские препараты, но и в целом меняет систему оказания помощи
-              детям с опухолями мозга в России.
-            </p>
+            <p
+              v-if="toggle === true"
+              class="about__text-paragraph"
+              v-html="blockArr[10].extraTexts[0].text"
+            ></p>
+            <p v-if="toggle === true" class="about__text-paragraph"></p>
+            <p
+              v-else
+              class="about__text-paragraph"
+              v-html="blockArr[10].extraTexts[1].text"
+            ></p>
           </div>
         </div>
       </div>
@@ -62,6 +46,12 @@
 <script>
 import Content from '@/components/ui/Content';
 export default {
+  props: ['title', 'text', 'extraTexts', 'hashtag'],
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'about-content': Content,
   },

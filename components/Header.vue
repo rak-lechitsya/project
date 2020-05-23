@@ -2,9 +2,7 @@
   <header class="main-header">
     <header-content class="main-header__content">
       <nuxt-link to="/" class="main-header__logo-container">
-        <h3 class="main-header__logo">
-          Проект Благотворительного Фонда Константина Хабенского
-        </h3>
+        <h3 class="main-header__logo">{{ blockArr[8].title }}</h3>
       </nuxt-link>
       <div class="main-header__container">
         <main-menu class="main-header__menu" />
@@ -25,6 +23,12 @@ import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
 import MobileIcon from '@/components/ui/MobileIcon';
 export default {
+  props: ['title'],
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'header-content': Content,
     'main-menu': Menu,

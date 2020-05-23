@@ -1,7 +1,7 @@
 <template>
   <div class="statistics">
     <statistics-content class="statistics__content">
-      <h3 class="statistics__header">Статистика по онкозаболеваниям</h3>
+      <h3 class="statistics__header">{{ blockArr[6].title }}</h3>
       <div class="statistics__container">
         <div class="statistics__pictures">
           <div class="statistics__item">
@@ -79,6 +79,13 @@ import Progress from '@/components/ui/Progress-bar';
 import doubleProgress from '@/components/ui/Double_Progress-bar';
 
 export default {
+  props: ['title'],
+
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'progress-bar': Progress,
     'double-progress-bar': doubleProgress,

@@ -2,7 +2,8 @@
   <div class="banner">
     <div class="banner__background">
       <h2 class="banner__text">
-        {{ text }}<span class="banner__hashtag"> #этонелечится</span>
+        {{ blockArr[1].title
+        }}<span class="banner__hashtag"> {{ blockArr[1].hashtag }}</span>
       </h2>
     </div>
   </div>
@@ -10,7 +11,12 @@
 
 <script>
 export default {
-  props: ['text'],
+  props: ['title', 'hashtag'],
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
 };
 </script>
 
