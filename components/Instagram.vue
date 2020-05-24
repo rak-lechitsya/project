@@ -10,7 +10,9 @@
             >{{ blockArr[5].title }}</a
           >
         </h3>
-        <p class="instagram__subtitle" v-html="blockArr[5].text"></p>
+        <client-only
+          ><p class="instagram__subtitle" v-html="blockArr[5].text"></p
+        ></client-only>
       </div>
       <ul class="instagram__pictures">
         <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">

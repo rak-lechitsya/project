@@ -2,8 +2,10 @@
   <section class="video">
     <video-content class="video__content">
       <div class="video__description">
-        <h3 class="video__title">{{ blockArr[3].title }}</h3>
-        <p class="video__subtitle" v-html="blockArr[3].text"></p>
+        <h3 class="video__title" v-text="blockArr[3].title"></h3>
+        <client-only
+          ><p class="video__subtitle" v-html="blockArr[3].text"></p
+        ></client-only>
         <div class="video__container">
           <button
             :class="[
