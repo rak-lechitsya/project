@@ -72,7 +72,6 @@ export default {
     await store.dispatch('blocks/fetchBlockArr');
     await store.dispatch('stats/fetchStatsArr');
     await store.dispatch('videos/fetchVideos');
-
   },
 };
 </script>
