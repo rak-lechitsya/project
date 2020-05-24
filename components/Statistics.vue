@@ -87,10 +87,10 @@ export default {
 
   computed: {
     blockArr() {
-      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+      return this.$store.getters['blocks/getBlockArr'];
     },
     statsArr() {
-      return this.$store.getters['stats/getStatsArr'](this.start, this.limit);
+      return this.$store.getters['stats/getStatsArr'];
     },
   },
 

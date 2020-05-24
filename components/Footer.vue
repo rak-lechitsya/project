@@ -50,7 +50,7 @@ export default {
   props: ['title', 'text'],
   computed: {
     blockArr() {
-      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+      return this.$store.getters['blocks/getBlockArr'];
     },
   },
   components: {

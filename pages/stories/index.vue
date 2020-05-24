@@ -42,6 +42,7 @@ export default {
 
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryArr');
+    await store.dispatch('blocks/fetchBlockArr');
   },
 };
 </script>
