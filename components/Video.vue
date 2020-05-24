@@ -2,14 +2,8 @@
   <section class="video">
     <video-content class="video__content">
       <div class="video__description">
-        <h3 class="video__title">
-          Истории людей, победивших рак, но не свои привычки
-        </h3>
-        <p class="video__subtitle">
-          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
-          с их историями.
-        </p>
+        <h3 class="video__title">{{ blockArr[3].title }}</h3>
+        <p class="video__subtitle" v-html="blockArr[3].text"></p>
         <div class="video__container">
           <button
             :class="[
@@ -38,7 +32,7 @@
           allowfullscreen
         ></iframe>
         <figcaption class="video__captiontext">
-          Все видео вы можете найте на нашем
+          {{ blockArr[3].note }}
           <a
             class="video__link"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
@@ -54,6 +48,13 @@
 <script>
 import Content from '@/components/ui/Content';
 export default {
+  props: ['title', 'note', 'text'],
+
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'video-content': Content,
   },

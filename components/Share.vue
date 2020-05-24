@@ -1,13 +1,9 @@
 <template>
   <div class="share">
     <share-content class="share__content">
-      <h3 class="share__title">Расскажите свою историю</h3>
+      <h3 class="share__title">{{ blockArr[9].title }}</h3>
       <div class="share__container">
-        <p class="share__subtitle">
-          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
-        </p>
+        <p class="share__subtitle" v-html="blockArr[9].text"></p>
         <div class="share__text">
           <div class="share__span-container">
             <p
@@ -16,30 +12,28 @@
                 'share__text-span',
                 { 'share__text-span_is_active': toggle === true },
               ]"
-            >
-              1-й вариант
-            </p>
+              v-html="blockArr[9].extraTexts[0].title"
+            ></p>
             <p
               @click="toggleSecondSpan"
               :class="[
                 'share__text-span',
                 { 'share__text-span_is_active': toggle === false },
               ]"
-            >
-              2-й вариант
-            </p>
+              v-html="blockArr[9].extraTexts[1].title"
+            ></p>
           </div>
           <div class="share__text-container">
-            <p v-if="toggle === true" class="share__text-paragraph">
-              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-              историю после проверки. Пожалуйста, заполняйте все пункты
-              корректно, если вы испытаете какие-то сложности, воспользуйтесь
-              2-м вариантом.
-            </p>
-            <p v-if="toggle === false" class="share__text-paragraph">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-              зададим вопросы, уточним детали вашей истории.
-            </p>
+            <p
+              v-if="toggle === true"
+              class="share__text-paragraph"
+              v-html="blockArr[9].extraTexts[0].text"
+            ></p>
+            <p
+              v-if="toggle === false"
+              class="share__text-paragraph"
+              v-html="blockArr[9].extraTexts[1].text"
+            ></p>
             <share-button
               v-if="toggle === true"
               :text="textButtonForm"
@@ -63,6 +57,12 @@
 import Button from '@/components/ui/Button';
 import Content from '@/components/ui/Content';
 export default {
+  props: ['title', 'text', 'extraTexts'],
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'share-button': Button,
     'share-content': Content,

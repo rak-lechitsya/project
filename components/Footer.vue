@@ -2,9 +2,7 @@
   <footer class="footer">
     <my-content class="footer__content">
       <div class="footer__menu">
-        <h3 class="footer__title">
-          Спасибо всем, кто помог состояться этому проекту
-        </h3>
+        <h3 class="footer__title">{{ blockArr[7].title }}</h3>
         <my-menu class="footer__links" />
         <div class="footer__links-social">
           <p>
@@ -30,7 +28,7 @@
         </div>
       </div>
       <div class="footer__author">
-        <p class="footer__year">Рак лечится {{ year }}</p>
+        <p class="footer__year" v-html="blockArr[7].text">{{ year }}</p>
         <p>
           Сделано студентами
           <a
@@ -49,6 +47,12 @@
 import Content from '@/components/ui/Content';
 import Menu from '@/components/ui/Menu';
 export default {
+  props: ['title', 'text'],
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'my-content': Content,
     'my-menu': Menu,

@@ -51,6 +51,11 @@ export default {
   /*
    ** Build configuration
    */
+  env: {
+    DEV_API: 'http://localhost',
+    PROD_API: '/proxy',
+  },
+
   build: {
     /*
      ** You can extend webpack config here

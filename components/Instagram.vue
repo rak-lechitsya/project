@@ -7,15 +7,10 @@
             href="https://www.instagram.com/raklechitsa/"
             target="_blank"
             class="instagram__title-link"
-            >Инстаграм</a
+            >{{ blockArr[5].title }}</a
           >
         </h3>
-        <p class="instagram__subtitle">
-          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-          Все истории, где нет нецензурных выражений и запрещенного контента
-          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-          пропустили вашу историю.
-        </p>
+        <p class="instagram__subtitle" v-html="blockArr[5].text"></p>
       </div>
       <ul class="instagram__pictures">
         <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
@@ -32,6 +27,13 @@
 import Content from '@/components/ui/Content';
 import InstaItem from '@/components/ui/InstaItem';
 export default {
+  props: ['title', 'text'],
+
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   components: {
     'insta-item': InstaItem,
     'instagram-content': Content,

@@ -1,12 +1,19 @@
 <template>
   <section class="cover" ref="cover">
-    <h1 class="cover__heading">#раклечится</h1>
+    <h1 class="cover__heading">{{ blockArr[0].hashtag }}</h1>
     <button @click="scroll" class="cover__arrow"></button>
   </section>
 </template>
 
 <script>
 export default {
+  props: ['hashtag'],
+
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
+  },
   methods: {
     scroll() {
       const intro = this.$refs.cover.nextElementSibling;
