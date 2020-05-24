@@ -14,7 +14,7 @@ export default {
   props: ['title', 'hashtag'],
   computed: {
     blockArr() {
-      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+      return this.$store.getters['blocks/getBlockArr'];
     },
   },
 };

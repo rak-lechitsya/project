@@ -80,6 +80,7 @@ export default {
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
     await store.dispatch('stories/fetchStoryArr');
+    await store.dispatch('blocks/fetchBlockArr');
   },
 
   data() {

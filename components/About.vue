@@ -49,7 +49,7 @@ export default {
   props: ['title', 'text', 'extraTexts', 'hashtag'],
   computed: {
     blockArr() {
-      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+      return this.$store.getters['blocks/getBlockArr'];
     },
   },
   components: {
