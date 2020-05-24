@@ -52,14 +52,10 @@ import Content from '@/components/ui/Content';
 export default {
   props: ['title', 'note', 'text'],
 
-  computed: {
-    blockArr() {
-      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
-    },
-  },
   components: {
     'video-content': Content,
   },
+
   computed: {
     videosUrl() {
       return this.$store.getters['videos/getVideos'];
@@ -74,7 +70,11 @@ export default {
         return true;
       }
     },
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
+    },
   },
+
   methods: {
     nextVideo() {
       this.counter++;
@@ -83,6 +83,7 @@ export default {
       this.counter--;
     },
   },
+
   data() {
     return {
       counter: 0,
