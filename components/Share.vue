@@ -12,8 +12,9 @@
                 'share__text-span',
                 { 'share__text-span_is_active': toggle === true },
               ]"
-              v-html="blockArr[9].extraTexts[0].title"
-            ></p>
+            >
+              {{ blockArr[9].extraTexts[0].title }}
+            </p>
             <p
               @click="toggleSecondSpan"
               :class="[
