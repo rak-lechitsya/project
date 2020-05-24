@@ -103,26 +103,5 @@ export default {
     margin-right: 0;
     margin-bottom: 18px;
   }
-
-  .mobile-menu__link {
-    color: black;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    text-decoration: none;
-    transition: opacity 0.3s;
-  }
-
-  .mobile-menu__button {
-    background-color: white;
-    color: black;
-    width: 162px;
-    height: 24px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    transition: opacity 0.3s;
-  }
 }
 </style>
