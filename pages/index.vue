@@ -47,6 +47,9 @@ export default {
     blocks() {
       return this.$store.getters['blocks/getBlock'];
     },
+    stats() {
+      return this.$store.getters['stats/getStats'];
+    },
   },
 
   methods: {
@@ -67,6 +70,7 @@ export default {
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryArr');
     await store.dispatch('blocks/fetchBlockArr');
+    await store.dispatch('stats/fetchStatsArr');
   },
 };
 </script>

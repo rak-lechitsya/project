@@ -6,65 +6,62 @@
         <div class="statistics__pictures">
           <div class="statistics__item">
             <p class="statistics__text">
-              Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48
-              918 000 человек.
+              {{ statsArr[0].description }}
             </p>
             <div class="statistics__box">
               <progress-bar
                 :progress="progress"
                 class="progress-bar"
-                :value="1"
-                :maxValue="3"
+                :value="statsArr[0].currentValue"
+                :maxValue="statsArr[0].maxValue"
               />
-              <h2 class="statistics__title">1 из 3</h2>
-              <p class="statistics__author">Левада-Центр 2018</p>
+              <h2 class="statistics__title">{{ statsArr[0].summary }}</h2>
+              <p class="statistics__author">{{ statsArr[0].source }}</p>
             </div>
           </div>
           <div class="statistics__item">
-            <p class="statistics__text">2,6% Россиян имеют онкозаболевания.</p>
+            <p class="statistics__text">{{ statsArr[1].description }}</p>
             <div class="statistics__box">
               <progress-bar
                 :progress="progress"
                 class="progress-bar"
-                :value="2.6"
-                :maxValue="100"
+                :value="statsArr[1].currentValue"
+                :maxValue="statsArr[1].maxValue"
               />
-              <h2 class="statistics__title">3 700 000</h2>
-              <p class="statistics__author">Росстат 2018</p>
+              <h2 class="statistics__title">{{ statsArr[1].summary }}</h2>
+              <p class="statistics__author">{{ statsArr[1].source }}</p>
             </div>
           </div>
           <div class="statistics__item">
             <p class="statistics__text">
-              На 28% выросла доля выявления заболеваний на ранней стадии за 10
-              лет.
+              {{ statsArr[2].description }}
             </p>
             <div class="statistics__box">
               <double-progress-bar
                 :doubleProgress="doubleProgress"
                 class="progress-bar-double"
                 :oldValue="55"
-                :maxValue="100"
+                :maxValue="statsArr[2].maxValue"
                 :newValue="70"
               />
-              <h2 class="statistics__title">↑28%</h2>
-              <p class="statistics__author">МНИОИ Герцена 2018</p>
+              <h2 class="statistics__title">{{ statsArr[2].summary }}</h2>
+              <p class="statistics__author">{{ statsArr[2].source }}</p>
             </div>
           </div>
           <div class="statistics__item">
             <p class="statistics__text">
-              На 25% снизилась смертность в течение первого года после
-              постановки диагноза.
+              {{ statsArr[3].description }}
             </p>
             <div class="statistics__box">
               <double-progress-bar
                 :doubleProgress="doubleProgress"
                 class="progress-bar-double"
                 :oldValue="70"
-                :maxValue="100"
+                :maxValue="statsArr[3].maxValue"
                 :newValue="55"
               />
-              <h2 class="statistics__title">↓25%</h2>
-              <p class="statistics__author">МНИОИ Герцена 2018</p>
+              <h2 class="statistics__title">{{ statsArr[3].summary }}</h2>
+              <p class="statistics__author">{{ statsArr[2].source }}</p>
             </div>
           </div>
         </div>
@@ -79,13 +76,24 @@ import Progress from '@/components/ui/Progress-bar';
 import doubleProgress from '@/components/ui/Double_Progress-bar';
 
 export default {
-  props: ['title'],
+  props: [
+    'title',
+    'summary',
+    'source',
+    'description',
+    'currentValue',
+    'maxvalue',
+  ],
 
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'](this.start, this.limit);
     },
+    statsArr() {
+      return this.$store.getters['stats/getStatsArr'](this.start, this.limit);
+    },
   },
+
   components: {
     'progress-bar': Progress,
     'double-progress-bar': doubleProgress,
