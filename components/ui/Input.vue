@@ -48,6 +48,8 @@ export default {
   line-height: 24px;
   color: #666;
   width: 100%;
+  outline: none;
+  padding-left: 10px;
 }
 
 .input_bottom-bordered {

@@ -5,14 +5,28 @@
         <h3 class="video__title">{{ blockArr[3].title }}</h3>
         <p class="video__subtitle" v-html="blockArr[3].text"></p>
         <div class="video__container">
-          <div class="video__toggle video__toggle_less"></div>
-          <div class="video__toggle video__toggle_more"></div>
+          <button
+            :class="[
+              'video__toggle video__toggle_less',
+              { video__toggle_is_active: !previousDisable },
+            ]"
+            @click="previousVideo"
+            :disabled="previousDisable"
+          ></button>
+          <button
+            :class="[
+              'video__toggle video__toggle_more',
+              { video__toggle_is_active: !nextDisable },
+            ]"
+            @click="nextVideo"
+            :disabled="nextDisable"
+          ></button>
         </div>
       </div>
       <figure class="video__story">
         <iframe
           class="video__item"
-          src="https://www.youtube.com/embed/ou60K0WfcJ0"
+          :src="videosUrl[counter].url"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -43,6 +57,34 @@ export default {
   },
   components: {
     'video-content': Content,
+  },
+  computed: {
+    videosUrl() {
+      return this.$store.getters['videos/getVideos'];
+    },
+    nextDisable() {
+      if (this.counter + 1 === this.videosUrl.length) {
+        return true;
+      }
+    },
+    previousDisable() {
+      if (this.counter === 0) {
+        return true;
+      }
+    },
+  },
+  methods: {
+    nextVideo() {
+      this.counter++;
+    },
+    previousVideo() {
+      this.counter--;
+    },
+  },
+  data() {
+    return {
+      counter: 0,
+    };
   },
 };
 </script>
@@ -103,19 +145,23 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 8px;
+  transition: transform 0.3s;
+  border: none;
+  opacity: 0.5;
+  outline: none;
+}
+
+.video__toggle_is_active {
+  opacity: 1;
   cursor: pointer;
 }
 
 .video__toggle_more {
   background-image: url(/morebutton.svg);
-  transition: opacity 0.5s;
-}
-.video__toggle_less {
-  background-image: url(/lessbutton.svg);
 }
 
-.video__toggle:hover {
-  opacity: 0.8;
+.video__toggle_less {
+  background-image: url(/lessbutton.svg);
 }
 
 .video__captiontext {
@@ -127,6 +173,10 @@ export default {
 .video__link {
   color: #666666;
   transition: opacity 0.3s;
+}
+
+.video__toggle_is_active:hover {
+  transform: scale(1.3);
 }
 
 @media screen and (max-width: 1400px) {

@@ -24,6 +24,7 @@ export default {
   text-align: center;
   cursor: pointer;
   transition: opacity 0.3s;
+  outline: none;
 }
 
 .button:hover {
