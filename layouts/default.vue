@@ -54,7 +54,7 @@ export default {
     };
   },
   async created() {
-    await this.$store.dispatch('stories/fetchStoryArr');
+    await this.$store.dispatch('stories/fetchStories');
     await this.$store.dispatch('blocks/fetchBlockArr');
     await this.$store.dispatch('stats/fetchStatsArr');
     await this.$store.dispatch('videos/fetchVideos');

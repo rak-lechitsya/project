@@ -17,8 +17,8 @@ export default {
   },
   methods: {
     scroll() {
-      const intro = this.$refs.cover.nextElementSibling;
-      intro.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      const video = this.$refs.cover.nextElementSibling;
+      video.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
 };
