@@ -2,7 +2,7 @@
   <footer class="footer">
     <my-content class="footer__content">
       <div class="footer__menu">
-        <h3 class="footer__title">{{ blockArr[7].title }}</h3>
+        <h3 class="footer__title">{{ blockFooter.title }}</h3>
         <my-menu class="footer__links" />
         <div class="footer__links-social">
           <p>
@@ -28,7 +28,10 @@
         </div>
       </div>
       <div class="footer__author">
-        <p class="footer__year" v-html="blockArr[7].text">{{ year }}</p>
+        <div class="footer__container">
+          <p class="footer__year" v-html="blockFooter.text" />
+          <p class="footer__year year">{{ year }}</p>
+        </div>
         <p>
           Сделано студентами
           <a
@@ -47,25 +50,27 @@
 import Content from '@/components/ui/Content';
 import Menu from '@/components/ui/Menu';
 export default {
-  props: ['title', 'text'],
-  computed: {
-    blockArr() {
-      return this.$store.getters['blocks/getBlockArr'];
-    },
-  },
   components: {
     'my-content': Content,
     'my-menu': Menu,
   },
-  data() {
-    return {
-      year: new Date().getFullYear(),
-    };
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockFooter() {
+      return this.blockArr.find(el => el.block === 'footer');
+    },
   },
   methods: {
     toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
+  },
+  data() {
+    return {
+      year: new Date().getFullYear(),
+    };
   },
 };
 </script>
@@ -77,20 +82,24 @@ export default {
   background-color: #fbfbfb;
 }
 
-.footer__author {
-  display: flex;
-  justify-content: space-between;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1;
-  color: #898989;
-}
-
 .footer__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.footer__menu {
+  display: flex;
+  margin-bottom: 110px;
+}
+
+.footer__title {
+  max-width: 340px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: black;
 }
 
 .footer__links {
@@ -110,18 +119,26 @@ export default {
   color: #000;
 }
 
-.footer__menu {
-  display: flex;
-  margin-bottom: 110px;
+.footer__share {
+  margin-top: 44px;
+  color: #121212;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  width: fit-content;
 }
 
-.footer__title {
-  max-width: 340px;
-  margin: 0;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: black;
+.footer__author {
+  display: flex;
+  justify-content: space-between;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1;
+  color: #898989;
+}
+
+.footer__container {
+  display: flex;
 }
 
 .link {
@@ -134,8 +151,8 @@ export default {
   transition: opacity 0.3s;
 }
 
-.link:hover {
-  opacity: 0.8;
+.link_social {
+  text-decoration: underline;
 }
 
 .link_author {
@@ -147,19 +164,15 @@ export default {
   text-decoration: underline;
 }
 
-.link_social {
-  text-decoration: underline;
-}
-
-.footer__share {
-  margin-top: 44px;
-  color: #121212;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  width: fit-content;
+.year {
+  margin-left: 6px;
 }
 
 .footer__share:hover {
+  opacity: 0.8;
+}
+
+.link:hover {
   opacity: 0.8;
 }
 

@@ -1,8 +1,8 @@
 <template>
   <section class="stories">
     <stories-content class="stories__content">
-      <h3 class="stories__heading">{{ blockArr[4].title }}</h3>
-      <stories-grid class="stories__list" :start="0" :limit="8" />
+      <h3 class="stories__heading">{{ blockStories.title }}</h3>
+      <stories-grid class="stories__list" :start="0" :limit="widthLimit" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </stories-content>
   </section>
@@ -14,18 +14,29 @@ import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
-  props: ['title'],
-
-  computed: {
-    blockArr() {
-      return this.$store.getters['blocks/getBlockArr'];
-    },
-  },
   components: {
     'input-stories': Input,
     'stories-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
+  },
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockStories() {
+      return this.blockArr.find(el => el.block === 'stories');
+    },
+    widthLimit() {
+      this.limit = 8;
+      if (window.innerWidth <= 1000) {
+        this.limit = 9;
+      }
+      if (window.innerWidth <= 700) {
+        this.limit = 6;
+      }
+      return this.limit;
+    },
   },
 };
 </script>

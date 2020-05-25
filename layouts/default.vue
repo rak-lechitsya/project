@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!this.loading">
     <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu" />
     <my-header />
     <nuxt />
@@ -47,6 +47,20 @@ export default {
     toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
+  },
+  data() {
+    return {
+      loading: true,
+    };
+  },
+  async created() {
+    await this.$store.dispatch('stories/fetchStories');
+    await this.$store.dispatch('blocks/fetchBlockArr');
+    await this.$store.dispatch('stats/fetchStatsArr');
+    await this.$store.dispatch('videos/fetchVideos');
+    console.log('loading...');
+    this.loading = false;
+    console.log('finished loading');
   },
 };
 </script>

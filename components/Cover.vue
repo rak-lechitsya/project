@@ -1,23 +1,24 @@
 <template>
   <section class="cover" ref="cover">
-    <h1 class="cover__heading">{{ blockArr[0].hashtag }}</h1>
+    <h1 class="cover__heading">{{ blockCover.hashtag }}</h1>
     <button @click="scroll" class="cover__arrow"></button>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['hashtag'],
-
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
     },
+    blockCover() {
+      return this.blockArr.find(el => el.block === 'cover');
+    },
   },
   methods: {
     scroll() {
-      const intro = this.$refs.cover.nextElementSibling;
-      intro.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      const video = this.$refs.cover.nextElementSibling;
+      video.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
 };

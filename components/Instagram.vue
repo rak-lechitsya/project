@@ -7,11 +7,11 @@
             href="https://www.instagram.com/raklechitsa/"
             target="_blank"
             class="instagram__title-link"
-            >{{ blockArr[5].title }}</a
+            >{{ blockInstagram.title }}</a
           >
         </h3>
         <client-only
-          ><p class="instagram__subtitle" v-html="blockArr[5].text"></p
+          ><p class="instagram__subtitle" v-html="blockInstagram.text"></p
         ></client-only>
       </div>
       <ul class="instagram__pictures">
@@ -29,16 +29,17 @@
 import Content from '@/components/ui/Content';
 import InstaItem from '@/components/ui/InstaItem';
 export default {
-  props: ['title', 'text'],
-
+  components: {
+    'insta-item': InstaItem,
+    'instagram-content': Content,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
     },
-  },
-  components: {
-    'insta-item': InstaItem,
-    'instagram-content': Content,
+    blockInstagram() {
+      return this.blockArr.find(el => el.block === 'instagram');
+    },
   },
   data() {
     return {

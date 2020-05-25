@@ -2,9 +2,9 @@
   <div class="content">
     <cover />
     <videostory />
-    <banner :text="textSml" />
+    <banner :title="blockBannerSml.title" />
     <stories />
-    <banner :text="textBg" />
+    <banner :title="blockBannerBg.title" />
     <instagram />
     <share />
     <statistics />
@@ -39,39 +39,24 @@ export default {
     popup: Popup,
     'form-contacts': FormContacts,
   },
-
   computed: {
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
     },
-    blocks() {
-      return this.$store.getters['blocks/getBlock'];
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
     },
-    stats() {
-      return this.$store.getters['stats/getStats'];
+    blockBannerSml() {
+      return this.blockArr.find(el => el.block === 'note-1');
+    },
+    blockBannerBg() {
+      return this.blockArr.find(el => el.block === 'note-2');
     },
   },
-
   methods: {
     toggleContactsPopup() {
       this.$store.commit('popup/toggleContactsPopup');
     },
-  },
-
-  data() {
-    return {
-      popupShown: false,
-      popupContacts: false,
-      textSml: 'И в отличии от рака,',
-      textBg: 'рассказывайте ваши истории в инстаграм',
-    };
-  },
-
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStoryArr');
-    await store.dispatch('blocks/fetchBlockArr');
-    await store.dispatch('stats/fetchStatsArr');
-    await store.dispatch('videos/fetchVideos');
   },
 };
 </script>

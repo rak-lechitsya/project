@@ -2,7 +2,7 @@
   <header class="main-header">
     <header-content class="main-header__content">
       <nuxt-link to="/" class="main-header__logo-container">
-        <h3 class="main-header__logo">{{ blockArr[8].title }}</h3>
+        <h3 class="main-header__logo">{{ blockHeader.title }}</h3>
       </nuxt-link>
       <div class="main-header__container">
         <main-menu class="main-header__menu" />
@@ -23,27 +23,29 @@ import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
 import MobileIcon from '@/components/ui/MobileIcon';
 export default {
-  props: ['title'],
-  computed: {
-    blockArr() {
-      return this.$store.getters['blocks/getBlockArr'];
-    },
-  },
   components: {
     'header-content': Content,
     'main-menu': Menu,
     'header-button': Button,
     'mobile-icon': MobileIcon,
   },
-  data() {
-    return {
-      textButtonMenu: 'Рассказать историю',
-    };
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockHeader() {
+      return this.blockArr.find(el => el.block === 'header');
+    },
   },
   methods: {
     toggleStoryPopup() {
       this.$store.commit('popup/toggleStoryPopup');
     },
+  },
+  data() {
+    return {
+      textButtonMenu: 'Рассказать историю',
+    };
   },
 };
 </script>

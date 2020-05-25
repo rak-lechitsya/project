@@ -2,8 +2,8 @@
   <div class="banner">
     <div class="banner__background">
       <h2 class="banner__text">
-        {{ blockArr[1].title
-        }}<span class="banner__hashtag"> {{ blockArr[1].hashtag }}</span>
+        {{ title }}
+        <span class="banner__hashtag"> {{ blockBanner.hashtag }}</span>
       </h2>
     </div>
   </div>
@@ -11,10 +11,15 @@
 
 <script>
 export default {
-  props: ['title', 'hashtag'],
+  props: {
+    title: String,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockBanner() {
+      return this.blockArr.find(el => el.block === 'note-1');
     },
   },
 };

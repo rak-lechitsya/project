@@ -261,11 +261,7 @@
 </template>
 
 <script>
-export default {
-  async fetch({ store, route }) {
-    await store.dispatch('blocks/fetchBlockArr');
-  },
-};
+export default {};
 </script>
 
 <style scoped>

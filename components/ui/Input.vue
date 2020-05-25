@@ -27,15 +27,15 @@ export default {
         -1,
     },
   },
-  data() {
-    return {
-      content: this.value,
-    };
-  },
   methods: {
     handleInput(e) {
       this.$emit('input', this.content);
     },
+  },
+  data() {
+    return {
+      content: this.value,
+    };
   },
 };
 </script>

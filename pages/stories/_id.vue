@@ -50,7 +50,7 @@
           </p>
         </div>
       </section>
-      <stories-grid class="stories__list" :start="0" :limit="4" />
+      <stories-grid class="stories__list" :start="0" :limit="widthLimit" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </div>
@@ -64,29 +64,28 @@ export default {
     'story-content': Content,
     'stories-grid': StoriesGrid,
   },
-
+  computed: {
+    story() {
+      return this.$store.getters['stories/getCurrentStory'];
+    },
+    widthLimit() {
+      this.limit = 4;
+      if (window.innerWidth <= 1000) {
+        this.limit = 3;
+      }
+      if (window.innerWidth <= 700) {
+        this.limit = 2;
+      }
+      return this.limit;
+    },
+  },
   methods: {
     toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
   },
-
-  computed: {
-    story() {
-      return this.$store.getters['stories/getCurrentStory'];
-    },
-  },
-
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
-    await store.dispatch('stories/fetchStoryArr');
-    await store.dispatch('blocks/fetchBlockArr');
-  },
-
-  data() {
-    return {
-      popupSocial: false,
-    };
   },
 };
 </script>

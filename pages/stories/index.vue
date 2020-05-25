@@ -1,5 +1,5 @@
 <template>
-  <section class="stories">
+  <section class="stories" ref="stories">
     <story-content class="story__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
       <div class="stories__box">
@@ -12,8 +12,13 @@
           :text="textButtonForm"
         ></input-button>
       </div>
-      <stories-grid class="stories__list" />
-      <pages class="stories__menu"></pages>
+      <stories-grid class="stories__list" :start="start" :limit="widthLimit" />
+      <stories-pagination
+        class="stories__menu"
+        :allStories="allStories.length"
+        :limit="limit"
+        @pagClick="changePage"
+      ></stories-pagination>
     </story-content>
   </section>
 </template>
@@ -22,27 +27,44 @@
 import Content from '@/components/ui/Content';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
-import Pages from '@/components/ui/Pages';
 import StoriesGrid from '@/components/ui/StoriesGrid';
+import Pagination from '@/components/ui/Pagination';
 export default {
   components: {
-    pages: Pages,
     'input-stories': Input,
     'story-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
+    'stories-pagination': Pagination,
   },
-
+  computed: {
+    widthLimit() {
+      this.limit = 16;
+      if (window.innerWidth <= 1000) {
+        this.limit = 12;
+      }
+      if (window.innerWidth <= 700) {
+        this.limit = 9;
+      }
+      return this.limit;
+    },
+    allStories() {
+      return this.$store.getters['stories/getAllStories'];
+    },
+  },
+  methods: {
+    changePage(index) {
+      this.start = (index - 1) * this.limit;
+      const up = this.$refs.stories;
+      up.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    },
+  },
   data() {
     return {
       textButtonForm: 'Поиск',
       storiesName: '',
+      start: 0,
     };
-  },
-
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStoryArr');
-    await store.dispatch('blocks/fetchBlockArr');
   },
 };
 </script>
