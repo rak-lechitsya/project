@@ -50,7 +50,6 @@
 import Content from '@/components/ui/Content';
 import Menu from '@/components/ui/Menu';
 export default {
-  props: ['title', 'text'],
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
@@ -60,15 +59,15 @@ export default {
     'my-content': Content,
     'my-menu': Menu,
   },
-  data() {
-    return {
-      year: new Date().getFullYear(),
-    };
-  },
   methods: {
     toggleSocialPopup() {
       this.$store.commit('popup/toggleSocialPopup');
     },
+  },
+  data() {
+    return {
+      year: new Date().getFullYear(),
+    };
   },
 };
 </script>

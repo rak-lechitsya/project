@@ -29,16 +29,14 @@
 import Content from '@/components/ui/Content';
 import InstaItem from '@/components/ui/InstaItem';
 export default {
-  props: ['title', 'text'],
-
+  components: {
+    'insta-item': InstaItem,
+    'instagram-content': Content,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
     },
-  },
-  components: {
-    'insta-item': InstaItem,
-    'instagram-content': Content,
   },
   data() {
     return {

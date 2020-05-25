@@ -46,19 +46,13 @@
 <script>
 import Content from '@/components/ui/Content';
 export default {
-  props: ['title', 'text', 'extraTexts', 'hashtag'],
+  components: {
+    'about-content': Content,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
     },
-  },
-  components: {
-    'about-content': Content,
-  },
-  data() {
-    return {
-      toggle: true,
-    };
   },
   methods: {
     toggleFirstSpan() {
@@ -67,6 +61,11 @@ export default {
     toggleSecondSpan() {
       this.toggle = false;
     },
+  },
+  data() {
+    return {
+      toggle: true,
+    };
   },
 };
 </script>

@@ -76,15 +76,11 @@ import Progress from '@/components/ui/Progress-bar';
 import doubleProgress from '@/components/ui/Double_Progress-bar';
 
 export default {
-  props: [
-    'title',
-    'summary',
-    'source',
-    'description',
-    'currentValue',
-    'maxvalue',
-  ],
-
+  components: {
+    'progress-bar': Progress,
+    'double-progress-bar': doubleProgress,
+    'statistics-content': Content,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
@@ -92,12 +88,6 @@ export default {
     statsArr() {
       return this.$store.getters['stats/getStatsArr'];
     },
-  },
-
-  components: {
-    'progress-bar': Progress,
-    'double-progress-bar': doubleProgress,
-    'statistics-content': Content,
   },
   data() {
     return {

@@ -49,12 +49,9 @@
 <script>
 import Content from '@/components/ui/Content';
 export default {
-  props: ['title', 'note', 'text'],
-
   components: {
     'video-content': Content,
   },
-
   computed: {
     videosUrl() {
       return this.$store.getters['videos/getVideos'];
@@ -73,7 +70,6 @@ export default {
       return this.$store.getters['blocks/getBlockArr'];
     },
   },
-
   methods: {
     nextVideo() {
       this.counter++;
@@ -82,7 +78,6 @@ export default {
       this.counter--;
     },
   },
-
   data() {
     return {
       counter: 0,

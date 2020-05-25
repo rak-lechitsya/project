@@ -7,8 +7,6 @@
 
 <script>
 export default {
-  props: ['hashtag'],
-
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];

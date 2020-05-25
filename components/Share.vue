@@ -58,22 +58,14 @@
 import Button from '@/components/ui/Button';
 import Content from '@/components/ui/Content';
 export default {
-  props: ['title', 'text', 'extraTexts'],
-  computed: {
-    blockArr() {
-      return this.$store.getters['blocks/getBlockArr'];
-    },
-  },
   components: {
     'share-button': Button,
     'share-content': Content,
   },
-  data() {
-    return {
-      toggle: true,
-      textButtonForm: 'Заполнить форму',
-      textButtonContact: 'Оставить контакт',
-    };
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
+    },
   },
   methods: {
     toggleFirstSpan() {
@@ -88,6 +80,13 @@ export default {
     toggleStoryPopup() {
       this.$store.commit('popup/toggleStoryPopup');
     },
+  },
+  data() {
+    return {
+      toggle: true,
+      textButtonForm: 'Заполнить форму',
+      textButtonContact: 'Оставить контакт',
+    };
   },
 };
 </script>

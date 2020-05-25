@@ -39,7 +39,6 @@ export default {
     popup: Popup,
     'form-contacts': FormContacts,
   },
-
   computed: {
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
@@ -48,7 +47,6 @@ export default {
       return this.$store.getters['blocks/getBlockArr'];
     },
   },
-
   methods: {
     toggleContactsPopup() {
       this.$store.commit('popup/toggleContactsPopup');

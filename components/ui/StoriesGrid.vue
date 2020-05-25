@@ -14,12 +14,12 @@
 <script>
 import Story from '@/components/ui/Story';
 export default {
-  components: {
-    story: Story,
-  },
   props: {
     start: Number,
     limit: Number,
+  },
+  components: {
+    story: Story,
   },
   computed: {
     storyArr() {

@@ -64,19 +64,16 @@ export default {
     'story-content': Content,
     'stories-grid': StoriesGrid,
   },
-
-  methods: {
-    toggleSocialPopup() {
-      this.$store.commit('popup/toggleSocialPopup');
-    },
-  },
-
   computed: {
     story() {
       return this.$store.getters['stories/getCurrentStory'];
     },
   },
-
+  methods: {
+    toggleSocialPopup() {
+      this.$store.commit('popup/toggleSocialPopup');
+    },
+  },
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
   },

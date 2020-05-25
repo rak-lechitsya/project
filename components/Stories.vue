@@ -14,18 +14,16 @@ import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import StoriesGrid from '@/components/ui/StoriesGrid';
 export default {
-  props: ['title'],
-
-  computed: {
-    blockArr() {
-      return this.$store.getters['blocks/getBlockArr'];
-    },
-  },
   components: {
     'input-stories': Input,
     'stories-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
+  },
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
+    },
   },
 };
 </script>

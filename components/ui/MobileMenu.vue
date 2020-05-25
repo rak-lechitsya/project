@@ -22,15 +22,15 @@ export default {
   components: {
     'nxt-button': Button,
   },
-  data() {
-    return {
-      textButtonMenu: 'Рассказать историю',
-    };
-  },
   methods: {
     toggleStoryPopup() {
       this.$store.commit('popup/toggleStoryPopup');
     },
+  },
+  data() {
+    return {
+      textButtonMenu: 'Рассказать историю',
+    };
   },
 };
 </script>

@@ -11,7 +11,9 @@
 
 <script>
 export default {
-  props: ['title'],
+  props: {
+    title: String,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
