@@ -28,7 +28,10 @@
         </div>
       </div>
       <div class="footer__author">
-        <p class="footer__year" v-html="blockArr[7].text">{{ year }}</p>
+        <div class="footer__container">
+          <p class="footer__year" v-html="blockArr[7].text" />
+          <p class="footer__year year">{{ year }}</p>
+        </div>
         <p>
           Сделано студентами
           <a
@@ -77,20 +80,24 @@ export default {
   background-color: #fbfbfb;
 }
 
-.footer__author {
-  display: flex;
-  justify-content: space-between;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1;
-  color: #898989;
-}
-
 .footer__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.footer__menu {
+  display: flex;
+  margin-bottom: 110px;
+}
+
+.footer__title {
+  max-width: 340px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: black;
 }
 
 .footer__links {
@@ -110,18 +117,26 @@ export default {
   color: #000;
 }
 
-.footer__menu {
-  display: flex;
-  margin-bottom: 110px;
+.footer__share {
+  margin-top: 44px;
+  color: #121212;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  width: fit-content;
 }
 
-.footer__title {
-  max-width: 340px;
-  margin: 0;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: black;
+.footer__author {
+  display: flex;
+  justify-content: space-between;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1;
+  color: #898989;
+}
+
+.footer__container {
+  display: flex;
 }
 
 .link {
@@ -134,8 +149,8 @@ export default {
   transition: opacity 0.3s;
 }
 
-.link:hover {
-  opacity: 0.8;
+.link_social {
+  text-decoration: underline;
 }
 
 .link_author {
@@ -147,19 +162,15 @@ export default {
   text-decoration: underline;
 }
 
-.link_social {
-  text-decoration: underline;
-}
-
-.footer__share {
-  margin-top: 44px;
-  color: #121212;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  width: fit-content;
+.year {
+  margin-left: 6px;
 }
 
 .footer__share:hover {
+  opacity: 0.8;
+}
+
+.link:hover {
   opacity: 0.8;
 }
 

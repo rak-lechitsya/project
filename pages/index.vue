@@ -2,9 +2,9 @@
   <div class="content">
     <cover />
     <videostory />
-    <banner :text="textSml" />
+    <banner :title="blockArr[1].title" />
     <stories />
-    <banner :text="textBg" />
+    <banner :title="blockArr[2].title" />
     <instagram />
     <share />
     <statistics />
@@ -44,11 +44,8 @@ export default {
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
     },
-    blocks() {
-      return this.$store.getters['blocks/getBlock'];
-    },
-    stats() {
-      return this.$store.getters['stats/getStats'];
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
     },
   },
 
@@ -56,15 +53,6 @@ export default {
     toggleContactsPopup() {
       this.$store.commit('popup/toggleContactsPopup');
     },
-  },
-
-  data() {
-    return {
-      popupShown: false,
-      popupContacts: false,
-      textSml: 'И в отличии от рака,',
-      textBg: 'рассказывайте ваши истории в инстаграм',
-    };
   },
 
   async fetch({ store, route }) {
