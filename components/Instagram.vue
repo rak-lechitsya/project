@@ -7,11 +7,11 @@
             href="https://www.instagram.com/raklechitsa/"
             target="_blank"
             class="instagram__title-link"
-            >{{ blockArr[5].title }}</a
+            >{{ blockInstagram.title }}</a
           >
         </h3>
         <client-only
-          ><p class="instagram__subtitle" v-html="blockArr[5].text"></p
+          ><p class="instagram__subtitle" v-html="blockInstagram.text"></p
         ></client-only>
       </div>
       <ul class="instagram__pictures">
@@ -36,6 +36,9 @@ export default {
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockInstagram() {
+      return this.blockArr.find(el => el.block === 'instagram');
     },
   },
   data() {

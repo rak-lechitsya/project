@@ -1,6 +1,6 @@
 <template>
   <section class="cover" ref="cover">
-    <h1 class="cover__heading">{{ blockArr[0].hashtag }}</h1>
+    <h1 class="cover__heading">{{ blockCover.hashtag }}</h1>
     <button @click="scroll" class="cover__arrow"></button>
   </section>
 </template>
@@ -10,6 +10,9 @@ export default {
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockCover() {
+      return this.blockArr.find(el => el.block === 'cover');
     },
   },
   methods: {

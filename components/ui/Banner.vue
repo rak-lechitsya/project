@@ -3,7 +3,7 @@
     <div class="banner__background">
       <h2 class="banner__text">
         {{ title }}
-        <span class="banner__hashtag"> {{ blockArr[1].hashtag }}</span>
+        <span class="banner__hashtag"> {{ blockBanner.hashtag }}</span>
       </h2>
     </div>
   </div>
@@ -17,6 +17,9 @@ export default {
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockBanner() {
+      return this.blockArr.find(el => el.block === 'note-1');
     },
   },
 };

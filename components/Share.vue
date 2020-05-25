@@ -1,9 +1,9 @@
 <template>
   <div class="share">
     <share-content class="share__content">
-      <h3 class="share__title">{{ blockArr[9].title }}</h3>
+      <h3 class="share__title">{{ blockShare.title }}</h3>
       <div class="share__container">
-        <p class="share__subtitle" v-html="blockArr[9].text"></p>
+        <p class="share__subtitle" v-html="blockShare.text"></p>
         <div class="share__text">
           <div class="share__span-container">
             <p
@@ -13,7 +13,7 @@
                 { 'share__text-span_is_active': toggle === true },
               ]"
             >
-              {{ blockArr[9].extraTexts[0].title }}
+              {{ blockShare.extraTexts[0].title }}
             </p>
             <p
               @click="toggleSecondSpan"
@@ -21,19 +21,19 @@
                 'share__text-span',
                 { 'share__text-span_is_active': toggle === false },
               ]"
-              v-html="blockArr[9].extraTexts[1].title"
+              v-html="blockShare.extraTexts[1].title"
             ></p>
           </div>
           <div class="share__text-container">
             <p
               v-if="toggle === true"
               class="share__text-paragraph"
-              v-html="blockArr[9].extraTexts[0].text"
+              v-html="blockShare.extraTexts[0].text"
             ></p>
             <p
               v-if="toggle === false"
               class="share__text-paragraph"
-              v-html="blockArr[9].extraTexts[1].text"
+              v-html="blockShare.extraTexts[1].text"
             ></p>
             <share-button
               v-if="toggle === true"
@@ -65,6 +65,9 @@ export default {
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockShare() {
+      return this.blockArr.find(el => el.block === 'story');
     },
   },
   methods: {

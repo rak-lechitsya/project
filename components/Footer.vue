@@ -2,7 +2,7 @@
   <footer class="footer">
     <my-content class="footer__content">
       <div class="footer__menu">
-        <h3 class="footer__title">{{ blockArr[7].title }}</h3>
+        <h3 class="footer__title">{{ blockFooter.title }}</h3>
         <my-menu class="footer__links" />
         <div class="footer__links-social">
           <p>
@@ -29,7 +29,7 @@
       </div>
       <div class="footer__author">
         <div class="footer__container">
-          <p class="footer__year" v-html="blockArr[7].text" />
+          <p class="footer__year" v-html="blockFooter.text" />
           <p class="footer__year year">{{ year }}</p>
         </div>
         <p>
@@ -50,14 +50,17 @@
 import Content from '@/components/ui/Content';
 import Menu from '@/components/ui/Menu';
 export default {
+  components: {
+    'my-content': Content,
+    'my-menu': Menu,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
     },
-  },
-  components: {
-    'my-content': Content,
-    'my-menu': Menu,
+    blockFooter() {
+      return this.blockArr.find(el => el.block === 'footer');
+    },
   },
   methods: {
     toggleSocialPopup() {

@@ -1,7 +1,7 @@
 <template>
   <section class="stories">
     <stories-content class="stories__content">
-      <h3 class="stories__heading">{{ blockArr[4].title }}</h3>
+      <h3 class="stories__heading">{{ blockStories.title }}</h3>
       <stories-grid class="stories__list" :start="0" :limit="8" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </stories-content>
@@ -23,6 +23,9 @@ export default {
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockStories() {
+      return this.blockArr.find(el => el.block === 'stories');
     },
   },
 };

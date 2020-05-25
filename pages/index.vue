@@ -2,9 +2,9 @@
   <div class="content">
     <cover />
     <videostory />
-    <banner :title="blockArr[1].title" />
+    <banner :title="blockBannerSml.title" />
     <stories />
-    <banner :title="blockArr[2].title" />
+    <banner :title="blockBannerBg.title" />
     <instagram />
     <share />
     <statistics />
@@ -45,6 +45,12 @@ export default {
     },
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockBannerSml() {
+      return this.blockArr.find(el => el.block === 'note-1');
+    },
+    blockBannerBg() {
+      return this.blockArr.find(el => el.block === 'note-2');
     },
   },
   methods: {

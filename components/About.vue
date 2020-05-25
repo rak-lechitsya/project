@@ -1,10 +1,10 @@
 <template>
   <div class="about">
     <about-content class="about__content">
-      <h2 class="about__heading">{{ blockArr[10].hashtag }}</h2>
-      <h3 class="about__title">{{ blockArr[10].title }}</h3>
+      <h2 class="about__heading">{{ blockAbout.hashtag }}</h2>
+      <h3 class="about__title">{{ blockAbout.title }}</h3>
       <div class="about__container">
-        <p class="about__subtitle" v-html="blockArr[10].text"></p>
+        <p class="about__subtitle" v-html="blockAbout.text"></p>
         <div class="about__text">
           <div class="about__span-container">
             <p
@@ -13,7 +13,7 @@
                 'about__text-span',
                 { 'about__text-span_is_active': toggle === true },
               ]"
-              v-text="blockArr[10].extraTexts[0].title"
+              v-text="blockAbout.extraTexts[0].title"
             ></p>
             <p
               @click="toggleSecondSpan"
@@ -21,20 +21,20 @@
                 'about__text-span',
                 { 'about__text-span_is_active': toggle === false },
               ]"
-              v-text="blockArr[10].extraTexts[1].title"
+              v-text="blockAbout.extraTexts[1].title"
             ></p>
           </div>
           <div class="about__text-container">
             <p
               v-if="toggle === true"
               class="about__text-paragraph"
-              v-html="blockArr[10].extraTexts[0].text"
+              v-html="blockAbout.extraTexts[0].text"
             ></p>
             <p v-if="toggle === true" class="about__text-paragraph"></p>
             <p
               v-else
               class="about__text-paragraph"
-              v-html="blockArr[10].extraTexts[1].text"
+              v-html="blockAbout.extraTexts[1].text"
             ></p>
           </div>
         </div>
@@ -52,6 +52,9 @@ export default {
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockAbout() {
+      return this.blockArr.find(el => el.block === 'about');
     },
   },
   methods: {

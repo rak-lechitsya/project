@@ -2,9 +2,9 @@
   <section class="video">
     <video-content class="video__content">
       <div class="video__description">
-        <h3 class="video__title" v-text="blockArr[3].title"></h3>
+        <h3 class="video__title" v-text="blockVideo.title"></h3>
         <client-only
-          ><p class="video__subtitle" v-html="blockArr[3].text"></p
+          ><p class="video__subtitle" v-html="blockVideo.text"></p
         ></client-only>
         <div class="video__container">
           <button
@@ -38,7 +38,7 @@
             class="video__link"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
             target="_blank"
-            >{{ blockArr[3].note }}
+            >{{ blockVideo.note }}
           </a>
         </figcaption>
       </figure>
@@ -68,6 +68,9 @@ export default {
     },
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockVideo() {
+      return this.blockArr.find(el => el.block === 'videos');
     },
   },
   methods: {

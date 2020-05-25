@@ -1,7 +1,7 @@
 <template>
   <div class="statistics">
     <statistics-content class="statistics__content">
-      <h3 class="statistics__header">{{ blockArr[6].title }}</h3>
+      <h3 class="statistics__header">{{ blockStatistics.title }}</h3>
       <div class="statistics__container">
         <div class="statistics__pictures">
           <div class="statistics__item">
@@ -87,6 +87,9 @@ export default {
     },
     statsArr() {
       return this.$store.getters['stats/getStatsArr'];
+    },
+    blockStatistics() {
+      return this.blockArr.find(el => el.block === 'statistics');
     },
   },
   data() {
