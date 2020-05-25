@@ -50,7 +50,7 @@
           </p>
         </div>
       </section>
-      <stories-grid class="stories__list" :start="0" :limit="widthLimit" />
+      <stories-grid class="stories__list" :start="random" :limit="widthLimit" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </div>
@@ -68,6 +68,9 @@ export default {
     story() {
       return this.$store.getters['stories/getCurrentStory'];
     },
+    allStories() {
+      return this.$store.getters['stories/getAllStories'];
+    },
     widthLimit() {
       this.limit = 4;
       if (window.innerWidth <= 1000) {
@@ -77,6 +80,10 @@ export default {
         this.limit = 2;
       }
       return this.limit;
+    },
+    random() {
+      let rand = 0 + Math.random() * (this.allStories.length + 1);
+      return Math.floor(rand);
     },
   },
   methods: {
