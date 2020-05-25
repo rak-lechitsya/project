@@ -50,7 +50,7 @@
           </p>
         </div>
       </section>
-      <stories-grid class="stories__list" :start="0" :limit="4" />
+      <stories-grid class="stories__list" :start="0" :limit="widthLimit" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </div>
@@ -67,6 +67,16 @@ export default {
   computed: {
     story() {
       return this.$store.getters['stories/getCurrentStory'];
+    },
+    widthLimit() {
+      this.limit = 4;
+      if (window.innerWidth <= 768) {
+        this.limit = 3;
+      }
+      if (window.innerWidth <= 425) {
+        this.limit = 2;
+      }
+      return this.limit;
     },
   },
   methods: {

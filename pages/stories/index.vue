@@ -12,7 +12,7 @@
           :text="textButtonForm"
         ></input-button>
       </div>
-      <stories-grid class="stories__list" />
+      <stories-grid class="stories__list" :start="0" :limit="widthLimit" />
       <pages class="stories__menu"></pages>
     </story-content>
   </section>
@@ -31,6 +31,18 @@ export default {
     'story-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
+  },
+  computed: {
+    widthLimit() {
+      this.limit = 16;
+      if (window.innerWidth <= 768) {
+        this.limit = 12;
+      }
+      if (window.innerWidth <= 425) {
+        this.limit = 9;
+      }
+      return this.limit;
+    },
   },
   data() {
     return {

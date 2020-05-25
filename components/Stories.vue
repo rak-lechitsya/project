@@ -2,7 +2,7 @@
   <section class="stories">
     <stories-content class="stories__content">
       <h3 class="stories__heading">{{ blockStories.title }}</h3>
-      <stories-grid class="stories__list" :start="0" :limit="8" />
+      <stories-grid class="stories__list" :start="0" :limit="widthLimit" />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </stories-content>
   </section>
@@ -26,6 +26,16 @@ export default {
     },
     blockStories() {
       return this.blockArr.find(el => el.block === 'stories');
+    },
+    widthLimit() {
+      this.limit = 8;
+      if (window.innerWidth <= 768) {
+        this.limit = 9;
+      }
+      if (window.innerWidth <= 425) {
+        this.limit = 6;
+      }
+      return this.limit;
     },
   },
 };
