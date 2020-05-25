@@ -29,10 +29,10 @@ export default {
     },
     widthLimit() {
       this.limit = 8;
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1000) {
         this.limit = 9;
       }
-      if (window.innerWidth <= 425) {
+      if (window.innerWidth <= 700) {
         this.limit = 6;
       }
       return this.limit;
