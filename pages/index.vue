@@ -54,13 +54,6 @@ export default {
       this.$store.commit('popup/toggleContactsPopup');
     },
   },
-
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStoryArr');
-    await store.dispatch('blocks/fetchBlockArr');
-    await store.dispatch('stats/fetchStatsArr');
-    await store.dispatch('videos/fetchVideos');
-  },
 };
 </script>
 
