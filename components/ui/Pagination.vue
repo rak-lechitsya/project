@@ -7,7 +7,7 @@
       Первая
     </p>
     <button
-      class="pagination__button pagination__button_left"
+      class="pagination__button pagination__polygon_back"
       @click="setActive(itemBack)"
       :disabled="isFirst"
     ></button>
@@ -23,7 +23,7 @@
       {{ index }}
     </div>
     <button
-      class="pagination__button pagination__button_right"
+      class="pagination__button pagination__polygon"
       @click="setActive(itemForward)"
       :disabled="isLast"
     ></button>
@@ -97,6 +97,22 @@ export default {
   margin-left: 20px;
 }
 
+.pagination__polygon_back {
+  width: 58px;
+  height: 58px;
+  background-image: url(/polygon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+.pagination__polygon {
+  width: 58px;
+  height: 58px;
+  background-image: url(/polygon__17.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
 .pagination {
   position: relative;
   display: flex;
@@ -116,9 +132,6 @@ export default {
 }
 .pagination__item:last-child {
   margin-right: 0;
-}
-.pagination__arrow {
-  transform: rotate(-180deg);
 }
 .pagination__item:hover,
 .pagination__item_active {
