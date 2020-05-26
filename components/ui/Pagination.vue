@@ -1,28 +1,73 @@
 <template>
   <div class="pagination">
+    <p
+      :class="['pagination__first', { pagination__first_active: isFirst }]"
+      @click="setActive((index = 1))"
+    >
+      Первая
+    </p>
+    <button
+      class="pagination__button pagination__button_left"
+      @click="setActive(itemBack)"
+      :disabled="isFirst"
+    ></button>
     <div
       v-for="index in countPages"
       :key="index"
       @click="setActive(index)"
       :class="[
         'pagination__item',
-        { pagination__item_is_active: index === active },
+        { pagination__item_active: index === active },
       ]"
     >
       {{ index }}
     </div>
+    <button
+      class="pagination__button pagination__button_right"
+      @click="setActive(itemForward)"
+      :disabled="isLast"
+    ></button>
+    <p
+      :class="['pagination__last', { pagination__last_active: isLast }]"
+      @click="setActive((index = countPages))"
+    >
+      Последняя
+    </p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    allStories: Number,
-    limit: Number,
+    allStories: {
+      type: Number,
+      default: 0,
+    },
+    limit: {
+      type: Number,
+      default: 0,
+    },
+  },
+  data() {
+    return {
+      active: 1,
+    };
   },
   computed: {
+    itemForward() {
+      return this.active + 1;
+    },
+    itemBack() {
+      return this.active - 1;
+    },
     countPages() {
       return Math.ceil(this.allStories / this.limit);
+    },
+    isLast() {
+      return this.active === this.countPages;
+    },
+    isFirst() {
+      return this.active === 1;
     },
   },
   methods: {
@@ -31,72 +76,105 @@ export default {
       this.$emit('pagClick', index);
     },
   },
-  data() {
-    return {
-      active: 1,
-    };
-  },
 };
 </script>
 
 <style scoped>
-.pagination {
-  margin-bottom: 102px;
-  display: flex;
-  justify-content: center;
+.pagination__button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+.pagination__button:focus {
+  outline: none;
+}
+.pagination__button_left {
+  margin-right: 30px;
+}
+.pagination__button_right {
+  margin-left: 20px;
 }
 
+.pagination {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .pagination__item {
-  margin-right: 10px;
+  display: flex;
   width: 58px;
   height: 58px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  background: #fbfbfb;
-  color: #181818;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  background-color: #fbfbfb;
+  transition: background-color 0.3s;
 }
-
-.pagination__item_is_active {
-  color: #000;
-  background: #f4f4f4;
-}
-
-.pagination__item:hover {
-  background: #f8f8f8;
-}
-
 .pagination__item:last-child {
   margin-right: 0;
 }
-
-@media (max-width: 1250px) {
-  .pagination__item {
-    width: 56px;
-    height: 56px;
-  }
+.pagination__arrow {
+  transform: rotate(-180deg);
 }
-
-@media (max-width: 1000px) {
+.pagination__item:hover,
+.pagination__item_active {
+  background-color: #f4f4f4;
+  transition: background-color 0.3s;
+}
+.pagination__first {
+  cursor: pointer;
+  color: #181818;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  margin-right: 30px;
+}
+.pagination__last {
+  cursor: pointer;
+  margin-left: 30px;
+  color: #181818;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+.pagination__first_active {
+  color: #a2a2a2;
+}
+.pagination__last_active {
+  color: #a2a2a2;
+}
+@media screen and (max-width: 1024px) {
   .pagination__item {
     width: 50px;
     height: 50px;
+  }
+  .pagination__first {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .pagination__last {
     font-size: 15px;
     line-height: 18px;
   }
 }
-
-@media (max-width: 700px) {
+@media screen and (max-width: 320px) {
   .pagination {
-    justify-content: left;
-    overflow: auto;
+    flex-wrap: wrap;
+    max-width: 270px;
   }
-  .pagination__item {
-    flex-shrink: 0;
+  .pagination__first {
+    margin-top: 34px;
+    order: 99;
+  }
+  .pagination__last {
+    margin-top: 34px;
+    order: 100;
   }
 }
 </style>
