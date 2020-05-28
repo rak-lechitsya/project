@@ -24,7 +24,6 @@ export default {
   },
   computed: {
     storiesToRender() {
-      const { stories } = this.$store.state;
       return this.relevantStories.filter(
         (item, idx) => idx >= this.start && idx <= this.start + this.limit - 1
       );

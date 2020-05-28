@@ -7,10 +7,9 @@
         class="stories__box"
       >
         <input
-          pattern="^[А-ЯЁ][а-яё]+( [А-ЯЁ][а-яё]+)?"
           v-model="storiesName"
           minlength="2"
-          placeholder="Введите имя для поиска"
+          placeholder="Введите имя или ключевую фразу"
           class="stories__input"
         />
         <input-button
@@ -63,7 +62,13 @@ export default {
         return stories.stories;
       }
       return stories.stories.filter(
-        (item, idx) => item.author.indexOf(this.appliedStoriesName) > -1
+        item =>
+          item.author
+            .toLowerCase()
+            .indexOf(this.appliedStoriesName.toLowerCase()) > -1 ||
+          item.text
+            .toLowerCase()
+            .indexOf(this.appliedStoriesName.toLowerCase()) > -1
       );
     },
   },
