@@ -9,6 +9,8 @@
     ]"
     :type="type"
     :placeholder="placeholder"
+    v-bind:value="value"
+    v-on:input="$emit('input', $event.target.value)"
   />
 </template>
 
@@ -46,7 +48,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  color: #666;
+  color: black;
   width: 100%;
   outline: none;
   padding-left: 10px;

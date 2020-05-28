@@ -1,5 +1,11 @@
 <template>
-  <form v-if="!sent" class="form" id="form" name="form">
+  <form
+    @submit.prevent="prevent"
+    v-if="!sent"
+    class="form"
+    id="form"
+    name="form"
+  >
     <h3 class="form__title">{{ title }}</h3>
     <fieldset class="form__fieldset">
       <legend class="form__subtitle">
@@ -28,13 +34,14 @@
         v-if="!lastQuestion"
         @btnClick="nextQuestion"
         :text="textButtonForm"
-        type="button"
+        type="submit"
       />
       <my-button
         v-if="lastQuestion"
         @btnClick.once="send"
         :text="textButtonFormSend"
         class="button button_next"
+        type="submit"
       />
 
       <p v-if="lastQuestion" class="form__politic">
@@ -51,14 +58,6 @@
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 export default {
-  props: {
-    title: {
-      type: String,
-    },
-    subtitle: {
-      type: String,
-    },
-  },
   components: {
     'my-input': Input,
     'my-button': Button,
@@ -94,6 +93,9 @@ export default {
     },
     prevQuestion() {
       if (this.number > 1) this.number--;
+    },
+    prevent(event) {
+      event.preventDefault();
     },
     async send() {
       const promise = await new Promise((resolve, reject) => {
