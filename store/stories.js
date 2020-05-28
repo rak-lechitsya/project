@@ -33,11 +33,6 @@ export const actions = {
 };
 
 export const getters = {
-  getRelevantStories: state => (start, limit) => {
-    let copyArr = state.stories.slice(0);
-    let relevantStories = [];
-    return (relevantStories = copyArr.splice(start, limit));
-  },
   getCurrentStory(state) {
     return state.currentStory;
   },

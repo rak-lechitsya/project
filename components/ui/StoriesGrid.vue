@@ -1,6 +1,6 @@
 <template>
   <ul class="stories__list">
-    <li v-for="card in relevantStories" :key="card.id" class="stories__item">
+    <li v-for="card in storiesToRender" :key="card.id" class="stories__item">
       <story
         :url="card.ImageUrl[0].url"
         :author="card.author"
@@ -17,15 +17,16 @@ export default {
   props: {
     start: Number,
     limit: Number,
+    relevantStories: Array,
   },
   components: {
     story: Story,
   },
   computed: {
-    relevantStories() {
-      return this.$store.getters['stories/getRelevantStories'](
-        this.start,
-        this.limit
+    storiesToRender() {
+      const { stories } = this.$store.state;
+      return this.relevantStories.filter(
+        (item, idx) => idx >= this.start && idx <= this.start + this.limit - 1
       );
     },
   },
