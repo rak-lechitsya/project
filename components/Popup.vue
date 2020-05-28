@@ -9,7 +9,9 @@
 
 <script>
 export default {
-  props: ['addClass'],
+  props: {
+    addClass: String,
+  },
 };
 </script>
 
@@ -21,6 +23,7 @@ export default {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 .popup__close {

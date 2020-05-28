@@ -1,5 +1,10 @@
 <template>
-  <form class="form" id="form-contacts" name="form-contacts">
+  <form
+    @submit.prevent="prevent"
+    class="form"
+    id="form-contacts"
+    name="form-contacts"
+  >
     <h3 class="form__title">Оставьте контакт для связи</h3>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -14,6 +19,7 @@
         type="text"
         :bottomBordered="true"
         name="fullname"
+        v-model="fullName"
       />
       <div class="form__mail-tel">
         <div class="form__block">
@@ -21,10 +27,11 @@
           <my-input
             addClass="form__input"
             placeholder="pochta@example.com"
-            id="e-mail"
+            id="email"
             type="email"
             :bottomBordered="true"
-            name="e-mail"
+            name="email"
+            v-model="email"
           />
         </div>
         <div class="form__block">
@@ -36,6 +43,7 @@
             type="tel"
             :bottomBordered="true"
             name="tel"
+            v-model="tel"
           />
         </div>
       </div>
@@ -49,10 +57,16 @@
         type="text"
         :bottomBordered="true"
         name="time"
+        v-model="time"
       />
     </fieldset>
     <div class="form__buttons">
-      <my-button class="button" :text="textButtonForm" type="submit" />
+      <my-button
+        @btnClick="sentData"
+        class="button"
+        :text="textButtonForm"
+        type="submit"
+      />
       <p class="form__politic">
         Нажимая на кнопку «отправить», вы даете согласие на
         <nuxt-link to="/policy" target="_blank" class="form__link"
@@ -71,9 +85,23 @@ export default {
     'my-input': Input,
     'my-button': Button,
   },
+  methods: {
+    prevent(event) {
+      event.preventDefault();
+    },
+    async sentData() {
+      const arr = [this.fullName, this.email, this.tel, this.time];
+      await this.$store.dispatch('contacts/sentData', arr);
+      this.$store.commit('popup/toggleContactsPopup');
+    },
+  },
   data() {
     return {
       textButtonForm: 'Отправить',
+      fullName: '',
+      email: '',
+      tel: '',
+      time: '',
     };
   },
 };
