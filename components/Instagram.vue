@@ -20,7 +20,7 @@
           :key="relevantInstagram.indexOf(photo)"
           class="instagram__item"
         >
-          <a :href="photo.url" class="instagram__link_photo">
+          <a :href="photo.url" target="_blank" class="instagram__link_photo">
             <img :src="photo.display_url" class="instagram__photo" />
           </a>
         </li>
