@@ -16,8 +16,8 @@
       </div>
       <ul class="instagram__grid">
         <li
-          v-for="photo in instagramArr"
-          :key="instagramArr.indexOf(photo)"
+          v-for="photo in relevantInstagram"
+          :key="relevantInstagram.indexOf(photo)"
           class="instagram__item"
         >
           <a :href="photo.url" class="instagram__link_photo">
@@ -48,6 +48,17 @@ export default {
       const { instagram } = this.$store.state;
       return instagram.instagram;
     },
+    relevantInstagram() {
+      let copyArr = this.instagramArr.slice(0);
+      let relevantInstagram = [];
+      return (relevantInstagram = copyArr.splice(this.start, this.limit));
+    },
+  },
+  data() {
+    return {
+      start: 0,
+      limit: 8,
+    };
   },
 };
 </script>

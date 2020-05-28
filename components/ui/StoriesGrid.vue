@@ -22,11 +22,13 @@ export default {
     story: Story,
   },
   computed: {
+    allStories() {
+      return this.$store.getters['stories/getAllStories'];
+    },
     relevantStories() {
-      return this.$store.getters['stories/getRelevantStories'](
-        this.start,
-        this.limit
-      );
+      let copyArr = this.allStories.slice(0);
+      let relevantStories = [];
+      return (relevantStories = copyArr.splice(this.start, this.limit));
     },
   },
   methods: {
