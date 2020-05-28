@@ -5,7 +5,7 @@
     <nuxt />
     <my-footer />
     <popup v-if="popupStoryShown" @closeClick="toggleStoryPopup">
-      <my-form title="Шаг 1 из 12" subtitle="Как вас зовут?" />
+      <my-form />
     </popup>
     <popup v-if="popupSocialShown" @closeClick="toggleSocialPopup">
       <social />
