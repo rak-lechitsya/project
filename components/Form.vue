@@ -1,5 +1,5 @@
 <template>
-  <form class="form" id="form" name="form">
+  <form v-if="!sent" class="form" id="form" name="form">
     <h3 class="form__title">{{ title }}</h3>
     <fieldset class="form__fieldset">
       <legend class="form__subtitle">
@@ -26,12 +26,23 @@
       <my-button
         class="button button_next"
         v-if="!lastQuestion"
-        @click="nextQuestion"
+        @btnClick="nextQuestion"
         :text="textButtonForm"
+        type="button"
       />
-      <my-button v-if="lastQuestion" @click="send" class="button button_next"
-        >Отправить</my-button
-      >
+      <my-button
+        v-if="lastQuestion"
+        @btnClick.once="send"
+        :text="textButtonFormSend"
+        class="button button_next"
+      />
+
+      <p v-if="lastQuestion" class="form__politic">
+        Нажимая на кнопку «отправить», вы даете согласие на
+        <nuxt-link to="/policy" target="_blank" class="form__link"
+          >обработку персональных данных</nuxt-link
+        >
+      </p>
     </div>
   </form>
 </template>
@@ -55,6 +66,8 @@ export default {
   data() {
     return {
       textButtonForm: 'Далее',
+      textButtonFormSend: 'Отправить',
+      textButtonFormClose: 'Закрыть',
       answers: [],
       number: 1,
       sent: false,
@@ -71,6 +84,9 @@ export default {
       if (!this.sent) return `Шаг ${this.number} из ${this.questions.length}`;
       else return 'Спасибо что приняли участие!';
     },
+    answerKeys() {
+      return this.questions.map(el => el.answerKey);
+    },
   },
   methods: {
     nextQuestion() {
@@ -79,9 +95,16 @@ export default {
     prevQuestion() {
       if (this.number > 1) this.number--;
     },
-    send() {
+    async send() {
+      const promise = await new Promise((resolve, reject) => {
+        setTimeout(() => resolve(), 1500);
+      });
       this.sent = true;
-      console.log('Отправить ответы');
+      let result = {};
+      this.answerKeys.forEach((key, index) => {
+        result = { ...result, [key]: this.answers[index] || null };
+      });
+      console.log(result);
     },
   },
 };
@@ -134,6 +157,17 @@ export default {
   margin-bottom: 200px;
 }
 
+.form__politic {
+  margin-left: 30px;
+  max-width: 378px;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.form__question-extra {
+  color: #666;
+}
+
 .form__title {
   margin: 0 0 40px;
   font-weight: 600;
@@ -149,8 +183,9 @@ export default {
   line-height: 24px;
   color: #000;
   padding: 0;
-  margin: 0 0 134px;
+  margin: 0 0 80px;
   width: 100%;
+  min-height: 72px;
   text-align: left;
 }
 
