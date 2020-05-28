@@ -19,6 +19,7 @@ export default {};
     max-width: 1180px;
   }
 }
+
 @media (max-width: 1250px) {
   .content {
     max-width: 924px;

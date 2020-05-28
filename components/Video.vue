@@ -26,13 +26,9 @@
         </div>
       </div>
       <figure class="video__story">
-        <iframe
-          class="video__item"
-          :src="videosUrl[counter].url"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div class="video__swiper">
+          <slider class="video__slider" :videos="videosUrl" />
+        </div>
         <figcaption class="video__captiontext">
           <a
             class="video__link"
@@ -48,9 +44,11 @@
 
 <script>
 import Content from '@/components/ui/Content';
+import Slider from '@/components/Slider';
 export default {
   components: {
     'video-content': Content,
+    slider: Slider,
   },
   computed: {
     videosUrl() {
@@ -125,11 +123,6 @@ export default {
 
 .video__story {
   width: 867px;
-  height: 450px;
-}
-
-.video__item {
-  width: 100%;
   height: 450px;
 }
 
@@ -287,7 +280,9 @@ export default {
   }
 
   .video__toggle {
-    background-color: transparent;
+    background-color: #ededed;
+    border-radius: 50%;
+    z-index: 2;
   }
 }
 

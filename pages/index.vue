@@ -23,7 +23,7 @@ import Video from '@/components/Video';
 import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
-import Banner from '@/components/ui/Banner';
+import Banner from '@/components/Banner';
 import Popup from '@/components/Popup';
 import FormContacts from '@/components/FormContacts';
 export default {

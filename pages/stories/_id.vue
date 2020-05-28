@@ -63,7 +63,7 @@
 
 <script>
 import Content from '@/components/ui/Content';
-import StoriesGrid from '@/components/ui/StoriesGrid';
+import StoriesGrid from '@/components/StoriesGrid';
 export default {
   components: {
     'story-content': Content,

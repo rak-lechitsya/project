@@ -53,28 +53,33 @@ export default {
   line-height: 1;
 }
 
-@media (max-width: 599px) {
-  .banner__background {
-    padding: 10px 20px;
-  }
-
+@media (max-width: 1300px) {
   .banner {
-    padding: 0 15px;
+    padding: 0 50px;
   }
 
   .banner__text {
-    font-size: 16px;
-    line-height: 18px;
-    max-width: 220px;
-    margin: 0 auto;
+    font-size: 28px;
+    line-height: 46px;
   }
 
   .banner__hashtag {
-    font-size: 22px;
+    font-size: 38px;
   }
 }
 
-@media (min-width: 600px) and (max-width: 799px) {
+@media (max-width: 1200px) {
+  .banner__text {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .banner__hashtag {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 800px) {
   .banner__background {
     padding: 12px 65px;
   }
@@ -93,33 +98,24 @@ export default {
   }
 }
 
-@media (min-width: 800px) and (max-width: 1199px) {
+@media (max-width: 600px) {
+  .banner__background {
+    padding: 10px 20px;
+  }
+
   .banner {
-    padding: 0 50px;
+    padding: 0 15px;
   }
 
   .banner__text {
-    font-size: 24px;
-    line-height: 40px;
+    font-size: 16px;
+    line-height: 18px;
+    max-width: 220px;
+    margin: 0 auto;
   }
 
   .banner__hashtag {
-    font-size: 34px;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1300px) {
-  .banner {
-    padding: 0 50px;
-  }
-
-  .banner__text {
-    font-size: 28px;
-    line-height: 46px;
-  }
-
-  .banner__hashtag {
-    font-size: 38px;
+    font-size: 22px;
   }
 }
 </style>
