@@ -2,8 +2,15 @@
   <form class="form" id="form" name="form">
     <h3 class="form__title">{{ title }}</h3>
     <fieldset class="form__fieldset">
-      <legend class="form__subtitle">{{ subtitle }}</legend>
+      <legend class="form__subtitle">
+        {{ questions[number - 1].question }}
+        <span class="form__question-extra">
+          {{ questions[number - 1].questionExtra }}</span
+        >
+      </legend>
       <my-input
+        v-model="answers[number - 1]"
+        :value="answers[number - 1]"
         addClass="form__input"
         placeholder="Напишите тут"
         id="fullname"
@@ -13,8 +20,18 @@
       />
     </fieldset>
     <div class="form__buttons">
-      <button class="button button_before" type="button">Назад</button>
-      <my-button class="button button_next" :text="textButtonForm" />
+      <button class="button button_before" @click="prevQuestion" type="button">
+        Назад
+      </button>
+      <my-button
+        class="button button_next"
+        v-if="!lastQuestion"
+        @click="nextQuestion"
+        :text="textButtonForm"
+      />
+      <my-button v-if="lastQuestion" @click="send" class="button button_next"
+        >Отправить</my-button
+      >
     </div>
   </form>
 </template>
@@ -38,7 +55,34 @@ export default {
   data() {
     return {
       textButtonForm: 'Далее',
+      answers: [],
+      number: 1,
+      sent: false,
     };
+  },
+  computed: {
+    questions() {
+      return this.$store.getters['form/getQuestions'];
+    },
+    lastQuestion() {
+      return Boolean(this.questions.length === this.number);
+    },
+    title() {
+      if (!this.sent) return `Шаг ${this.number} из ${this.questions.length}`;
+      else return 'Спасибо что приняли участие!';
+    },
+  },
+  methods: {
+    nextQuestion() {
+      if (!this.lastQuestion) this.number++;
+    },
+    prevQuestion() {
+      if (this.number > 1) this.number--;
+    },
+    send() {
+      this.sent = true;
+      console.log('Отправить ответы');
+    },
   },
 };
 </script>
