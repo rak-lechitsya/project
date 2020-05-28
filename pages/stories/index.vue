@@ -2,20 +2,31 @@
   <section class="stories" ref="stories">
     <story-content class="story__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
-      <div class="stories__box">
-        <input-stories
+      <form
+        @submit.prevent="appliedStoriesName = storiesName"
+        class="stories__box"
+      >
+        <input
+          pattern="^[А-ЯЁ][а-яё]+( [А-ЯЁ][а-яё]+)?"
           v-model="storiesName"
-          addClass="stories__form-button"
-        ></input-stories>
+          minlength="2"
+          placeholder="Введите имя для поиска"
+          class="stories__input"
+        />
         <input-button
           class="button button_search"
           :text="textButtonForm"
         ></input-button>
-      </div>
-      <stories-grid class="stories__list" :start="start" :limit="widthLimit" />
+      </form>
+      <stories-grid
+        class="stories__list"
+        :relevantStories="initiallyFilteredStories"
+        :start="start"
+        :limit="widthLimit"
+      />
       <stories-pagination
         class="stories__menu"
-        :allStories="allStories.length"
+        :allStories="initiallyFilteredStories.length"
         :limit="limit"
         @pagClick="changePage"
       ></stories-pagination>
@@ -25,13 +36,11 @@
 
 <script>
 import Content from '@/components/ui/Content';
-import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import StoriesGrid from '@/components/ui/StoriesGrid';
 import Pagination from '@/components/ui/Pagination';
 export default {
   components: {
-    'input-stories': Input,
     'story-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
@@ -48,8 +57,14 @@ export default {
       }
       return this.limit;
     },
-    allStories() {
-      return this.$store.getters['stories/getAllStories'];
+    initiallyFilteredStories() {
+      const { stories } = this.$store.state;
+      if (!this.appliedStoriesName || this.appliedStoriesName === '') {
+        return stories.stories;
+      }
+      return stories.stories.filter(
+        (item, idx) => item.author.indexOf(this.appliedStoriesName) > -1
+      );
     },
   },
   methods: {
@@ -61,8 +76,9 @@ export default {
   },
   data() {
     return {
-      textButtonForm: 'Поиск',
       storiesName: '',
+      appliedStoriesName: '',
+      textButtonForm: 'Поиск',
       start: 0,
     };
   },
@@ -114,9 +130,13 @@ export default {
 .stories__link {
   text-decoration: none;
 }
-.stories__form-button {
+.stories__input {
+  font-size: 18px;
+  line-height: 24px;
+  padding-left: 5px;
   border: 1px solid #e8e8e8;
   margin-bottom: 70px;
+  outline: none;
   width: 1074px;
   height: 52px;
 }
@@ -138,10 +158,14 @@ export default {
   .button_search {
     height: 48px;
   }
+  .stories__input {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 @media (max-width: 1350px) {
-  .stories__form-button {
+  .stories__input {
     margin-bottom: 60px;
     width: 934px;
     height: 48px;
@@ -184,7 +208,7 @@ export default {
 }
 
 @media (max-width: 1250px) {
-  .stories__form-button {
+  .stories__input {
     margin-bottom: 46px;
     width: 696px;
     height: 46px;
@@ -230,10 +254,14 @@ export default {
   .stories__menu {
     margin-top: 130px;
   }
+  .stories__input {
+    font-size: 15px;
+    line-height: 19px;
+  }
 }
 
 @media (max-width: 1000px) {
-  .stories__form-button {
+  .stories__input {
     margin-bottom: 60px;
     width: 460px;
     height: 46px;
@@ -275,10 +303,14 @@ export default {
 }
 
 @media (max-width: 700px) {
-  .stories__form-button {
+  .stories__input {
     margin-bottom: 30px;
     width: 238px;
     height: 46px;
+  }
+  .stories__input {
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 

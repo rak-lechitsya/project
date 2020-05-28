@@ -50,7 +50,12 @@
           </p>
         </div>
       </section>
-      <stories-grid class="stories__list" :start="random" :limit="widthLimit" />
+      <stories-grid
+        class="stories__list"
+        :relevantStories="allStories"
+        :start="random"
+        :limit="widthLimit"
+      />
       <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
     </story-content>
   </div>
