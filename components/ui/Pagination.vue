@@ -145,11 +145,11 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  margin-right: 30px;
+  margin-right: 10px;
 }
 .pagination__last {
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 10px;
   color: #181818;
   font-style: normal;
   font-weight: normal;
@@ -162,7 +162,8 @@ export default {
 .pagination__last_active {
   color: #a2a2a2;
 }
-@media screen and (max-width: 1024px) {
+
+@media screen and (max-width: 1000px) {
   .pagination__item {
     width: 50px;
     height: 50px;
@@ -175,19 +176,46 @@ export default {
     font-size: 15px;
     line-height: 18px;
   }
+  .pagination__item:nth-child(7) {
+    display: none;
+  }
+  .pagination__item:nth-child(8) {
+    display: none;
+  }
+  .pagination__item:nth-child(9) {
+    display: none;
+  }
+  .pagination__item:nth-child(10) {
+    display: none;
+  }
 }
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 700px) {
   .pagination {
-    flex-wrap: wrap;
-    max-width: 270px;
+    max-width: 320px;
   }
   .pagination__first {
     margin-top: 34px;
     order: 99;
+    margin-left: 25px;
   }
   .pagination__last {
     margin-top: 34px;
     order: 100;
+    margin-right: 25px;
+  }
+  .pagination__button_left {
+    margin-right: 10px;
+  }
+  .pagination__button_right {
+    margin-left: 10px;
+  }
+  .pagination__item {
+    margin-right: 8px;
+  }
+
+  .pagination__item:nth-child(6) {
+    display: none;
   }
 }
 </style>
