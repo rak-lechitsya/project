@@ -6,7 +6,7 @@
           <a
             href="https://www.instagram.com/raklechitsa/"
             target="_blank"
-            class="instagram__title-link"
+            class="instagram__link_title"
             >{{ blockInstagram.title }}</a
           >
         </h3>
@@ -14,11 +14,15 @@
           ><p class="instagram__subtitle" v-html="blockInstagram.text"></p
         ></client-only>
       </div>
-      <ul class="instagram__pictures">
-        <li v-for="pic in instaArr" :key="pic.id" class="instagram__item">
-          <a href="#" target="_blank" class="instagram__link"
-            ><insta-item :url="pic.url"
-          /></a>
+      <ul class="instagram__grid">
+        <li
+          v-for="photo in instagramArr"
+          :key="instagramArr.indexOf(photo)"
+          class="instagram__item"
+        >
+          <a :href="photo.url" class="instagram__link_photo">
+            <img :src="photo.display_url" class="instagram__photo" />
+          </a>
         </li>
       </ul>
     </instagram-content>
@@ -40,45 +44,10 @@ export default {
     blockInstagram() {
       return this.blockArr.find(el => el.block === 'instagram');
     },
-  },
-  data() {
-    return {
-      InstaItem: '',
-      instaArr: [
-        {
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild6466-3937-4564-a561-383966623266/noroot.png',
-        },
-        {
-          url:
-            'https://static.tildacdn.com/tild3030-6237-4066-b931-613262646132/IMG_20191024_184116.jpg',
-        },
-      ],
-    };
+    instagramArr() {
+      const { instagram } = this.$store.state;
+      return instagram.instagram;
+    },
   },
 };
 </script>
@@ -105,7 +74,7 @@ export default {
   color: black;
 }
 
-.instagram__title-link {
+.instagram__link_title {
   color: black;
   transition: opacity 0.3s;
 }
@@ -117,16 +86,37 @@ export default {
   color: #666;
 }
 
-.instagram__pictures {
+.instagram__grid {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, auto);
   grid-gap: 30px;
+  padding: 0;
   list-style: none;
   padding-left: 0;
 }
 
-.instagram__title-link:hover {
+.instagram__item {
+  max-width: 195px;
+  transition: all 0.4s;
+}
+
+.instagram__link_photo {
+  display: block;
+  position: relative;
+  height: 100%;
+}
+
+.instagram__item:hover {
+  transform: scale(1.1);
+}
+
+.instagram__photo {
+  max-height: 195px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.instagram__link_title:hover {
   opacity: 0.8;
 }
 
@@ -134,12 +124,8 @@ export default {
   .instagram {
     padding: 90px 0;
   }
-  .instagram__pictures {
+  .instagram__grid {
     grid-gap: 27px;
-  }
-  .insta__image {
-    width: 171px;
-    height: 171px;
   }
   .instagram__title {
     font-size: 28px;
@@ -151,18 +137,20 @@ export default {
     font-size: 16px;
     line-height: 20px;
   }
+  .instagram__item {
+    max-width: 171px;
+  }
+  .instagram__photo {
+    max-height: 171px;
+  }
 }
 
 @media (max-width: 1250px) {
   .instagram {
     padding: 80px 0px;
   }
-  .instagram__pictures {
+  .instagram__grid {
     grid-gap: 20px;
-  }
-  .insta__image {
-    width: 136px;
-    height: 136px;
   }
   .instagram__title {
     font-size: 24px;
@@ -174,16 +162,18 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
+  .instagram__item {
+    max-width: 136px;
+  }
+  .instagram__photo {
+    max-height: 136px;
+  }
 }
 
 @media (max-width: 1000px) {
   .instagram__content {
     flex-direction: column;
     align-items: center;
-  }
-  .insta__image {
-    width: 157px;
-    height: 157px;
   }
   .instagram__title {
     margin-bottom: 26px;
@@ -195,19 +185,20 @@ export default {
     line-height: 16px;
     margin-bottom: 60px;
   }
+  .instagram__item {
+    max-width: 157px;
+  }
+  .instagram__photo {
+    max-height: 157px;
+  }
 }
 
 @media (max-width: 700px) {
   .instagram {
     padding: 60px 0 50px;
   }
-  .insta__image {
-    width: 140px;
-    height: 140px;
-  }
-  .instagram__pictures {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
+  .instagram__grid {
+    grid-template-columns: repeat(2, auto);
     grid-gap: 10px;
   }
   .instagram__title {
@@ -221,6 +212,12 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin-bottom: 40px;
+  }
+  .instagram__item {
+    max-width: 140px;
+  }
+  .instagram__photo {
+    max-height: 140px;
   }
 }
 </style>

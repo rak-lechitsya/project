@@ -58,6 +58,7 @@ export default {
     await this.$store.dispatch('blocks/fetchBlockArr');
     await this.$store.dispatch('stats/fetchStatsArr');
     await this.$store.dispatch('videos/fetchVideos');
+    await this.$store.dispatch('instagram/GET_PHOTOS');
     console.log('loading...');
     this.loading = false;
     console.log('finished loading');
