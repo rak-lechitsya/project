@@ -17,7 +17,7 @@
 import Content from '@/components/ui/Content';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
-import StoriesGrid from '@/components/ui/StoriesGrid';
+import StoriesGrid from '@/components/StoriesGrid';
 export default {
   components: {
     'input-stories': Input,

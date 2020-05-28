@@ -82,16 +82,7 @@ export default {
 }
 
 @media (max-width: 1000px) {
-  .story__name {
-    padding: 16px 0 16px 0;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-  }
-
   .story__content {
-    font-size: 13px;
-    line-height: 16px;
     max-width: 200px;
   }
 
@@ -102,13 +93,13 @@ export default {
 }
 
 @media (max-width: 700px) {
+  .story__content {
+    max-width: 290px;
+  }
+
   .story__image {
     width: 290px;
     height: 290px;
-  }
-
-  .story__content {
-    max-width: 290px;
   }
 }
 </style>

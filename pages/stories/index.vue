@@ -36,7 +36,7 @@
 <script>
 import Content from '@/components/ui/Content';
 import Button from '@/components/ui/Button';
-import StoriesGrid from '@/components/ui/StoriesGrid';
+import StoriesGrid from '@/components/StoriesGrid';
 import Pagination from '@/components/ui/Pagination';
 export default {
   components: {

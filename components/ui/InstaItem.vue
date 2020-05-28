@@ -12,7 +12,6 @@ export default {
 
 <style scoped>
 .insta__image {
-  /* Temp */
   object-fit: cover;
   height: 195px;
   width: 195px;
