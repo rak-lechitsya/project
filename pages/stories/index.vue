@@ -9,6 +9,7 @@
         ></input-stories>
         <input-button
           class="button button_search"
+          @click="storiesName = appliedStoriesName"
           :text="textButtonForm"
         ></input-button>
       </div>
@@ -38,6 +39,26 @@ export default {
     'stories-pagination': Pagination,
   },
   computed: {
+    computed: {
+      initiallyFilteredStories() {
+        const { stories } = this.$store.state;
+        if (!this.appliedStoriesName || this.appliedStoriesName === '') {
+          return allStories;
+        }
+        return allStories.filter(
+          (item, idx) => item.author.indexOf(this.appliedStoriesName) > -1
+        );
+      },
+      storiesToRender() {
+        const { stories } = this.$store.state;
+        return this.initiallyFilteredStories.filter(
+          (item, idx) =>
+            idx >= this.startIndex &&
+            idx <= this.startIndex + this.itemsPerPage - 1
+        );
+      },
+    },
+
     widthLimit() {
       this.limit = 16;
       if (window.innerWidth <= 1000) {

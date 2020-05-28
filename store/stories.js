@@ -6,29 +6,15 @@ export const state = () => ({
 });
 
 export const mutations = {
-  setState(state, { name, value }) {
-    return (state[name] = value);
+  addList(state, stories) {
+    state.stories = stories;
   },
 };
 
 export const actions = {
-  fetchStories(state) {
-    return axios.get('https://strapi.kruzhok.io/stories').then(response => {
-      return state.commit('setState', {
-        name: 'stories',
-        value: response.data,
-      });
-    });
-  },
-  fetchStoryWithId(state, payload) {
-    return axios
-      .get(`https://strapi.kruzhok.io/stories/${payload.id}`)
-      .then(response => {
-        return state.commit('setState', {
-          name: 'currentStory',
-          value: response.data,
-        });
-      });
+  async GET_LIST({ commit }) {
+    const DATA = await this.$axios.$get('stories');
+    commit('addList', DATA);
   },
 };
 
