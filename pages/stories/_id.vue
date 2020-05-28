@@ -38,7 +38,7 @@
           <p class="share" @click="toggleSocialPopup">
             Поделитесь &#8599;
           </p>
-          <p class="title__date">{{ story.date }}</p>
+          <p class="title__date">{{ date }}</p>
         </div>
       </section>
 
@@ -89,6 +89,10 @@ export default {
     random() {
       let rand = 0 + Math.random() * (this.allStories.length + 1);
       return Math.floor(rand);
+    },
+    date() {
+      const date = new Date(this.story.date);
+      return date.toLocaleDateString();
     },
   },
   methods: {
