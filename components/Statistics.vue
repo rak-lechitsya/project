@@ -180,100 +180,80 @@ export default {
   margin-bottom: 20px;
 }
 
-@media (max-width: 1350px) {
+@media screen and (max-width: 1350px) {
   .statistics__header {
     font-size: 28px;
     line-height: 32px;
     margin-top: 90px;
     margin-bottom: 60px;
   }
-}
 
-@media (max-width: 1350px) {
   .statistics__item {
     height: 265px;
     width: 265px;
   }
-}
 
-@media (max-width: 1350px) {
   .statistics__container {
     margin-bottom: 90px;
   }
 }
 
-@media (max-width: 1250px) {
+@media screen and (max-width: 1250px) {
   .statistics__header {
     font-size: 24px;
     line-height: 28px;
     max-width: 380px;
     margin: 80px 0 46px 0;
   }
-}
 
-@media (max-width: 1250px) {
   .statistics__author {
     font-size: 10px;
     line-height: 14px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
-}
 
-@media (max-width: 1250px) {
   .statistics__title {
     font-size: 26px;
     line-height: 30px;
     margin-top: 10px;
   }
-}
-@media (max-width: 1250px) {
+
   .statistics__text {
     font-size: 10px;
     line-height: 14px;
     margin: 10px 10px 0;
   }
-}
 
-@media (max-width: 1250px) {
   .statistics__container {
     margin-bottom: 80px;
   }
-}
 
-@media (max-width: 1250px) {
   .statistics__item {
     height: 208px;
     width: 208px;
   }
-}
 
-@media (max-width: 1250px) {
   .statistics__pictures {
     grid-gap: 30px;
   }
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .statistics__pictures {
     grid-gap: 20px;
   }
-}
 
-@media (max-width: 1000px) {
   .statistics__item {
     height: 216px;
     width: 216px;
   }
-}
 
-@media (max-width: 1000px) {
   .statistics__container {
     flex-wrap: nowrap;
     overflow-x: auto;
   }
-}
-@media (max-width: 1000px) {
+
   .statistics__header {
     font-size: 24px;
     line-height: 28px;
@@ -283,15 +263,14 @@ export default {
   }
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .statistics__header {
     font-size: 18px;
     line-height: 21px;
     margin: 50px 0 30px 0;
     text-align: inherit;
   }
-}
-@media (max-width: 700px) {
+
   .statistics__container {
     margin-bottom: 50px;
   }
