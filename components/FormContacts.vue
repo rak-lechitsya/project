@@ -43,7 +43,7 @@
             type="tel"
             :bottomBordered="true"
             name="tel"
-            v-model="tel"
+            v-model="phone"
           />
         </div>
       </div>
@@ -57,7 +57,7 @@
         type="text"
         :bottomBordered="true"
         name="time"
-        v-model="time"
+        v-model="preferred"
       />
     </fieldset>
     <div class="form__buttons">
@@ -90,8 +90,8 @@ export default {
       event.preventDefault();
     },
     async sentData() {
-      const arr = [this.fullName, this.email, this.tel, this.time];
-      await this.$store.dispatch('contacts/sentData', arr);
+      const answers = [this.fullName, this.email, this.phone, this.preferred];
+      await this.$store.dispatch('contacts/sentData', answers);
       this.$store.commit('popup/toggleContactsPopup');
     },
   },
@@ -100,8 +100,8 @@ export default {
       textButtonForm: 'Отправить',
       fullName: '',
       email: '',
-      tel: '',
-      time: '',
+      phone: '',
+      preferred: '',
     };
   },
 };

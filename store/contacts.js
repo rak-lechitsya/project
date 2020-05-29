@@ -16,8 +16,8 @@ export const actions = {
     const firstObj = {
       1: { key: 'fullName' },
       2: { key: 'email' },
-      3: { key: 'tel' },
-      4: { key: 'time' },
+      3: { key: 'phone' },
+      4: { key: 'preferred' },
     };
     const secondObj = state.data;
     const result = Object.keys(firstObj).reduce((sum, item) => {

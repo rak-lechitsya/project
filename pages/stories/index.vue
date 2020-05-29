@@ -6,7 +6,7 @@
         @submit.prevent="appliedStoriesName = storiesName"
         class="stories__box"
       >
-        <input
+        <stories-input
           v-model="storiesName"
           minlength="2"
           placeholder="Введите имя или ключевую фразу"
@@ -38,12 +38,14 @@ import Content from '@/components/ui/Content';
 import Button from '@/components/ui/Button';
 import StoriesGrid from '@/components/StoriesGrid';
 import Pagination from '@/components/ui/Pagination';
+import Input from '@/components/ui/Input';
 export default {
   components: {
     'story-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
     'stories-pagination': Pagination,
+    'stories-input': Input,
   },
   computed: {
     widthLimit() {
