@@ -1,57 +1,75 @@
 <template>
-  <form
-    @submit.prevent="prevent"
-    v-if="!sent"
-    class="form"
-    id="form"
-    name="form"
-  >
-    <h3 class="form__title">{{ title }}</h3>
-    <fieldset class="form__fieldset">
-      <legend class="form__subtitle">
-        {{ questions[number - 1].question }}
-        <span class="form__question-extra">
-          {{ questions[number - 1].questionExtra }}</span
-        >
-      </legend>
-      <my-input
-        v-model="answers[number - 1]"
-        :value="answers[number - 1]"
-        addClass="form__input"
-        placeholder="Напишите тут"
-        id="fullname"
-        type="text"
-        :bottomBordered="true"
-        name="fullname"
-      />
-    </fieldset>
-    <div class="form__buttons">
-      <button class="button button_before" @click="prevQuestion" type="button">
-        Назад
-      </button>
+  <div>
+    <form
+      @submit.prevent="prevent"
+      v-if="finish"
+      class="form__finish"
+      id="form"
+      name="form"
+    >
+      <h3 class="form__title form__title_finish">
+        Спасибо что приняли участие!
+      </h3>
       <my-button
         class="button button_next"
-        v-if="!lastQuestion"
-        @btnClick="nextQuestion"
-        :text="textButtonForm"
-        type="submit"
+        @btnClick="toggleStoryPopup"
+        :text="textButtonFormClose"
+        type="button"
       />
-      <my-button
-        v-if="lastQuestion"
-        @btnClick.once="send"
-        :text="textButtonFormSend"
-        class="button button_next"
-        type="submit"
-      />
+    </form>
 
-      <p v-if="lastQuestion" class="form__politic">
-        Нажимая на кнопку «отправить», вы даете согласие на
-        <nuxt-link to="/policy" target="_blank" class="form__link"
-          >обработку персональных данных</nuxt-link
+    <form @submit.prevent="prevent" v-else class="form" id="form" name="form">
+      <h3 class="form__title">{{ title }}</h3>
+      <fieldset class="form__fieldset">
+        <legend class="form__subtitle">
+          {{ questions[number - 1].question }}
+          <span class="form__question-extra">
+            {{ questions[number - 1].questionExtra }}</span
+          >
+        </legend>
+        <my-input
+          v-model="answers[number - 1]"
+          :value="answers[number - 1]"
+          addClass="form__input"
+          placeholder="Напишите тут"
+          id="fullname"
+          type="text"
+          :bottomBordered="true"
+          name="fullname"
+        />
+      </fieldset>
+      <div class="form__buttons">
+        <button
+          class="button button_before"
+          @click="prevQuestion"
+          type="button"
         >
-      </p>
-    </div>
-  </form>
+          Назад
+        </button>
+        <my-button
+          class="button button_next"
+          v-if="!lastQuestion"
+          @btnClick="nextQuestion"
+          :text="textButtonForm"
+          type="submit"
+        />
+        <my-button
+          v-if="lastQuestion"
+          @btnClick.once="send"
+          :text="textButtonFormSend"
+          class="button button_next"
+          type="submit"
+        />
+
+        <p v-if="lastQuestion" class="form__politic">
+          Нажимая на кнопку «отправить», вы даете согласие на
+          <nuxt-link to="/policy" target="_blank" class="form__link"
+            >обработку персональных данных</nuxt-link
+          >
+        </p>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -70,6 +88,7 @@ export default {
       answers: [],
       number: 1,
       sent: false,
+      finish: false,
     };
   },
   computed: {
@@ -97,6 +116,9 @@ export default {
     prevent(event) {
       event.preventDefault();
     },
+    toggleStoryPopup() {
+      this.$store.commit('popup/toggleStoryPopup');
+    },
     async send() {
       const promise = await new Promise((resolve, reject) => {
         setTimeout(() => resolve(), 1500);
@@ -107,6 +129,7 @@ export default {
         result = { ...result, [key]: this.answers[index] || null };
       });
       console.log(result);
+      this.finish = true;
     },
   },
 };
@@ -142,6 +165,13 @@ export default {
   align-items: flex-start;
 }
 
+.form__finish {
+  width: 840px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form__buttons {
   display: flex;
   align-items: center;
@@ -157,6 +187,17 @@ export default {
 
 .form__input {
   margin-bottom: 200px;
+}
+
+.form__link {
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opasity 0.3s;
+  color: #666666;
+}
+
+.form__link:hover {
+  opacity: 0.9;
 }
 
 .form__politic {
@@ -176,6 +217,10 @@ export default {
   font-size: 32px;
   line-height: 36px;
   color: black;
+}
+
+.form__title_finish {
+  margin-bottom: 428px;
 }
 
 .form__subtitle {
