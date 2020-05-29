@@ -1,12 +1,6 @@
 <template>
   <div>
-    <form
-      @submit.prevent="prevent"
-      v-if="finish"
-      class="form__finish"
-      id="form"
-      name="form"
-    >
+    <div v-if="finish" class="form form_finish" id="form" name="form">
       <h3 class="form__title form__title_finish">
         Спасибо что приняли участие!
       </h3>
@@ -16,7 +10,7 @@
         :text="textButtonFormClose"
         type="button"
       />
-    </form>
+    </div>
 
     <form @submit.prevent="prevent" v-else class="form" id="form" name="form">
       <h3 class="form__title">{{ title }}</h3>
@@ -138,6 +132,8 @@ export default {
 <style scoped>
 .button {
   border: none;
+  padding: 0;
+  outline: none;
 }
 
 .button_before {
@@ -165,10 +161,7 @@ export default {
   align-items: flex-start;
 }
 
-.form__finish {
-  width: 840px;
-  display: flex;
-  flex-direction: column;
+.form_finish {
   align-items: center;
 }
 
@@ -176,6 +169,7 @@ export default {
   display: flex;
   align-items: center;
   margin-top: auto;
+  flex-flow: row wrap;
 }
 
 .form__fieldset {
@@ -203,8 +197,8 @@ export default {
 .form__politic {
   margin-left: 30px;
   max-width: 378px;
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .form__question-extra {
@@ -295,6 +289,13 @@ export default {
 
   .form__input {
     margin-bottom: 171px;
+  }
+
+  .form__politic {
+    margin-top: 20px;
+    margin-left: 0;
+    font-size: 11px;
+    line-height: 13px;
   }
 }
 
