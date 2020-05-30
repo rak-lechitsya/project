@@ -1,6 +1,10 @@
 <template>
-  <ul class="stories__list">
-    <li v-for="card in storiesToRender" :key="card.id" class="stories__item">
+  <ul class="stories-grid">
+    <li
+      v-for="card in storiesToRender"
+      :key="card.id"
+      class="stories-grid__item"
+    >
       <story
         :url="card.ImageUrl[0].url"
         :author="card.author"

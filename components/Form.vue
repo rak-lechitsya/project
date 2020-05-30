@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="finish" class="form form_finish" id="form" name="form">
+    <div v-if="finish" class="form form_finish">
       <h3 class="form__title form__title_finish">
         Спасибо что приняли участие!
       </h3>

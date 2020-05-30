@@ -3,11 +3,7 @@
     <story-content class="story__content">
       <section class="title title_desktop">
         <div class="title__image-wrapper">
-          <img
-            :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
-            :alt="story.author"
-            class="title__image"
-          />
+          <img :src="getUrl" :alt="story.author" class="title__image" />
         </div>
         <div class="title__container">
           <p class="title__content">
@@ -24,11 +20,7 @@
       </section>
       <section class="title title_mobile">
         <div class="title__image-wrapper">
-          <img
-            :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
-            :alt="story.author"
-            class="title__image"
-          />
+          <img :src="getUrl" :alt="story.author" class="title__image" />
         </div>
         <p class="title__content">
           <span class="title__content-name">{{ story.author }}: </span>
@@ -94,6 +86,9 @@ export default {
       const date = new Date(this.story.date);
       return date.toLocaleDateString();
     },
+    getUrl() {
+      return this.baseUrl + `${this.story.ImageUrl[0].url}`;
+    },
   },
   methods: {
     toggleSocialPopup() {
@@ -102,6 +97,11 @@ export default {
   },
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
+  },
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL,
+    };
   },
 };
 </script>

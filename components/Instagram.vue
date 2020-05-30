@@ -3,12 +3,9 @@
     <instagram-content class="instagram__content">
       <div class="instagram__text">
         <h3 class="instagram__title">
-          <a
-            href="https://www.instagram.com/raklechitsa/"
-            target="_blank"
-            class="instagram__link_title"
-            >{{ blockInstagram.title }}</a
-          >
+          <a :href="instUrl" target="_blank" class="instagram__link_title">{{
+            blockInstagram.title
+          }}</a>
         </h3>
         <client-only
           ><p class="instagram__subtitle" v-html="blockInstagram.text"></p
@@ -58,6 +55,7 @@ export default {
     return {
       start: 0,
       limit: 8,
+      instUrl: process.env.INST_URL,
     };
   },
 };

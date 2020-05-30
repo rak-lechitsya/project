@@ -68,7 +68,7 @@ export default {
           item.author
             .toLowerCase()
             .indexOf(this.appliedStoriesName.toLowerCase()) > -1 ||
-          item.text
+          item.title
             .toLowerCase()
             .indexOf(this.appliedStoriesName.toLowerCase()) > -1
       );
