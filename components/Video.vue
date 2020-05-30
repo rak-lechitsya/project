@@ -29,7 +29,7 @@
         <div class="video__swiper">
           <slider class="video__slider" :videos="videosUrl" />
         </div>
-        <figcaption class="video__captiontext">
+        <figcaption class="video__caption-text">
           <a
             class="video__link"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
@@ -157,7 +157,7 @@ export default {
   background-image: url(/lessbutton.svg);
 }
 
-.video__captiontext {
+.video__caption-text {
   font-size: 12px;
   line-height: 16px;
   color: #666666;
@@ -320,7 +320,7 @@ export default {
     max-width: 310px;
   }
 
-  .video__captiontext {
+  .video__caption-text {
     visibility: hidden;
   }
 
