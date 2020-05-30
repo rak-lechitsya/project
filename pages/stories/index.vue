@@ -1,6 +1,6 @@
 <template>
   <section class="stories" ref="stories">
-    <story-content class="story__content">
+    <stories-content class="stories__content">
       <h3 class="stories__heading">Истории неизлечимых привычек</h3>
       <form
         @submit.prevent="appliedStoriesName = storiesName"
@@ -29,7 +29,7 @@
         :limit="limit"
         @pagClick="changePage"
       ></stories-pagination>
-    </story-content>
+    </stories-content>
   </section>
 </template>
 
@@ -41,7 +41,7 @@ import Pagination from '@/components/ui/Pagination';
 import Input from '@/components/ui/Input';
 export default {
   components: {
-    'story-content': Content,
+    'stories-content': Content,
     'input-button': Button,
     'stories-grid': StoriesGrid,
     'stories-pagination': Pagination,

@@ -1,7 +1,7 @@
 <template>
-  <div class="story-page">
+  <div class="story">
     <story-content class="story__content">
-      <section class="title title_desctop">
+      <section class="title title_desktop">
         <div class="title__image-wrapper">
           <img
             :src="`https://strapi.kruzhok.io${story.ImageUrl[0].url}`"
@@ -56,7 +56,7 @@
         :start="random"
         :limit="widthLimit"
       />
-      <nuxt-link to="/stories" class="stories__page">Больше статей</nuxt-link>
+      <nuxt-link to="/stories" class="stories__link">Больше статей</nuxt-link>
     </story-content>
   </div>
 </template>
@@ -199,7 +199,7 @@ export default {
   list-style-type: none;
 }
 
-.stories__page {
+.stories__link {
   margin: 70px auto 100px;
   max-width: 1320px;
   min-height: 82px;
@@ -214,16 +214,12 @@ export default {
   transition: background-color 0.3s;
 }
 
-.stories__page:hover {
+.stories__link:hover {
   background-color: #f8f8f8;
 }
 
 .share:hover {
   opacity: 0.8;
-}
-
-.stories__link {
-  text-decoration: none;
 }
 
 .title_mobile {
@@ -246,7 +242,7 @@ export default {
     margin-bottom: 150px;
   }
 
-  .stories__page {
+  .stories__link {
     margin: 60px auto 90px;
   }
 
@@ -277,7 +273,7 @@ export default {
     min-height: 72px;
   }
 
-  .stories__page {
+  .stories__link {
     margin: 46px auto 80px;
     min-height: 78px;
   }
@@ -337,12 +333,12 @@ export default {
     margin: 100px auto 80px;
   }
 
-  .stories__page {
+  .stories__link {
     margin: 40px 0 80px;
     min-height: 50px;
   }
 
-  .title_desctop {
+  .title_desktop {
     display: none;
   }
 
@@ -378,7 +374,7 @@ export default {
       margin-bottom: 16px;
     }
 
-    .stories__page {
+    .stories__link {
       margin: 40px 0 50px;
     }
 

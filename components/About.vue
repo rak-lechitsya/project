@@ -30,7 +30,6 @@
               class="about__text-paragraph"
               v-html="blockAbout.extraTexts[0].text"
             ></p>
-            <p v-if="toggle === true" class="about__text-paragraph"></p>
             <p
               v-else
               class="about__text-paragraph"
