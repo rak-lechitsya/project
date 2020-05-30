@@ -4,10 +4,13 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, minimum-scale=1',
+      },
       {
         hid: 'description',
         name: 'description',
@@ -23,11 +26,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/css/fonts.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/route.js' }, { src: '~/plugins/swiper.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -48,6 +51,15 @@ export default {
   /*
    ** Build configuration
    */
+  env: {
+    DEV_API: 'http://localhost',
+    PROD_API: '/proxy',
+    BASE_URL: 'https://strapi.kruzhok.io',
+    INST_URL: 'https://www.instagram.com/raklechitsa',
+    YOUTUBE_URL:
+      'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
+  },
+
   build: {
     /*
      ** You can extend webpack config here

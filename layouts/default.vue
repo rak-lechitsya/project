@@ -1,13 +1,74 @@
 <template>
-  <div>
+  <div v-if="!this.loading">
+    <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu" />
+    <my-header />
     <nuxt />
+    <my-footer />
+    <popup v-if="popupStoryShown" @closeClick="toggleStoryPopup">
+      <my-form />
+    </popup>
+    <popup v-if="popupSocialShown" @closeClick="toggleSocialPopup">
+      <social />
+    </popup>
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Popup from '@/components/Popup';
+import Form from '@/components/Form';
+import Social from '@/components/Social';
+import MobileMenu from '@/components/ui/MobileMenu';
+export default {
+  components: {
+    'my-header': Header,
+    popup: Popup,
+    'my-footer': Footer,
+    'my-form': Form,
+    social: Social,
+    'mobile-menu': MobileMenu,
+  },
+  computed: {
+    popupStoryShown() {
+      return this.$store.getters['popup/getPopupStoryShown'];
+    },
+    popupSocialShown() {
+      return this.$store.getters['popup/getPopupSocialShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+  },
+  methods: {
+    toggleStoryPopup() {
+      this.$store.commit('popup/toggleStoryPopup');
+    },
+    toggleSocialPopup() {
+      this.$store.commit('popup/toggleSocialPopup');
+    },
+  },
+  data() {
+    return {
+      loading: true,
+    };
+  },
+  async created() {
+    await this.$store.dispatch('stories/fetchStories');
+    await this.$store.dispatch('blocks/fetchBlockArr');
+    await this.$store.dispatch('stats/fetchStatsArr');
+    await this.$store.dispatch('videos/fetchVideos');
+    await this.$store.dispatch('instagram/GET_PHOTOS');
+    console.log('loading...');
+    this.loading = false;
+    console.log('finished loading');
+  },
+};
+</script>
+
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -24,32 +85,13 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.mobile-menu {
+  display: none;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media (max-width: 1000px) {
+  .mobile-menu {
+    display: block;
+  }
 }
 </style>
