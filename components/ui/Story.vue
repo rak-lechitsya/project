@@ -1,10 +1,6 @@
 <template>
   <div class="story" @click="$emit('storyClick')">
-    <img
-      :src="`https://strapi.kruzhok.io${url}`"
-      :alt="author"
-      class="story__image"
-    />
+    <img :src="getUrl" :alt="author" class="story__image" />
     <h2 class="story__name">{{ author }}</h2>
     <p class="story__content">{{ title }}</p>
   </div>
@@ -16,6 +12,16 @@ export default {
     url: String,
     author: String,
     title: String,
+  },
+  computed: {
+    getUrl() {
+      return this.baseUrl + `${this.url}`;
+    },
+  },
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL,
+    };
   },
 };
 </script>

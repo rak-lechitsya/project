@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   fetchStatsArr(state) {
-    return axios.get('https://strapi.kruzhok.io/statistics').then(response => {
+    return axios.get(process.env.BASE_URL + '/statistics').then(response => {
       return state.commit('setState', {
         name: 'statsArr',
         value: response.data,
