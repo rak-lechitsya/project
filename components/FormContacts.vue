@@ -90,7 +90,12 @@ export default {
       event.preventDefault();
     },
     async sentData() {
-      const answers = [this.fullName, this.email, this.phone, this.preferred];
+      const answers = {
+        fullName: this.fullName,
+        email: this.email,
+        phone: this.phone,
+        preferred: this.preferred,
+      };
       await this.$store.dispatch('contacts/sentData', answers);
       this.$store.commit('popup/toggleContactsPopup');
     },
