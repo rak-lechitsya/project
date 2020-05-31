@@ -1,7 +1,7 @@
 <template>
   <section class="stories" ref="stories">
     <stories-content class="stories__content">
-      <h3 class="stories__heading">Истории неизлечимых привычек</h3>
+      <h3 class="stories__heading">{{ title }}</h3>
       <form
         @submit.prevent="appliedStoriesName = storiesName"
         class="stories__box"
@@ -87,19 +87,12 @@ export default {
       appliedStoriesName: '',
       textButtonForm: 'Поиск',
       start: 0,
+      title: 'Истории неизлечимых привычек',
     };
   },
   head() {
     return {
-      title: 'Истории неизлечимых привычек',
-      meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
-        },
-      ],
+      title: this.title,
     };
   },
 };
