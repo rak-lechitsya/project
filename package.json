@@ -1,8 +1,8 @@
 {
   "name": "rak-lechitsa",
   "version": "1.0.0",
-  "description": "project for rak lechitsa",
-  "author": "praktikum",
+  "description": "project for NKO",
+  "author": "Evgeny Ebergard, Marina Kuznetsova, Maksim Nikitin",
   "private": true,
   "scripts": {
     "dev": "nuxt",
