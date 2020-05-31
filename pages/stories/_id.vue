@@ -103,6 +103,11 @@ export default {
       baseUrl: process.env.BASE_URL,
     };
   },
+  head() {
+    return {
+      title: this.story.author,
+    };
+  },
 };
 </script>
 
