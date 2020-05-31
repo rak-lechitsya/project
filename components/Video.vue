@@ -176,7 +176,7 @@ export default {
 
 @media screen and (max-width: 1400px) {
   .video {
-    padding: 90px 50px 90px;
+    padding: 90px 60px 90px;
   }
 
   .video__story {

@@ -261,7 +261,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: 'Политика конфиденциальности',
+    };
+  },
+};
 </script>
 
 <style scoped>
