@@ -54,7 +54,7 @@ export default {
   height: 100%;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1400px) {
   .slider {
     max-width: 773px;
     height: 400px;
