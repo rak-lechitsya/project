@@ -3,41 +3,14 @@
     <h3 class="social__title">Поделитесь</h3>
     <div class="social__icons">
       <a
+        v-for="share in shares"
+        :key="share.url"
         class="social__link"
         target="_blank"
-        href="https://www.facebook.com/sharer.php?src=sp&u=https%3A%2F%2Fraklechitsa.ru%2F&title=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&utm_source=share2"
-        ><my-img class="social__img" src="/social-img/fb.svg" alt="Facebook"
-      /></a>
-      <a
-        class="social__link"
-        target="_blank"
-        href="https://twitter.com/intent/tweet?text=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&url=https%3A%2F%2Fraklechitsa.ru%2F&utm_source=share2"
-        ><my-img class="social__img" src="/social-img/twit.svg" alt="Twitter"
-      /></a>
-      <a
-        class="social__link"
-        target="_blank"
-        href="https://vk.com/share.php?url=https%3A%2F%2Fraklechitsa.ru%2F&title=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&utm_source=share2"
-        ><my-img class="social__img" src="/social-img/vk.svg" alt="VK"
-      /></a>
-      <a
-        class="social__link"
-        target="_blank"
-        href="https://connect.ok.ru/offer?url=https%3A%2F%2Fraklechitsa.ru%2F&title=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&utm_source=share2"
-        ><my-img class="social__img" src="/social-img/ok.svg" alt="OK"
-      /></a>
-      <a
-        class="social__link"
-        target="_blank"
-        href="https://www.instagram.com/raklechitsa/"
-        ><my-img class="social__img" src="/social-img/insta.svg" alt="Instagram"
-      /></a>
-      <a
-        class="social__link"
-        target="_blank"
-        href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-        ><my-img class="social__img" src="/social-img/yt.svg" alt="YouTube"
-      /></a>
+        :href="share.url"
+        :style="`background-image: url('${share.img}')`"
+      >
+      </a>
     </div>
   </div>
 </template>
@@ -47,6 +20,51 @@ import SocialImage from '@/components/ui/SocialImage';
 export default {
   components: {
     'my-img': SocialImage,
+  },
+  data() {
+    return {
+      shares: [
+        {
+          name: 'facebook',
+          url: `https://www.facebook.com/sharer.php?src=sp&u=${encodeURI(
+            window.location.href
+          )}&title=${document.querySelector('title').innerText}`,
+          img: '/social-img/fb.svg',
+        },
+        {
+          name: 'twitter',
+          url: `https://twitter.com/intent/tweet?text=${
+            document.querySelector('title').innerText
+          }&url=${encodeURI(window.location.href)}`,
+          img: '/social-img/twit.svg',
+        },
+        {
+          name: 'vkontakte',
+          url: `https://vk.com/share.php?url=${encodeURI(
+            window.location.href
+          )}&title=${document.querySelector('title').innerText}`,
+          img: '/social-img/vk.svg',
+        },
+        {
+          name: 'odnoklassniki',
+          url: `https://connect.ok.ru/offer?url=${encodeURI(
+            window.location.href
+          )}&amp;title=${document.querySelector('title').innerText}`,
+          img: '/social-img/ok.svg',
+        },
+        {
+          name: 'instagram',
+          url: 'https://www.instagram.com/raklechitsa/',
+          img: '/social-img/insta.svg',
+        },
+        {
+          name: 'youtube',
+          url:
+            'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
+          img: '/social-img/yt.svg',
+        },
+      ],
+    };
   },
 };
 </script>
@@ -70,6 +88,11 @@ export default {
 
 .social__link {
   cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 32px;
+  height: 32px;
 }
 
 .social__title {
@@ -111,8 +134,9 @@ export default {
     margin: 57px auto 47px;
   }
 
-  .social__img {
-    width: 80%;
+  .social__link {
+    width: 24px;
+    height: 24px;
   }
 
   .social__title {
