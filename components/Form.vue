@@ -26,10 +26,10 @@
           :value="answers[number - 1]"
           addClass="form__input"
           placeholder="Напишите тут"
-          id="fullname"
+          id="answers"
           type="text"
           :bottomBordered="true"
-          name="fullname"
+          name="answers"
         />
       </fieldset>
       <div class="form__buttons">
@@ -41,11 +41,13 @@
           Назад
         </button>
         <my-button
+          id="next"
           class="button button_next"
           v-if="!lastQuestion"
           @btnClick="nextQuestion"
           :text="textButtonForm"
           type="submit"
+          :disabled="isButtonDisabled"
         />
         <my-button
           v-if="lastQuestion"
@@ -83,7 +85,15 @@ export default {
       number: 1,
       sent: false,
       finish: false,
+      isButtonDisabled: true,
     };
+  },
+  watch: {
+    answers() {
+      if (this.answers[this.number - 1].length > 0) {
+        this.isButtonDisabled = false;
+      } else this.isButtonDisabled = true;
+    },
   },
   computed: {
     questions() {
@@ -94,7 +104,7 @@ export default {
     },
     title() {
       if (!this.sent) return `Шаг ${this.number} из ${this.questions.length}`;
-      else return 'Спасибо что приняли участие!';
+      else return 'Шаг 13 из 13';
     },
     answerKeys() {
       return this.questions.map(el => el.answerKey);
@@ -103,9 +113,11 @@ export default {
   methods: {
     nextQuestion() {
       if (!this.lastQuestion) this.number++;
+      if (this.number > this.answers.length) this.isButtonDisabled = true;
     },
     prevQuestion() {
       if (this.number > 1) this.number--;
+      this.isButtonDisabled = false;
     },
     prevent(event) {
       event.preventDefault();
@@ -122,7 +134,8 @@ export default {
       this.answerKeys.forEach((key, index) => {
         result = { ...result, [key]: this.answers[index] || null };
       });
-      console.log(result);
+      await this.$store.dispatch('form/sentData', result);
+
       this.finish = true;
     },
   },

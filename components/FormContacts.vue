@@ -1,10 +1,5 @@
 <template>
-  <form
-    @submit.prevent="prevent"
-    class="form"
-    id="form-contacts"
-    name="form-contacts"
-  >
+  <form @submit="sentData" class="form" id="form-contacts" name="form-contacts">
     <h3 class="form__title">Оставьте контакт для связи</h3>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -20,6 +15,9 @@
         :bottomBordered="true"
         name="fullname"
         v-model="fullName"
+        minlength="2"
+        maxlength="20"
+        required
       />
       <div class="form__mail-tel">
         <div class="form__block">
@@ -32,6 +30,7 @@
             :bottomBordered="true"
             name="email"
             v-model="email"
+            required
           />
         </div>
         <div class="form__block">
@@ -40,10 +39,11 @@
             addClass="form__input"
             placeholder="+7 000 000 00 00"
             id="tel"
-            type="tel"
+            type="number"
             :bottomBordered="true"
             name="tel"
             v-model="phone"
+            maxlength="18"
           />
         </div>
       </div>
@@ -61,12 +61,7 @@
       />
     </fieldset>
     <div class="form__buttons">
-      <my-button
-        @btnClick="sentData"
-        class="button"
-        :text="textButtonForm"
-        type="submit"
-      />
+      <my-button class="button" :text="textButtonForm" type="submit" />
       <p class="form__politic">
         Нажимая на кнопку «отправить», вы даете согласие на
         <nuxt-link to="/policy" target="_blank" class="form__link"
@@ -86,15 +81,13 @@ export default {
     'my-button': Button,
   },
   methods: {
-    prevent(event) {
+    async sentData(event) {
       event.preventDefault();
-    },
-    async sentData() {
       const answers = {
-        fullName: this.fullName,
-        email: this.email,
-        phone: this.phone,
-        preferred: this.preferred,
+        fullName: this.fullName, //Как вас зовут?
+        email: this.email, //Электронная почта
+        phone: this.phone, //Телефон
+        preferred: this.preferred, //Напишите, если есть предпочтительный способ связи и удобное время
       };
       await this.$store.dispatch('contacts/sentData', answers);
       this.$store.commit('popup/toggleContactsPopup');
