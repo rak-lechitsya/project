@@ -42,18 +42,24 @@
         </button>
         <my-button
           id="next"
-          class="button button_next"
           v-if="!lastQuestion"
           @btnClick="nextQuestion"
           :text="textButtonForm"
           type="submit"
           :disabled="isButtonDisabled"
+          :class="[
+            'button button_next',
+            { button_is_active: !isButtonDisabled },
+          ]"
         />
         <my-button
           v-if="lastQuestion"
           @btnClick.once="send"
           :text="textButtonFormSend"
-          class="button button_next"
+          :class="[
+            'button button_next',
+            { button_is_active: !isButtonDisabled },
+          ]"
           type="submit"
         />
 
@@ -116,8 +122,10 @@ export default {
       if (this.number > this.answers.length) this.isButtonDisabled = true;
     },
     prevQuestion() {
-      if (this.number > 1) this.number--;
-      this.isButtonDisabled = false;
+      if (this.number > 1) {
+        this.isButtonDisabled = false;
+        this.number--;
+      }
     },
     prevent(event) {
       event.preventDefault();
@@ -143,10 +151,22 @@ export default {
 </script>
 
 <style scoped>
+.form__error {
+  position: absolute;
+  margin-top: 5px;
+  color: #df4b41;
+  text-align: left;
+  font-size: 14px;
+}
+
 .button {
   border: none;
-  padding: 0;
-  outline: none;
+  background-color: grey;
+}
+
+.button_is_active {
+  background-color: #613a93;
+  cursor: pointer;
 }
 
 .button_before {
@@ -165,6 +185,9 @@ export default {
 
 .button_next {
   width: 226px;
+  padding: 0;
+  outline: none;
+  cursor: default;
 }
 
 .form {

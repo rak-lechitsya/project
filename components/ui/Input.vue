@@ -10,6 +10,7 @@
     :type="type"
     :placeholder="placeholder"
     :value="value"
+    @blur="$emit('inputBlur')"
     v-on:input="$emit('input', $event.target.value)"
   />
 </template>

@@ -15,10 +15,12 @@
         :bottomBordered="true"
         name="fullname"
         v-model="fullName"
-        minlength="2"
         maxlength="20"
-        required
+        @inputBlur="isFullnameTouched = true"
       />
+      <span class="form__error" v-if="isFullnameError"
+        >Это поле обязательное</span
+      >
       <div class="form__mail-tel">
         <div class="form__block">
           <legend class="form__question">Электронная почта</legend>
@@ -26,12 +28,15 @@
             addClass="form__input"
             placeholder="pochta@example.com"
             id="email"
-            type="email"
+            type="text"
             :bottomBordered="true"
             name="email"
             v-model="email"
-            required
+            @inputBlur="isEmailTouched = true"
           />
+          <span class="form__error" v-if="isEmailError"
+            >Недопустимый формат</span
+          >
         </div>
         <div class="form__block">
           <legend class="form__question">Телефон</legend>
@@ -61,7 +66,12 @@
       />
     </fieldset>
     <div class="form__buttons">
-      <my-button class="button" :text="textButtonForm" type="submit" />
+      <my-button
+        :disabled="!isValid"
+        :class="['button', { button_is_active: isValid }]"
+        :text="textButtonForm"
+        type="submit"
+      />
       <p class="form__politic">
         Нажимая на кнопку «отправить», вы даете согласие на
         <nuxt-link to="/policy" target="_blank" class="form__link"
@@ -93,6 +103,24 @@ export default {
       this.$store.commit('popup/toggleContactsPopup');
     },
   },
+  computed: {
+    validFullname() {
+      return this.fullName.length > 0;
+    },
+    validEmail() {
+      const regex = /^([a-zA-Z0-9]+[_\.-]?)+@(([a-zA-Z0-9]+[_-]?)+\.)+(([a-zA-Z]{2,}))+$/;
+      return regex.test(this.email);
+    },
+    isFullnameError() {
+      return !this.validFullname && this.isFullnameTouched;
+    },
+    isEmailError() {
+      return !this.validEmail && this.isEmailTouched;
+    },
+    isValid() {
+      return this.validFullname && this.validEmail;
+    },
+  },
   data() {
     return {
       textButtonForm: 'Отправить',
@@ -100,14 +128,32 @@ export default {
       email: '',
       phone: '',
       preferred: '',
+      isFullnameTouched: false,
+      isEmailTouched: false,
+      isPhoneTouched: false,
     };
   },
 };
 </script>
 
 <style scoped>
+.form__error {
+  position: absolute;
+  margin-top: 5px;
+  color: #df4b41;
+  text-align: left;
+  font-size: 14px;
+}
+
 .button {
   width: 226px;
+  background-color: grey;
+  cursor: default;
+}
+
+.button_is_active {
+  background-color: #613a93;
+  cursor: pointer;
 }
 
 .form {
