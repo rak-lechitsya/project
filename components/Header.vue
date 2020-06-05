@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
       this.$store.commit('popup/toggleStoryPopup');
     },
   },

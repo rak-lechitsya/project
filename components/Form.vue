@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div v-if="finish" class="form form_finish">
+    <div v-if="getFinish" class="form form_finish">
       <h3 class="form__title form__title_finish">
         Спасибо что приняли участие!
       </h3>
       <my-button
-        class="button button_next"
+        class="button button_next button_is_active"
         @btnClick="toggleStoryPopup"
         :text="textButtonFormClose"
         type="button"
@@ -26,12 +26,15 @@
           :value="answers[number - 1]"
           addClass="form__input"
           placeholder="Напишите тут"
-          id="fullname"
+          id="answers"
           type="text"
           :bottomBordered="true"
-          name="fullname"
+          name="answers"
         />
       </fieldset>
+      <span class="form__span" v-if="lastQuestion"
+        >email формата: example@yandex.ru</span
+      >
       <div class="form__buttons">
         <button
           class="button button_before"
@@ -41,17 +44,25 @@
           Назад
         </button>
         <my-button
-          class="button button_next"
+          id="next"
           v-if="!lastQuestion"
           @btnClick="nextQuestion"
           :text="textButtonForm"
           type="submit"
+          :disabled="isButtonDisabled"
+          :class="[
+            'button button_next',
+            { button_is_active: !isButtonDisabled },
+          ]"
         />
         <my-button
           v-if="lastQuestion"
-          @btnClick.once="send"
+          @btnClick="send"
           :text="textButtonFormSend"
-          class="button button_next"
+          :class="[
+            'button button_next',
+            { button_is_active: !isButtonDisabled },
+          ]"
           type="submit"
         />
 
@@ -63,16 +74,19 @@
         </p>
       </div>
     </form>
+    <form-error class="form__error" v-if="getError" />
   </div>
 </template>
 
 <script>
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 export default {
   components: {
     'my-input': Input,
     'my-button': Button,
+    'form-error': FormError,
   },
   data() {
     return {
@@ -82,8 +96,21 @@ export default {
       answers: [],
       number: 1,
       sent: false,
-      finish: false,
+      isButtonDisabled: true,
+      regex: /^([a-zA-Z0-9]+[_\.-]?)+@(([a-zA-Z0-9]+[_-]?)+\.)+(([a-zA-Z]{2,}))+$/,
     };
+  },
+  watch: {
+    answers() {
+      if (this.checkLength) {
+        if (this.lastQuestion) {
+          if (this.validEmail) return (this.isButtonDisabled = false);
+          return (this.isButtonDisabled = true);
+        }
+        return (this.isButtonDisabled = false);
+      }
+      return (this.isButtonDisabled = true);
+    },
   },
   computed: {
     questions() {
@@ -94,18 +121,34 @@ export default {
     },
     title() {
       if (!this.sent) return `Шаг ${this.number} из ${this.questions.length}`;
-      else return 'Спасибо что приняли участие!';
+      else return 'Шаг 13 из 13';
     },
     answerKeys() {
       return this.questions.map(el => el.answerKey);
+    },
+    checkLength() {
+      return this.answers[this.number - 1].length > 0;
+    },
+    validEmail() {
+      return this.regex.test(this.answers[this.number - 1]);
+    },
+    getFinish() {
+      return this.$store.getters['form/getFinish'];
+    },
+    getError() {
+      return this.$store.getters['error/getError'];
     },
   },
   methods: {
     nextQuestion() {
       if (!this.lastQuestion) this.number++;
+      if (this.number > this.answers.length) this.isButtonDisabled = true;
     },
     prevQuestion() {
-      if (this.number > 1) this.number--;
+      if (this.number > 1) {
+        this.isButtonDisabled = false;
+        this.number--;
+      }
     },
     prevent(event) {
       event.preventDefault();
@@ -122,18 +165,30 @@ export default {
       this.answerKeys.forEach((key, index) => {
         result = { ...result, [key]: this.answers[index] || null };
       });
-      console.log(result);
-      this.finish = true;
+      await this.$store.dispatch('form/sentData', result);
     },
   },
 };
 </script>
 
 <style scoped>
+.form__span {
+  position: absolute;
+  margin-top: 270px;
+  color: grey;
+  text-align: left;
+  font-size: 14px;
+  margin-left: 2px;
+}
+
 .button {
   border: none;
-  padding: 0;
-  outline: none;
+  background-color: grey;
+}
+
+.button_is_active {
+  background-color: #613a93;
+  cursor: pointer;
 }
 
 .button_before {
@@ -152,6 +207,9 @@ export default {
 
 .button_next {
   width: 226px;
+  padding: 0;
+  outline: none;
+  cursor: default;
 }
 
 .form {
@@ -250,6 +308,10 @@ export default {
     margin-bottom: 164px;
   }
 
+  .form__span {
+    margin-top: 280px;
+  }
+
   .button_next {
     width: 200px;
     height: 48px;
@@ -303,6 +365,10 @@ export default {
   .form {
     width: 350px;
   }
+  .form__span {
+    margin-top: 290px;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -330,6 +396,11 @@ export default {
     height: 40px;
     font-size: 13px;
     line-height: 16px;
+  }
+
+  .form__span {
+    margin-top: 255px;
+    font-size: 12px;
   }
 
   .button_before {
