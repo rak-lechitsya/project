@@ -4,11 +4,18 @@ import formData from './form-data';
 export const state = () => ({
   questions: formData.questions || null,
   data: {},
+  finish: false,
 });
 
 export const mutations = {
   saveData(state, result) {
     state.data = result;
+  },
+  finishTrue(state) {
+    return (state.finish = true);
+  },
+  finishFalse(state) {
+    return (state.finish = false);
   },
 };
 
@@ -31,13 +38,23 @@ export const actions = {
         phone: state.data.phone, //телефон для связи.
         email: state.data.email, // Почта. После обработки анкеты координатор проекта свяжется с Вами для размещения Вашей истории на сайте.
       })
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
+      .then(response => {
+        console.log(response);
+        commit('error/errorFalse', null, { root: true });
+        commit('finishTrue');
+      })
+      .catch(error => {
+        console.log(error);
+        commit('error/errorTrue', null, { root: true });
+      });
   },
 };
 
 export const getters = {
   getQuestions(state) {
     return state.questions;
+  },
+  getFinish(state) {
+    return state.finish;
   },
 };

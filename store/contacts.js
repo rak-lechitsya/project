@@ -21,8 +21,13 @@ export const actions = {
         preferred: state.data.preferred, //Напишите, если есть предпочтительный способ связи и удобное время
       })
       .then(response => {
+        commit('error/errorFalse', null, { root: true });
+        commit('popup/toggleContactsPopup', null, { root: true });
         console.log(response);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        commit('error/errorTrue', null, { root: true });
+      });
   },
 };

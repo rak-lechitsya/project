@@ -79,16 +79,19 @@
         >
       </p>
     </div>
+    <form-error class="form__error" v-if="getError" />
   </form>
 </template>
 
 <script>
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 export default {
   components: {
     'my-input': Input,
     'my-button': Button,
+    'form-error': FormError,
   },
   methods: {
     async sentData(event) {
@@ -100,7 +103,6 @@ export default {
         preferred: this.preferred, //Напишите, если есть предпочтительный способ связи и удобное время
       };
       await this.$store.dispatch('contacts/sentData', answers);
-      this.$store.commit('popup/toggleContactsPopup');
     },
   },
   computed: {
@@ -120,6 +122,9 @@ export default {
     isValid() {
       return this.validFullname && this.validEmail;
     },
+    getError() {
+      return this.$store.getters['error/getError'];
+    },
   },
   data() {
     return {
@@ -137,14 +142,6 @@ export default {
 </script>
 
 <style scoped>
-.form__error {
-  position: absolute;
-  margin-top: 5px;
-  color: #df4b41;
-  text-align: left;
-  font-size: 14px;
-}
-
 .button {
   width: 226px;
   background-color: grey;

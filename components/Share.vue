@@ -81,6 +81,7 @@ export default {
       this.$store.commit('popup/toggleContactsPopup');
     },
     toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
       this.$store.commit('popup/toggleStoryPopup');
     },
   },

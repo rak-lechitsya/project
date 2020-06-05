@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     toggleContactsPopup() {
+      this.$store.commit('error/errorFalse');
       this.$store.commit('popup/toggleContactsPopup');
     },
   },

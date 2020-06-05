@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     toggleStoryPopup() {
+      this.$store.commit('error/errorFalse');
       this.$store.commit('popup/toggleStoryPopup');
     },
     toggleSocialPopup() {

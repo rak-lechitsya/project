@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div v-if="finish" class="form form_finish">
+    <div v-if="getFinish" class="form form_finish">
       <h3 class="form__title form__title_finish">
         Спасибо что приняли участие!
       </h3>
       <my-button
-        class="button button_next"
+        class="button button_next button_is_active"
         @btnClick="toggleStoryPopup"
         :text="textButtonFormClose"
         type="button"
@@ -57,7 +57,7 @@
         />
         <my-button
           v-if="lastQuestion"
-          @btnClick.once="send"
+          @btnClick="send"
           :text="textButtonFormSend"
           :class="[
             'button button_next',
@@ -74,16 +74,19 @@
         </p>
       </div>
     </form>
+    <form-error class="form__error" v-if="getError" />
   </div>
 </template>
 
 <script>
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 export default {
   components: {
     'my-input': Input,
     'my-button': Button,
+    'form-error': FormError,
   },
   data() {
     return {
@@ -93,7 +96,6 @@ export default {
       answers: [],
       number: 1,
       sent: false,
-      finish: false,
       isButtonDisabled: true,
       regex: /^([a-zA-Z0-9]+[_\.-]?)+@(([a-zA-Z0-9]+[_-]?)+\.)+(([a-zA-Z]{2,}))+$/,
     };
@@ -130,6 +132,12 @@ export default {
     validEmail() {
       return this.regex.test(this.answers[this.number - 1]);
     },
+    getFinish() {
+      return this.$store.getters['form/getFinish'];
+    },
+    getError() {
+      return this.$store.getters['error/getError'];
+    },
   },
   methods: {
     nextQuestion() {
@@ -158,8 +166,6 @@ export default {
         result = { ...result, [key]: this.answers[index] || null };
       });
       await this.$store.dispatch('form/sentData', result);
-
-      this.finish = true;
     },
   },
 };
