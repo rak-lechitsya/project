@@ -262,10 +262,51 @@
 
 <script>
 export default {
-  head() {
+  data() {
     return {
-      title: 'Политика конфиденциальности',
+      metas: {
+        meta_title: 'Политика конфиденциальности - РАКЛЕЧИТСЯ.РФ',
+        meta_description: 'Политика в отношении обработки персональных данных',
+        og_image:
+          'https://static.tildacdn.com/tild3430-6233-4638-b134-626533623733/Pozner_1920_1080.jpg',
+        keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
+      },
     };
+  },
+  head() {
+    if (this.metas) {
+      return {
+        title: this.metas.meta_title,
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: this.metas.meta_keywords || '',
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.metas.meta_title || '',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.metas.og_image || '',
+          },
+        ],
+      };
+    }
   },
 };
 </script>
