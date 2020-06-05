@@ -9,7 +9,7 @@
       <legend class="form__question">Как вас зовут?</legend>
       <my-input
         addClass="form__input"
-        placeholder="Напишите тут"
+        placeholder="Напишите тут *"
         id="fullname"
         type="text"
         :bottomBordered="true"
@@ -26,7 +26,7 @@
           <legend class="form__question">Электронная почта</legend>
           <my-input
             addClass="form__input"
-            placeholder="pochta@example.com"
+            placeholder="pochta@example.com *"
             id="email"
             type="text"
             :bottomBordered="true"
@@ -210,7 +210,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 1.33;
+  line-height: 1;
   color: #000;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -308,6 +308,12 @@ export default {
   .form {
     width: 350px;
   }
+
+  .form__error {
+    font-size: 13px;
+    font-weight: 16px;
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -332,6 +338,16 @@ export default {
 
   .form__mail-tel {
     flex-direction: column;
+  }
+
+  .form__input {
+    width: 260px;
+  }
+
+  .form__error {
+    font-size: 10px;
+    font-weight: 13px;
+    margin-top: 2px;
   }
 
   .form__politic {

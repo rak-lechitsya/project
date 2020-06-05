@@ -32,6 +32,9 @@
           name="answers"
         />
       </fieldset>
+      <span class="form__span" v-if="lastQuestion"
+        >email формата: example@yandex.ru</span
+      >
       <div class="form__buttons">
         <button
           class="button button_before"
@@ -92,13 +95,19 @@ export default {
       sent: false,
       finish: false,
       isButtonDisabled: true,
+      regex: /^([a-zA-Z0-9]+[_\.-]?)+@(([a-zA-Z0-9]+[_-]?)+\.)+(([a-zA-Z]{2,}))+$/,
     };
   },
   watch: {
     answers() {
-      if (this.answers[this.number - 1].length > 0) {
-        this.isButtonDisabled = false;
-      } else this.isButtonDisabled = true;
+      if (this.checkLength) {
+        if (this.lastQuestion) {
+          if (this.validEmail) return (this.isButtonDisabled = false);
+          return (this.isButtonDisabled = true);
+        }
+        return (this.isButtonDisabled = false);
+      }
+      return (this.isButtonDisabled = true);
     },
   },
   computed: {
@@ -114,6 +123,12 @@ export default {
     },
     answerKeys() {
       return this.questions.map(el => el.answerKey);
+    },
+    checkLength() {
+      return this.answers[this.number - 1].length > 0;
+    },
+    validEmail() {
+      return this.regex.test(this.answers[this.number - 1]);
     },
   },
   methods: {
@@ -151,12 +166,13 @@ export default {
 </script>
 
 <style scoped>
-.form__error {
+.form__span {
   position: absolute;
-  margin-top: 5px;
-  color: #df4b41;
+  margin-top: 270px;
+  color: grey;
   text-align: left;
   font-size: 14px;
+  margin-left: 2px;
 }
 
 .button {
@@ -286,6 +302,10 @@ export default {
     margin-bottom: 164px;
   }
 
+  .form__span {
+    margin-top: 280px;
+  }
+
   .button_next {
     width: 200px;
     height: 48px;
@@ -339,6 +359,10 @@ export default {
   .form {
     width: 350px;
   }
+  .form__span {
+    margin-top: 290px;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -366,6 +390,11 @@ export default {
     height: 40px;
     font-size: 13px;
     line-height: 16px;
+  }
+
+  .form__span {
+    margin-top: 255px;
+    font-size: 12px;
   }
 
   .button_before {
