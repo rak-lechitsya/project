@@ -27,4 +27,23 @@ export default {};
   line-height: 17px;
   color: #ff0000;
 }
+
+@media (max-width: 900px) {
+  .form__error-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
+@media (max-width: 620px) {
+  .form__error {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .form__error-text {
+    text-align: center;
+  }
+}
 </style>

@@ -305,12 +305,6 @@ export default {
   .form {
     width: 350px;
   }
-
-  .form__error {
-    font-size: 13px;
-    font-weight: 16px;
-    margin-top: 4px;
-  }
 }
 
 @media (max-width: 450px) {
@@ -339,12 +333,6 @@ export default {
 
   .form__input {
     width: 260px;
-  }
-
-  .form__error {
-    font-size: 10px;
-    font-weight: 13px;
-    margin-top: 2px;
   }
 
   .form__politic {
