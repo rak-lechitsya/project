@@ -12,7 +12,7 @@
       :disabled="isFirst"
     ></button>
     <div
-      v-for="index in countPages"
+      v-for="index in pages"
       :key="index"
       @click="setActive(index)"
       :class="[
@@ -51,9 +51,35 @@ export default {
   data() {
     return {
       active: 1,
+      pageRange: 5,
     };
   },
   computed: {
+    pages() {
+      let pages = [];
+      for (let i = this.rangeStart; i <= this.rangeEnd; i++) {
+        pages.push(i);
+      }
+      return pages;
+    },
+    rangeStart() {
+      if (process.browser) {
+        if (window.innerWidth < 768) {
+          this.pageRange = 4;
+        }
+        if (window.innerWidth < 560) {
+          this.pageRange = 3;
+        }
+      }
+      const start = Math.ceil(this.active - this.pageRange / 2);
+      return start > 0 ? start : 1;
+    },
+    rangeEnd() {
+      const end = this.pageRange + this.rangeStart - 1;
+
+      return end < this.countPages ? end : this.countPages;
+    },
+
     itemForward() {
       return this.active + 1;
     },
@@ -176,18 +202,6 @@ export default {
     font-size: 15px;
     line-height: 18px;
   }
-  .pagination__item:nth-child(7) {
-    display: none;
-  }
-  .pagination__item:nth-child(8) {
-    display: none;
-  }
-  .pagination__item:nth-child(9) {
-    display: none;
-  }
-  .pagination__item:nth-child(10) {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 700px) {
@@ -212,10 +226,6 @@ export default {
   }
   .pagination__item {
     margin-right: 8px;
-  }
-
-  .pagination__item:nth-child(6) {
-    display: none;
   }
 }
 </style>
