@@ -3,6 +3,7 @@
     <cover />
     <videostory />
     <banner :title="blockBannerSml.title" />
+    <relevant />
     <stories />
     <banner :title="blockBannerBg.title" />
     <instagram />
@@ -20,6 +21,7 @@ import About from '@/components/About';
 import Share from '@/components/Share';
 import Cover from '@/components/Cover';
 import Video from '@/components/Video';
+import Relevant from '@/components/ui/Relevant';
 import Stories from '@/components/Stories';
 import Instagram from '@/components/Instagram';
 import Statistics from '@/components/Statistics';
@@ -33,6 +35,7 @@ export default {
     share: Share,
     cover: Cover,
     videostory: Video,
+    relevant: Relevant,
     stories: Stories,
     statistics: Statistics,
     banner: Banner,
@@ -66,8 +69,7 @@ export default {
           'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
         meta_description:
           'Информационный проект Фонда Хабенского. Есть вещи, которые не лечатся. В отличие от рака. #раклечится Вместе мы изменим отношение людей!  Какая привычка или фобия не лечится у вас? #этонелечится',
-        og_image:
-          'https://static.tildacdn.com/tild3430-6233-4638-b134-626533623733/Pozner_1920_1080.jpg',
+        og_image: '/Pozner_1920_1080.jpg',
         keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
       },
     };

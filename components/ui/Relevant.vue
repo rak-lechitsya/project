@@ -1,0 +1,93 @@
+<template>
+  <section class="relevant">
+    <relevant-content class="relevant__content">
+      <stories-grid
+        class="relevant__list"
+        :relevantStories="allStories"
+        :start="15"
+        :limit="widthLimit"
+      />
+    </relevant-content>
+  </section>
+</template>
+
+<script>
+import Content from '@/components/ui/Content';
+import StoriesGrid from '@/components/StoriesGrid';
+export default {
+  components: {
+    'relevant-content': Content,
+    'stories-grid': StoriesGrid,
+  },
+  computed: {
+    blockArr() {
+      return this.$store.getters['blocks/getBlockArr'];
+    },
+    blockStories() {
+      return this.blockArr.find(el => el.block === 'stories');
+    },
+    allStories() {
+      return this.$store.getters['stories/getAllStories'];
+    },
+    widthLimit() {
+      this.limit = 4;
+      if (window.innerWidth <= 1000) {
+        this.limit = 4;
+      }
+      if (window.innerWidth <= 700) {
+        this.limit = 4;
+      }
+      return this.limit;
+    },
+  },
+};
+</script>
+
+<style scoped>
+.relevant__list {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 70px 40px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.relevant__box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.relevant__link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1350px) {
+  .relevant__list {
+    grid-template-columns: repeat(auto-fill, 265px);
+    grid-gap: 60px 40px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .relevant__list {
+    grid-template-columns: repeat(auto-fill, 208px);
+    grid-gap: 46px 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .relevant__list {
+    grid-template-columns: repeat(auto-fill, 216px);
+    grid-gap: 40px 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .relevant__list {
+    grid-template-columns: repeat(auto-fill, 290px);
+    grid-gap: 30px 20px;
+  }
+}
+</style>

@@ -267,8 +267,7 @@ export default {
       metas: {
         meta_title: 'Политика конфиденциальности - РАКЛЕЧИТСЯ.РФ',
         meta_description: 'Политика в отношении обработки персональных данных',
-        og_image:
-          'https://static.tildacdn.com/tild3430-6233-4638-b134-626533623733/Pozner_1920_1080.jpg',
+        og_image: '/Pozner_1920_1080.jpg',
         keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
       },
     };
