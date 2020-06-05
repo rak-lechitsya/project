@@ -1,18 +1,20 @@
 <template>
-  <div class="social">
-    <h3 class="social__title">Поделитесь</h3>
-    <div class="social__icons">
-      <a
-        v-for="share in shares"
-        :key="share.url"
-        class="social__link"
-        target="_blank"
-        :href="share.url"
-        :style="`background-image: url('${share.img}')`"
-      >
-      </a>
+  <section class="social">
+    <div class="social__content">
+      <h3 class="social__title">Поделитесь</h3>
+      <div class="social__icons">
+        <a
+          v-for="share in shares"
+          :key="share.url"
+          class="social__link"
+          target="_blank"
+          :href="share.url"
+          :style="`background-image: url('${share.img}')`"
+        >
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -71,10 +73,15 @@ export default {
 
 <style scoped>
 .social {
-  width: 840px;
+  width: 920px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.social__content {
+  padding: 40px;
+  width: 100%;
 }
 
 .social__icons {
@@ -101,23 +108,24 @@ export default {
   font-size: 32px;
   line-height: 1.12;
   color: #000;
+  text-align: center;
 }
 
 @media (max-width: 1350px) {
   .social {
-    width: 720px;
+    width: 800px;
   }
 }
 
 @media (max-width: 900px) {
   .social {
-    width: 500px;
+    width: 580px;
   }
 }
 
 @media (max-width: 620px) {
   .social {
-    width: 350px;
+    width: 430px;
   }
 
   .social__icons {
@@ -127,7 +135,11 @@ export default {
 
 @media (max-width: 450px) {
   .social {
-    width: 260px;
+    width: 290px;
+  }
+
+  .social__content {
+    padding: 15px;
   }
 
   .social__icons {

@@ -18,8 +18,6 @@ export default {};
   height: 50px;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: 40px;
 }
 
 .form__error-text {
@@ -36,11 +34,8 @@ export default {};
 }
 
 @media (max-width: 450px) {
-  .form__error {
-    top: 15px;
-  }
-
   .form__error-text {
+    max-width: 240px;
     text-align: center;
   }
 }
