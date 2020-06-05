@@ -99,7 +99,7 @@ export default {
 .share {
   margin: 0 auto;
   width: 100%;
-  padding: 100px 14px 60px;
+  padding: 100px 50px 60px;
   background-color: #f7f7f7;
 }
 
@@ -167,9 +167,23 @@ export default {
   color: black;
 }
 
+@media (max-width: 1350px) {
+  .share {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .share {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
 @media (max-width: 700px) {
   .share {
-    padding: 50px 10px;
+    padding: 50px 15px;
   }
 
   .share__content {
