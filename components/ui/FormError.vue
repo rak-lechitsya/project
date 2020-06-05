@@ -13,13 +13,13 @@ export default {};
 <style scoped>
 .form__error {
   width: 100%;
-  margin-top: 40px;
   display: flex;
   background-color: #f0f0f0;
   height: 50px;
-  border: 1px solid red;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: 40px;
 }
 
 .form__error-text {
@@ -35,13 +35,11 @@ export default {};
   }
 }
 
-@media (max-width: 620px) {
-  .form__error {
-    margin-top: 20px;
-  }
-}
-
 @media (max-width: 450px) {
+  .form__error {
+    top: 15px;
+  }
+
   .form__error-text {
     text-align: center;
   }
