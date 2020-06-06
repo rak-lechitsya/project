@@ -103,6 +103,7 @@ export default {
   height: 44px;
   font-size: 16px;
   line-height: 24px;
+  transition: opacity 0.3s;
 }
 
 .about__heading {

@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
       this.$store.commit('popup/toggleStoryPopup');
     },
   },
@@ -46,6 +47,7 @@ export default {
   padding: 0;
   list-style-type: none;
   display: flex;
+  align-items: center;
 }
 
 .mobile-menu__item {
@@ -62,14 +64,12 @@ export default {
 }
 
 .mobile-menu__button {
-  background-color: white;
-  color: black;
-  width: 162px;
-  height: 24px;
+  width: 200px;
+  height: 38px;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 18px;
   transition: opacity 0.3s;
 }
 
@@ -102,6 +102,18 @@ export default {
   .mobile-menu__item {
     margin-right: 0;
     margin-bottom: 18px;
+  }
+
+  .mobile-menu__link {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .mobile-menu__button {
+    width: 146px;
+    height: 31px;
+    font-size: 12px;
+    line-height: 15px;
   }
 }
 </style>
