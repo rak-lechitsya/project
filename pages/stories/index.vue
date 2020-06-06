@@ -12,14 +12,15 @@
           placeholder="Введите имя или ключевую фразу"
           class="stories__input"
         />
-        <input-button
+        <!-- <input-button
           class="button button_reset"
           :text="textButtonReset"
           type="reset"
-        ></input-button>
+        ></input-button> -->
         <input-button
           class="button button_search"
           :text="textButtonForm"
+          type="submit"
         ></input-button>
       </form>
       <div class="not-found" v-if="initiallyFilteredStories.length === 0">
@@ -241,7 +242,7 @@ export default {
   width: 226px;
 }
 
-.button_reset {
+/* .button_reset {
   top: 16px;
   right: 260px;
   position: absolute;
@@ -253,7 +254,7 @@ export default {
   line-height: 19px;
   font-style: normal;
   font-weight: normal;
-}
+} */
 
 @media (max-width: 1350px) {
   .button_search {
@@ -289,10 +290,10 @@ export default {
     line-height: 58px;
   }
 
-  .button_reset {
+  /* .button_reset {
     top: 15px;
     right: 260px;
-  }
+  } */
 }
 
 @media (max-width: 1250px) {
@@ -331,12 +332,12 @@ export default {
     margin: 110px auto 360px;
   }
 
-  .button_reset {
+  /* .button_reset {
     top: 13px;
     right: 245px;
     font-size: 15px;
     line-height: 18px;
-  }
+  } */
 }
 
 @media (max-width: 1000px) {
@@ -366,7 +367,7 @@ export default {
     margin: 110px auto 380px;
   }
 
-  .button_reset {
+  /* .button_reset {
     top: 13px;
     right: 235px;
     width: 20px;
@@ -376,8 +377,8 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    opacity: 0.5;
-  }
+    opacity: .5;
+  } */
 }
 
 @media (max-width: 700px) {
@@ -431,11 +432,11 @@ export default {
     font-size: 14px;
   }
 
-  .button_reset {
+  /* .button_reset {
     top: 15px;
     right: 57px;
     width: 17px;
     height: 17px;
-  }
+  } */
 }
 </style>
