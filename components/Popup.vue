@@ -41,6 +41,7 @@ export default {
   border: none;
   cursor: pointer;
   transition: opacity 0.3s;
+  outline: none;
 }
 
 .popup__close:hover {
