@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <section class="about">
     <about-content class="about__content">
       <h2 class="about__heading">{{ blockAbout.hashtag }}</h2>
       <h3 class="about__title">{{ blockAbout.title }}</h3>
@@ -46,7 +46,7 @@
         </div>
       </div>
     </about-content>
-  </div>
+  </section>
 </template>
 
 <script>
