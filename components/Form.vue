@@ -74,7 +74,7 @@
         </p>
       </div>
     </form>
-    <form-error v-if="getError" />
+    <form-error class="form__error" v-if="getError" />
   </div>
 </template>
 
