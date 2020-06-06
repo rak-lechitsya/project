@@ -36,6 +36,9 @@ export default {};
 }
 
 @media (max-width: 450px) {
+  .form__error {
+    margin-top: 15px;
+  }
   .form__error-text {
     text-align: center;
   }

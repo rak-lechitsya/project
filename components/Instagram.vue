@@ -1,5 +1,5 @@
 <template>
-  <div class="instagram">
+  <section class="instagram">
     <instagram-content class="instagram__content">
       <div class="instagram__text">
         <h3 class="instagram__title">
@@ -23,7 +23,7 @@
         </li>
       </ul>
     </instagram-content>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -64,7 +64,7 @@ export default {
 <style scoped>
 .instagram {
   margin: 0 auto;
-  padding: 90px 0px 100px;
+  padding: 90px 60px 100px;
   background-color: white;
   color: black;
 }
@@ -131,7 +131,7 @@ export default {
 
 @media (max-width: 1350px) {
   .instagram {
-    padding: 90px 0;
+    padding: 90px 50px;
   }
   .instagram__grid {
     grid-gap: 27px;
@@ -156,7 +156,7 @@ export default {
 
 @media (max-width: 1250px) {
   .instagram {
-    padding: 80px 0px;
+    padding: 80px 50px;
   }
   .instagram__grid {
     grid-gap: 20px;
@@ -180,6 +180,10 @@ export default {
 }
 
 @media (max-width: 1000px) {
+  .instagram {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   .instagram__content {
     flex-direction: column;
     align-items: center;
@@ -199,6 +203,12 @@ export default {
   }
   .instagram__photo {
     max-height: 157px;
+  }
+}
+
+@media (max-width: 770px) {
+  .instagram__grid {
+    grid-template-columns: repeat(3, auto);
   }
 }
 
