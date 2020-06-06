@@ -1,12 +1,23 @@
 <template>
   <section class="cover" ref="cover">
-    <h1 class="cover__heading">{{ blockCover.hashtag }}</h1>
+    <div class="cover__container">
+      <h1 class="cover__heading">{{ blockCover.hashtag }}</h1>
+      <story-button
+        :text="textButtonCover"
+        @btnClick="toggleStoryPopup"
+        class="cover__button"
+      />
+    </div>
     <button @click="scroll" class="cover__arrow"></button>
   </section>
 </template>
 
 <script>
+import Button from '@/components/ui/Button';
 export default {
+  components: {
+    'story-button': Button,
+  },
   computed: {
     blockArr() {
       return this.$store.getters['blocks/getBlockArr'];
@@ -20,6 +31,15 @@ export default {
       const video = this.$refs.cover.nextElementSibling;
       video.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
+    toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
+      this.$store.commit('popup/toggleStoryPopup');
+    },
+  },
+  data() {
+    return {
+      textButtonCover: 'Рассказать историю',
+    };
   },
 };
 </script>
@@ -36,12 +56,31 @@ export default {
   height: 690px;
 }
 
+.cover__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 245px auto;
+}
+
+.cover__button {
+  width: 294px;
+  height: 56px;
+  margin: 0 auto;
+  font-size: 24px;
+  line-height: 36px;
+  border: 2px solid white;
+  border-radius: 60px;
+  transition: opacity 0.3s;
+}
+
 .cover__heading {
   font-weight: 800;
   font-size: 92px;
   line-height: 111px;
   color: #fff;
-  margin: auto;
+  margin-bottom: 30px;
   text-transform: uppercase;
 }
 
@@ -65,8 +104,12 @@ export default {
   outline: none;
 }
 
+.cover__button:hover {
+  opacity: 0.7;
+}
+
 .cover__arrow:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 1350px) {
@@ -78,11 +121,31 @@ export default {
     font-size: 78px;
     line-height: 94px;
   }
+
+  .cover__container {
+    margin: 219px auto;
+  }
+
+  .cover__button {
+    width: 314px;
+    height: 58px;
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 1250px) {
   .cover {
     height: 540px;
+  }
+
+  .cover__container {
+    margin: 185px auto;
+  }
+
+  .cover__button {
+    width: 294px;
+    height: 56px;
+    font-size: 20px;
   }
 }
 
@@ -96,9 +159,13 @@ export default {
     font-size: 64px;
     line-height: 77px;
   }
+
+  .cover__container {
+    margin: 308px auto;
+  }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
   .cover {
     height: 480px;
   }
@@ -110,6 +177,17 @@ export default {
 
   .cover__arrow {
     bottom: 30px;
+  }
+
+  .cover__container {
+    margin: 187px auto;
+  }
+
+  .cover__button {
+    width: 224px;
+    height: 44px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 </style>

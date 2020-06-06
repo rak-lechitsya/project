@@ -17,6 +17,10 @@
           :text="textButtonForm"
         ></input-button>
       </form>
+      <div class="not-found" v-if="initiallyFilteredStories.length === 0">
+        <h2 class="not-found__title">Ничего не найдено</h2>
+        <p class="not-found__subtitle">Попробуйте ещё раз</p>
+      </div>
       <stories-grid
         class="stories__list"
         :relevantStories="initiallyFilteredStories"
@@ -25,6 +29,7 @@
       />
       <stories-pagination
         class="stories__menu"
+        v-if="initiallyFilteredStories.length > 0"
         :allStories="initiallyFilteredStories.length"
         :limit="limit"
         @pagClick="changePage"
@@ -136,6 +141,26 @@ export default {
 </script>
 
 <style scoped>
+.not-found {
+  width: 455px;
+  margin: 110px auto 380px;
+}
+
+.not-found__title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.not-found__subtitle {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
 .stories__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
@@ -172,14 +197,17 @@ export default {
 .stories__page:hover {
   background-color: #f8f8f8;
 }
+
 .stories__box {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
+
 .stories__link {
   text-decoration: none;
 }
+
 .stories__input {
   font-size: 18px;
   line-height: 24px;
@@ -190,6 +218,7 @@ export default {
   width: 1074px;
   height: 52px;
 }
+
 .stories__menu {
   margin-top: 140px;
   display: flex;
@@ -200,6 +229,7 @@ export default {
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
 }
+
 .button_search {
   width: 226px;
 }
@@ -208,45 +238,34 @@ export default {
   .button_search {
     height: 48px;
   }
+
   .stories__input {
     font-size: 16px;
     line-height: 22px;
-  }
-}
-
-@media (max-width: 1350px) {
-  .stories__input {
     margin-bottom: 60px;
     width: 934px;
     height: 48px;
   }
-}
 
-@media (max-width: 1350px) {
   .stories__heading {
     margin: 90px 0 60px;
     font-size: 28px;
     line-height: 32px;
   }
-}
 
-@media (max-width: 1350px) {
-  .stories__page {
-    margin-bottom: 90px;
-    margin-top: 60px;
-  }
-}
-@media (max-width: 1350px) {
   .stories__list {
     grid-template-columns: repeat(auto-fill, 265px);
     grid-gap: 60px 40px;
   }
-}
 
-@media (max-width: 1350px) {
   .stories__menu {
     margin-top: 130px;
     margin-bottom: 90px;
+  }
+
+  .not-found__title {
+    font-size: 48px;
+    line-height: 58px;
   }
 }
 
@@ -255,17 +274,13 @@ export default {
     grid-template-columns: repeat(auto-fill, 208px);
     grid-gap: 46px 30px;
   }
-}
 
-@media (max-width: 1250px) {
   .stories__input {
     margin-bottom: 46px;
     width: 696px;
     height: 46px;
   }
-}
 
-@media (max-width: 1250px) {
   .button_search {
     margin-bottom: 46px;
     width: 208px;
@@ -273,30 +288,21 @@ export default {
     font-size: 15px;
     line-height: 18px;
   }
-}
 
-@media (max-width: 1250px) {
   .stories__heading {
     margin: 80px 0 46px;
     font-size: 24px;
     line-height: 28px;
     max-width: 288px;
   }
-}
 
-@media (max-width: 1250px) {
-  .stories__page {
-    margin-bottom: 80px;
-    margin-top: 46px;
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
-@media (max-width: 1250px) {
   .stories__menu {
     margin-top: 110px;
     margin-bottom: 80px;
+  }
+
+  .not-found {
+    margin: 110px auto 360px;
   }
 }
 
@@ -304,82 +310,52 @@ export default {
   .stories__menu {
     margin-top: 130px;
   }
+
   .stories__input {
     font-size: 15px;
     line-height: 19px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .stories__input {
     margin-bottom: 60px;
     width: 460px;
     height: 46px;
   }
-}
 
-@media (max-width: 1000px) {
   .stories__list {
     grid-template-columns: repeat(auto-fill, 216px);
     grid-gap: 40px 20px;
   }
-}
 
-@media (max-width: 1000px) {
   .stories__heading {
     margin: 80px auto 50px;
     text-align: center;
   }
-}
 
-@media (max-width: 1000px) {
-  .stories__page {
-    margin-bottom: 80px;
-    margin-top: 40px;
-  }
-}
-
-@media (max-width: 700px) {
-  .stories__menu {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-}
-
-@media (max-width: 700px) {
-  .stories__page {
-    margin-bottom: 50px;
-  }
-}
-
-@media (max-width: 700px) {
-  .stories__input {
-    margin-bottom: 30px;
-    width: 238px;
-    height: 46px;
-  }
-  .stories__input {
-    font-size: 13px;
-    line-height: 16px;
+  .not-found {
+    margin: 110px auto 380px;
   }
 }
 
 @media (max-width: 700px) {
   .stories__menu {
     justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
-}
 
-@media (max-width: 700px) {
+  .stories__input {
+    margin-bottom: 30px;
+    width: 238px;
+    height: 46px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
   .stories__heading {
     margin: 50px auto 40px;
     font-size: 18px;
     line-height: 21px;
     text-align: inherit;
   }
-}
 
-@media (max-width: 700px) {
   .button_search {
     width: 46px;
     background-image: url(/search.svg);
@@ -388,12 +364,25 @@ export default {
     background-position: center;
     cursor: pointer;
   }
-}
 
-@media (max-width: 700px) {
   .stories__list {
     grid-template-columns: repeat(auto-fill, 290px);
     grid-gap: 30px 20px;
+  }
+
+  .not-found {
+    width: 230px;
+    margin: 60px auto 280px;
+  }
+
+  .not-found__title {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 15px;
+  }
+
+  .not-found__subtitle {
+    font-size: 14px;
   }
 }
 </style>

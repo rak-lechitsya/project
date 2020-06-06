@@ -5,7 +5,7 @@
         class="relevant__list"
         :relevantStories="allStories"
         :start="15"
-        :limit="widthLimit"
+        :limit="limit"
       />
     </relevant-content>
   </section>
@@ -29,16 +29,11 @@ export default {
     allStories() {
       return this.$store.getters['stories/getAllStories'];
     },
-    widthLimit() {
-      this.limit = 4;
-      if (window.innerWidth <= 1000) {
-        this.limit = 4;
-      }
-      if (window.innerWidth <= 700) {
-        this.limit = 4;
-      }
-      return this.limit;
-    },
+  },
+  data() {
+    return {
+      limit: 4,
+    };
   },
 };
 </script>
@@ -79,8 +74,14 @@ export default {
 
 @media screen and (max-width: 1000px) {
   .relevant__list {
-    grid-template-columns: repeat(auto-fill, 216px);
+    grid-template-columns: repeat(2, 216px);
     grid-gap: 40px 20px;
+    margin-top: 80px;
+  }
+
+  .relevant__content {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -88,6 +89,7 @@ export default {
   .relevant__list {
     grid-template-columns: repeat(auto-fill, 290px);
     grid-gap: 30px 20px;
+    margin-top: 50px;
   }
 }
 </style>
