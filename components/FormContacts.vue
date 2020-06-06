@@ -1,85 +1,83 @@
 <template>
   <form @submit="sentData" class="form" id="form-contacts" name="form-contacts">
-    <div class="form__content">
-      <h3 class="form__title">Оставьте контакт для связи</h3>
-      <p class="form__subtitle">
-        Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей
-        истории и разместить ее на сайте.
-      </p>
-      <fieldset class="form__fieldset">
-        <legend class="form__question">Как вас зовут?</legend>
-        <my-input
-          addClass="form__input"
-          placeholder="Напишите тут *"
-          id="fullname"
-          type="text"
-          :bottomBordered="true"
-          name="fullname"
-          v-model="fullName"
-          maxlength="20"
-          @inputBlur="isFullnameTouched = true"
-        />
-        <span class="form__error" v-if="isFullnameError"
-          >Это поле обязательное</span
-        >
-        <div class="form__mail-tel">
-          <div class="form__block">
-            <legend class="form__question">Электронная почта</legend>
-            <my-input
-              addClass="form__input"
-              placeholder="pochta@example.com *"
-              id="email"
-              type="text"
-              :bottomBordered="true"
-              name="email"
-              v-model="email"
-              @inputBlur="isEmailTouched = true"
-            />
-            <span class="form__error" v-if="isEmailError"
-              >Недопустимый формат</span
-            >
-          </div>
-          <div class="form__block">
-            <legend class="form__question">Телефон</legend>
-            <my-input
-              addClass="form__input"
-              placeholder="+7 000 000 00 00"
-              id="tel"
-              type="number"
-              :bottomBordered="true"
-              name="tel"
-              v-model="phone"
-              maxlength="18"
-            />
-          </div>
-        </div>
-        <legend class="form__question">
-          Напишите, если есть предпочтительный способ связи и удобное время
-        </legend>
-        <my-input
-          addClass="form__input"
-          placeholder="Телефон / почта и удобное время"
-          id="time"
-          type="text"
-          :bottomBordered="true"
-          name="time"
-          v-model="preferred"
-        />
-      </fieldset>
-      <div class="form__buttons">
-        <my-button
-          :disabled="!isValid"
-          :class="['button', { button_is_active: isValid }]"
-          :text="textButtonForm"
-          type="submit"
-        />
-        <p class="form__politic">
-          Нажимая на кнопку «отправить», вы даете согласие на
-          <nuxt-link to="/policy" target="_blank" class="form__link"
-            >обработку персональных данных</nuxt-link
+    <h3 class="form__title">Оставьте контакт для связи</h3>
+    <p class="form__subtitle">
+      Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
+      и разместить ее на сайте.
+    </p>
+    <fieldset class="form__fieldset">
+      <legend class="form__question">Как вас зовут?</legend>
+      <my-input
+        addClass="form__input"
+        placeholder="Напишите тут *"
+        id="fullname"
+        type="text"
+        :bottomBordered="true"
+        name="fullname"
+        v-model="fullName"
+        maxlength="20"
+        @inputBlur="isFullnameTouched = true"
+      />
+      <span class="form__error" v-if="isFullnameError"
+        >Это поле обязательное</span
+      >
+      <div class="form__mail-tel">
+        <div class="form__block">
+          <legend class="form__question">Электронная почта</legend>
+          <my-input
+            addClass="form__input"
+            placeholder="pochta@example.com *"
+            id="email"
+            type="text"
+            :bottomBordered="true"
+            name="email"
+            v-model="email"
+            @inputBlur="isEmailTouched = true"
+          />
+          <span class="form__error" v-if="isEmailError"
+            >Недопустимый формат</span
           >
-        </p>
+        </div>
+        <div class="form__block">
+          <legend class="form__question">Телефон</legend>
+          <my-input
+            addClass="form__input"
+            placeholder="+7 000 000 00 00"
+            id="tel"
+            type="number"
+            :bottomBordered="true"
+            name="tel"
+            v-model="phone"
+            maxlength="18"
+          />
+        </div>
       </div>
+      <legend class="form__question">
+        Напишите, если есть предпочтительный способ связи и удобное время
+      </legend>
+      <my-input
+        addClass="form__input"
+        placeholder="Телефон / почта и удобное время"
+        id="time"
+        type="text"
+        :bottomBordered="true"
+        name="time"
+        v-model="preferred"
+      />
+    </fieldset>
+    <div class="form__buttons">
+      <my-button
+        :disabled="!isValid"
+        :class="['button', { button_is_active: isValid }]"
+        :text="textButtonForm"
+        type="submit"
+      />
+      <p class="form__politic">
+        Нажимая на кнопку «отправить», вы даете согласие на
+        <nuxt-link to="/policy" target="_blank" class="form__link"
+          >обработку персональных данных</nuxt-link
+        >
+      </p>
     </div>
     <form-error class="form__error" v-if="getError" />
   </form>
@@ -156,14 +154,10 @@ export default {
 }
 
 .form {
-  width: 920px;
+  width: 840px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.form__content {
-  padding: 40px;
 }
 
 .form__block {
@@ -241,7 +235,7 @@ export default {
 
 @media (max-width: 1350px) {
   .form {
-    width: 800px;
+    width: 720px;
   }
 
   .form__question {
@@ -276,7 +270,7 @@ export default {
   }
 
   .form {
-    width: 580px;
+    width: 500px;
   }
 
   .form__fieldset {
@@ -309,7 +303,7 @@ export default {
 
 @media (max-width: 620px) {
   .form {
-    width: 430px;
+    width: 350px;
   }
 }
 
@@ -322,11 +316,7 @@ export default {
   }
 
   .form {
-    width: 290px;
-  }
-
-  .form__content {
-    padding: 15px;
+    width: 260px;
   }
 
   .form__buttons {

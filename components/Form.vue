@@ -1,84 +1,80 @@
 <template>
   <div>
     <div v-if="getFinish" class="form form_finish">
-      <div class="form__content">
-        <h3 class="form__title form__title_finish">
-          Спасибо что приняли участие!
-        </h3>
-        <my-button
-          class="button button_next button_is_active"
-          @btnClick="toggleStoryPopup"
-          :text="textButtonFormClose"
-          type="button"
-        />
-      </div>
+      <h3 class="form__title form__title_finish">
+        Спасибо что приняли участие!
+      </h3>
+      <my-button
+        class="button button_next button_is_active"
+        @btnClick="toggleStoryPopup"
+        :text="textButtonFormClose"
+        type="button"
+      />
     </div>
 
     <form @submit.prevent="prevent" v-else class="form" id="form" name="form">
-      <div class="form__content">
-        <h3 class="form__title">{{ title }}</h3>
-        <fieldset class="form__fieldset">
-          <legend class="form__subtitle">
-            {{ questions[number - 1].question }}
-            <span class="form__question-extra">
-              {{ questions[number - 1].questionExtra }}</span
-            >
-          </legend>
-          <my-input
-            v-model="answers[number - 1]"
-            :value="answers[number - 1]"
-            addClass="form__input"
-            placeholder="Напишите тут"
-            id="answers"
-            type="text"
-            :bottomBordered="true"
-            name="answers"
-          />
-        </fieldset>
-        <span class="form__span" v-if="lastQuestion"
-          >email формата: example@yandex.ru</span
-        >
-        <div class="form__buttons">
-          <button
-            class="button button_before"
-            @click="prevQuestion"
-            type="button"
+      <h3 class="form__title">{{ title }}</h3>
+      <fieldset class="form__fieldset">
+        <legend class="form__subtitle">
+          {{ questions[number - 1].question }}
+          <span class="form__question-extra">
+            {{ questions[number - 1].questionExtra }}</span
           >
-            Назад
-          </button>
-          <my-button
-            id="next"
-            v-if="!lastQuestion"
-            @btnClick="nextQuestion"
-            :text="textButtonForm"
-            type="submit"
-            :disabled="isButtonDisabled"
-            :class="[
-              'button button_next',
-              { button_is_active: !isButtonDisabled },
-            ]"
-          />
-          <my-button
-            v-if="lastQuestion"
-            @btnClick="send"
-            :text="textButtonFormSend"
-            :class="[
-              'button button_next',
-              { button_is_active: !isButtonDisabled },
-            ]"
-            type="submit"
-          />
+        </legend>
+        <my-input
+          v-model="answers[number - 1]"
+          :value="answers[number - 1]"
+          addClass="form__input"
+          placeholder="Напишите тут"
+          id="answers"
+          type="text"
+          :bottomBordered="true"
+          name="answers"
+        />
+      </fieldset>
+      <span class="form__span" v-if="lastQuestion"
+        >email формата: example@yandex.ru</span
+      >
+      <div class="form__buttons">
+        <button
+          class="button button_before"
+          @click="prevQuestion"
+          type="button"
+        >
+          Назад
+        </button>
+        <my-button
+          id="next"
+          v-if="!lastQuestion"
+          @btnClick="nextQuestion"
+          :text="textButtonForm"
+          type="submit"
+          :disabled="isButtonDisabled"
+          :class="[
+            'button button_next',
+            { button_is_active: !isButtonDisabled },
+          ]"
+        />
+        <my-button
+          v-if="lastQuestion"
+          @btnClick="send"
+          :text="textButtonFormSend"
+          :class="[
+            'button button_next',
+            { button_is_active: !isButtonDisabled },
+          ]"
+          type="submit"
+        />
 
-          <p v-if="lastQuestion" class="form__politic">
-            Нажимая на кнопку «отправить», вы даете согласие на
-            <nuxt-link to="/policy" target="_blank" class="form__link"
-              >обработку персональных данных</nuxt-link
-            >
-          </p>
-        </div>
+        <p v-if="lastQuestion" class="form__politic">
+          Нажимая на кнопку «отправить», вы даете согласие на
+          <nuxt-link to="/policy" target="_blank" class="form__link"
+            >обработку персональных данных</nuxt-link
+          >
+        </p>
       </div>
-      <form-error v-if="getError" />
     </form>
+    <form-error v-if="getError" />
   </div>
 </template>
 
@@ -178,8 +174,7 @@ export default {
 <style scoped>
 .form__span {
   position: absolute;
-  top: 310px;
-  left: 40px;
+  margin-top: 270px;
   color: grey;
   text-align: left;
   font-size: 14px;
@@ -218,15 +213,10 @@ export default {
 }
 
 .form {
-  width: 920px;
+  width: 840px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.form__content {
-  position: relative;
-  padding: 40px;
 }
 
 .form_finish {
@@ -300,7 +290,7 @@ export default {
 
 @media (max-width: 1350px) {
   .form {
-    width: 800px;
+    width: 720px;
   }
 
   .form__title {
@@ -356,7 +346,7 @@ export default {
 
 @media (max-width: 900px) {
   .form {
-    width: 580px;
+    width: 500px;
   }
 
   .form__input {
@@ -373,7 +363,7 @@ export default {
 
 @media (max-width: 620px) {
   .form {
-    width: 430px;
+    width: 350px;
   }
   .form__span {
     margin-top: 290px;
@@ -383,11 +373,7 @@ export default {
 
 @media (max-width: 450px) {
   .form {
-    width: 290px;
-  }
-
-  .form__content {
-    padding: 15px;
+    width: 260px;
   }
 
   .form__title {
