@@ -12,9 +12,15 @@
           placeholder="Введите имя или ключевую фразу"
           class="stories__input"
         />
+        <!-- <input-button
+          class="button button_reset"
+          :text="textButtonReset"
+          type="reset"
+        ></input-button> -->
         <input-button
           class="button button_search"
           :text="textButtonForm"
+          type="submit"
         ></input-button>
       </form>
       <div class="not-found" v-if="initiallyFilteredStories.length === 0">
@@ -91,6 +97,7 @@ export default {
       storiesName: '',
       appliedStoriesName: '',
       textButtonForm: 'Поиск',
+      textButtonReset: 'Очистить',
       start: 0,
       title: 'Истории неизлечимых привычек',
       metas: {
@@ -199,6 +206,7 @@ export default {
 }
 
 .stories__box {
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -234,6 +242,20 @@ export default {
   width: 226px;
 }
 
+/* .button_reset {
+  top: 16px;
+  right: 260px;
+  position: absolute;
+  width: 75px;
+  height: 19px;
+  background-color: white;
+  color: grey;
+  font-size: 16px;
+  line-height: 19px;
+  font-style: normal;
+  font-weight: normal;
+} */
+
 @media (max-width: 1350px) {
   .button_search {
     height: 48px;
@@ -267,6 +289,11 @@ export default {
     font-size: 48px;
     line-height: 58px;
   }
+
+  /* .button_reset {
+    top: 15px;
+    right: 260px;
+  } */
 }
 
 @media (max-width: 1250px) {
@@ -304,6 +331,13 @@ export default {
   .not-found {
     margin: 110px auto 360px;
   }
+
+  /* .button_reset {
+    top: 13px;
+    right: 245px;
+    font-size: 15px;
+    line-height: 18px;
+  } */
 }
 
 @media (max-width: 1000px) {
@@ -332,6 +366,19 @@ export default {
   .not-found {
     margin: 110px auto 380px;
   }
+
+  /* .button_reset {
+    top: 13px;
+    right: 235px;
+    width: 20px;
+    height: 20px;
+    background-image: url(/button-close.svg);
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    opacity: .5;
+  } */
 }
 
 @media (max-width: 700px) {
@@ -345,7 +392,7 @@ export default {
     margin-bottom: 30px;
     width: 238px;
     height: 46px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 16px;
   }
 
@@ -384,5 +431,12 @@ export default {
   .not-found__subtitle {
     font-size: 14px;
   }
+
+  /* .button_reset {
+    top: 15px;
+    right: 57px;
+    width: 17px;
+    height: 17px;
+  } */
 }
 </style>

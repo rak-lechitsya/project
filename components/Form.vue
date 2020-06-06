@@ -32,9 +32,10 @@
           name="answers"
         />
       </fieldset>
-      <span class="form__span" v-if="lastQuestion"
-        >email формата: example@yandex.ru</span
+      <span class="form__span" v-if="lastQuestion && !loading"
+        >email в формате: example@yandex.ru</span
       >
+      <span class="form__span" v-if="loading">Загрузка...</span>
       <div class="form__buttons">
         <button
           class="button button_before"
@@ -59,6 +60,7 @@
           v-if="lastQuestion"
           @btnClick="send"
           :text="textButtonFormSend"
+          :disabled="isButtonDisabled"
           :class="[
             'button button_next',
             { button_is_active: !isButtonDisabled },
@@ -98,6 +100,7 @@ export default {
       sent: false,
       isButtonDisabled: true,
       regex: /^([a-zA-Z0-9]+[_\.-]?)+@(([a-zA-Z0-9]+[_-]?)+\.)+(([a-zA-Z]{2,}))+$/,
+      loading: false,
     };
   },
   watch: {
@@ -120,8 +123,7 @@ export default {
       return Boolean(this.questions.length === this.number);
     },
     title() {
-      if (!this.sent) return `Шаг ${this.number} из ${this.questions.length}`;
-      else return 'Шаг 13 из 13';
+      return `Шаг ${this.number} из ${this.questions.length}`;
     },
     answerKeys() {
       return this.questions.map(el => el.answerKey);
@@ -157,6 +159,8 @@ export default {
       this.$store.commit('popup/toggleStoryPopup');
     },
     async send() {
+      this.$store.commit('error/errorFalse');
+      this.loading = true;
       const promise = await new Promise((resolve, reject) => {
         setTimeout(() => resolve(), 1500);
       });
@@ -166,6 +170,7 @@ export default {
         result = { ...result, [key]: this.answers[index] || null };
       });
       await this.$store.dispatch('form/sentData', result);
+      this.loading = false;
     },
   },
 };
@@ -203,6 +208,7 @@ export default {
   color: #c0c0c0;
   margin-right: 30px;
   cursor: pointer;
+  outline: none;
 }
 
 .button_next {
@@ -354,7 +360,7 @@ export default {
   }
 
   .form__politic {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 0;
     font-size: 11px;
     line-height: 13px;
@@ -385,10 +391,11 @@ export default {
   .form__subtitle {
     font-size: 13px;
     line-height: 16px;
+    margin-bottom: 40px;
   }
 
   .form__input {
-    margin-bottom: 252px;
+    margin-bottom: 260px;
   }
 
   .button_next {
@@ -399,7 +406,7 @@ export default {
   }
 
   .form__span {
-    margin-top: 255px;
+    margin-top: 200px;
     font-size: 12px;
   }
 
@@ -409,6 +416,10 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin-right: 15px;
+  }
+
+  .form__politic {
+    margin-top: 10px;
   }
 }
 </style>

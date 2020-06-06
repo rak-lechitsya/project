@@ -3,8 +3,8 @@
     <relevant-content class="relevant__content">
       <stories-grid
         class="relevant__list"
-        :relevantStories="allStories"
-        :start="15"
+        :relevantStories="celebrityStories"
+        :start="0"
         :limit="limit"
       />
     </relevant-content>
@@ -26,8 +26,10 @@ export default {
     blockStories() {
       return this.blockArr.find(el => el.block === 'stories');
     },
-    allStories() {
-      return this.$store.getters['stories/getAllStories'];
+    celebrityStories() {
+      const { stories } = this.$store.state;
+
+      return stories.stories.filter(item => item.celebrity === true);
     },
   },
   data() {

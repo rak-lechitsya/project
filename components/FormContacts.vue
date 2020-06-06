@@ -1,5 +1,11 @@
 <template>
-  <form @submit="sentData" class="form" id="form-contacts" name="form-contacts">
+  <form
+    @submit="sentData"
+    class="form"
+    id="form-contacts"
+    name="form-contacts"
+    ref="form"
+  >
     <h3 class="form__title">Оставьте контакт для связи</h3>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -18,7 +24,7 @@
         maxlength="20"
         @inputBlur="isFullnameTouched = true"
       />
-      <span class="form__error" v-if="isFullnameError"
+      <span class="form__error_input" v-if="isFullnameError"
         >Это поле обязательное</span
       >
       <div class="form__mail-tel">
@@ -34,7 +40,7 @@
             v-model="email"
             @inputBlur="isEmailTouched = true"
           />
-          <span class="form__error" v-if="isEmailError"
+          <span class="form__error_input" v-if="isEmailError"
             >Недопустимый формат</span
           >
         </div>
@@ -233,6 +239,14 @@ export default {
   color: #000;
 }
 
+.form__error_input {
+  margin-top: 3px;
+  color: #df4b41;
+  text-align: left;
+  font-size: 14px;
+  position: absolute;
+}
+
 @media (max-width: 1350px) {
   .form {
     width: 720px;
@@ -305,6 +319,11 @@ export default {
   .form {
     width: 350px;
   }
+
+  .form__error_input {
+    margin-top: 2px;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -338,7 +357,7 @@ export default {
   .form__politic {
     font-size: 11px;
     line-height: 13px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 0;
     min-width: 260px;
   }
