@@ -49,20 +49,15 @@ export default {
 
 .popup__content {
   background-color: #fff;
-  padding: 40px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-height: 95%;
+  max-height: 99%;
   overflow: auto;
 }
 
 @media (max-width: 450px) {
-  .popup__content {
-    padding: 15px;
-  }
-
   .popup__close {
     top: 15px;
     right: 15px;
