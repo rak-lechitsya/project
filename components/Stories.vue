@@ -15,14 +15,10 @@
 
 <script>
 import Content from '@/components/ui/Content';
-import Input from '@/components/ui/Input';
-import Button from '@/components/ui/Button';
 import StoriesGrid from '@/components/StoriesGrid';
 export default {
   components: {
-    'input-stories': Input,
     'stories-content': Content,
-    'input-button': Button,
     'stories-grid': StoriesGrid,
   },
   computed: {
@@ -90,15 +86,6 @@ export default {
 }
 .stories__link {
   text-decoration: none;
-}
-.stories__form-button {
-  border: 1px solid #e8e8e8;
-  margin-bottom: 70px;
-  width: 1074px;
-  height: 52px;
-}
-.button_search {
-  width: 226px;
 }
 
 @media screen and (max-width: 1350px) {
