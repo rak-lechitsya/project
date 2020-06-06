@@ -1,5 +1,5 @@
 <template>
-  <section class="statistics">
+  <div class="statistics">
     <statistics-content class="statistics__content">
       <h3 class="statistics__header">{{ blockStatistics.title }}</h3>
       <div class="statistics__container">
@@ -67,7 +67,7 @@
         </div>
       </div>
     </statistics-content>
-  </section>
+  </div>
 </template>
 
 <script>
