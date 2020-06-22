@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   async GET_PHOTOS({ commit }) {
-    const data = await this.$axios.$get(process.env.INST_URL + '/?__a=1');
+    const data = await this.$axios.$get(`${process.env.INST_URL}/?__a=1`);
     const formatData = getPosts(data);
     commit('addPhotos', formatData);
   },
