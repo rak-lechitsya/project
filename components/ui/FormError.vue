@@ -1,6 +1,6 @@
 <template>
-  <div class="form__error">
-    <p class="form__error-text">
+  <div class="form-error">
+    <p class="form-error__text">
       Ошибка отпраки данных, пожалуйста, попробуйте еще раз.
     </p>
   </div>
@@ -11,7 +11,7 @@ export default {};
 </script>
 
 <style scoped>
-.form__error {
+.form-error {
   width: 100%;
   margin-top: 40px;
   display: flex;
@@ -22,24 +22,24 @@ export default {};
   justify-content: center;
 }
 
-.form__error-text {
+.form-error__text {
   font-size: 14px;
   line-height: 17px;
   color: #ff0000;
 }
 
 @media (max-width: 900px) {
-  .form__error-text {
+  .form-error__text {
     font-size: 11px;
     line-height: 13px;
   }
 }
 
 @media (max-width: 450px) {
-  .form__error {
+  .form-error {
     margin-top: 15px;
   }
-  .form__error-text {
+  .form-error__text {
     text-align: center;
   }
 }
