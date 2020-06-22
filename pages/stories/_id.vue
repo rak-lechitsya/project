@@ -101,12 +101,49 @@ export default {
   data() {
     return {
       baseUrl: process.env.BASE_URL,
+      metas: {
+        keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
+      },
     };
   },
   head() {
-    return {
-      title: this.story.author,
-    };
+    if (this.metas) {
+      return {
+        title: `${this.story.author} - РАКЛЕЧИТСЯ.РФ`,
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          {
+            hid: 'description',
+            name: 'description',
+            content:
+              `${this.story.author}. РАКЛЕЧИТСЯ.РФ — проект Фонда Хабенского. Истории людей, победивших рак, но не свои привычки.` ||
+              '',
+          },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: this.metas.meta_keywords || '',
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: `${this.story.author} - РАКЛЕЧИТСЯ.РФ` || '',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content:
+              `${this.story.author}. РАКЛЕЧИТСЯ.РФ — проект Фонда Хабенского. Истории людей, победивших рак, но не свои привычки.` ||
+              '',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.getUrl || '',
+          },
+        ],
+      };
+    }
   },
 };
 </script>

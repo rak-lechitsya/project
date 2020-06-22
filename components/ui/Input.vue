@@ -10,6 +10,7 @@
     :type="type"
     :placeholder="placeholder"
     :value="value"
+    @blur="$emit('inputBlur')"
     v-on:input="$emit('input', $event.target.value)"
   />
 </template>
@@ -51,7 +52,6 @@ export default {
   color: black;
   width: 100%;
   outline: none;
-  padding-left: 10px;
 }
 
 .input_bottom-bordered {

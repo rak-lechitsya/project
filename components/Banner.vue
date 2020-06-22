@@ -1,12 +1,12 @@
 <template>
-  <div class="banner">
+  <section class="banner">
     <div class="banner__background">
       <h2 class="banner__text">
         {{ title }}
         <span class="banner__hashtag"> {{ blockBanner.hashtag }}</span>
       </h2>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

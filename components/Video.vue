@@ -132,13 +132,13 @@ export default {
 .video__toggle {
   width: 40px;
   height: 40px;
-  background-color: #fbfbfb;
+  background-color: #613a93;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 8px;
   transition: transform 0.3s;
   border: none;
-  opacity: 0.5;
+  opacity: 0.85;
   outline: none;
 }
 
@@ -167,7 +167,7 @@ export default {
 }
 
 .video__toggle_is_active:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
 .video__link:hover {
@@ -278,7 +278,6 @@ export default {
   }
 
   .video__toggle {
-    background-color: #ededed;
     border-radius: 50%;
     z-index: 2;
   }

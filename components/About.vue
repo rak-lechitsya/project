@@ -1,10 +1,17 @@
 <template>
-  <div class="about">
+  <section class="about">
     <about-content class="about__content">
       <h2 class="about__heading">{{ blockAbout.hashtag }}</h2>
       <h3 class="about__title">{{ blockAbout.title }}</h3>
       <div class="about__container">
-        <p class="about__subtitle" v-html="blockAbout.text"></p>
+        <div>
+          <p class="about__subtitle" v-html="blockAbout.text"></p>
+          <my-button
+            :text="textButtonForm"
+            @btnClick="toggleStoryPopup"
+            class="about__text-button"
+          />
+        </div>
         <div class="about__text">
           <div class="about__span-container">
             <p
@@ -39,14 +46,16 @@
         </div>
       </div>
     </about-content>
-  </div>
+  </section>
 </template>
 
 <script>
 import Content from '@/components/ui/Content';
+import Button from '@/components/ui/Button';
 export default {
   components: {
     'about-content': Content,
+    'my-button': Button,
   },
   computed: {
     blockArr() {
@@ -63,10 +72,15 @@ export default {
     toggleSecondSpan() {
       this.toggle = false;
     },
+    toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
+      this.$store.commit('popup/toggleStoryPopup');
+    },
   },
   data() {
     return {
       toggle: true,
+      textButtonForm: 'Рассказать историю',
     };
   },
 };
@@ -79,6 +93,17 @@ export default {
   max-width: 100%;
   min-height: 665px;
   background-color: #613a93;
+}
+
+.about__text-button {
+  margin-top: 32px;
+  background-color: white;
+  color: black;
+  width: 218px;
+  height: 44px;
+  font-size: 16px;
+  line-height: 24px;
+  transition: opacity 0.3s;
 }
 
 .about__heading {
@@ -148,10 +173,14 @@ export default {
   color: white;
 }
 
+.about__text-button:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 700px) {
   .about {
     padding: 50px 14px;
-    min-height: 628px;
+    min-height: 709px;
   }
 
   .about__content {
@@ -203,12 +232,22 @@ export default {
   .about__text-span_is_active {
     border-bottom: 2px solid #fff;
   }
+
+  .about__text-button {
+    position: absolute;
+    margin-top: 472px;
+    margin-left: 72px;
+    width: 146px;
+    height: 31px;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
 
 @media (min-width: 701px) and (max-width: 1000px) {
   .about {
     padding: 80px 50px;
-    min-height: 687px;
+    min-height: 778px;
   }
 
   .about__content {
@@ -261,6 +300,16 @@ export default {
   .about__text-span_is_active {
     border-bottom: 2px solid #fff;
   }
+
+  .about__text-button {
+    position: absolute;
+    margin-top: 415px;
+    margin-left: 90px;
+    width: 200px;
+    height: 38px;
+    font-size: 15px;
+    line-height: 18px;
+  }
 }
 
 @media (min-width: 1001px) and (max-width: 1250px) {
@@ -300,6 +349,14 @@ export default {
     font-size: 15px;
     line-height: 19px;
   }
+
+  .about__text-button {
+    margin-top: 30px;
+    width: 201px;
+    height: 38px;
+    font-size: 15px;
+    line-height: 18px;
+  }
 }
 
 @media (min-width: 1251px) and (max-width: 1350px) {
@@ -314,6 +371,12 @@ export default {
 
   .about__text-container {
     max-width: 580px;
+  }
+
+  .about__text-button {
+    margin-top: 30px;
+    width: 211px;
+    height: 42px;
   }
 }
 </style>

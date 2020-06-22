@@ -1,9 +1,10 @@
 <template>
   <form
-    @submit.prevent="prevent"
+    @submit="sentData"
     class="form"
     id="form-contacts"
     name="form-contacts"
+    ref="form"
   >
     <h3 class="form__title">Оставьте контакт для связи</h3>
     <p class="form__subtitle">
@@ -14,25 +15,34 @@
       <legend class="form__question">Как вас зовут?</legend>
       <my-input
         addClass="form__input"
-        placeholder="Напишите тут"
+        placeholder="Напишите тут *"
         id="fullname"
         type="text"
         :bottomBordered="true"
         name="fullname"
         v-model="fullName"
+        maxlength="20"
+        @inputBlur="isFullnameTouched = true"
       />
+      <span class="form__error_input" v-if="isFullnameError"
+        >Это поле обязательное</span
+      >
       <div class="form__mail-tel">
         <div class="form__block">
           <legend class="form__question">Электронная почта</legend>
           <my-input
             addClass="form__input"
-            placeholder="pochta@example.com"
+            placeholder="pochta@example.com *"
             id="email"
-            type="email"
+            type="text"
             :bottomBordered="true"
             name="email"
             v-model="email"
+            @inputBlur="isEmailTouched = true"
           />
+          <span class="form__error_input" v-if="isEmailError"
+            >Недопустимый формат</span
+          >
         </div>
         <div class="form__block">
           <legend class="form__question">Телефон</legend>
@@ -40,10 +50,11 @@
             addClass="form__input"
             placeholder="+7 000 000 00 00"
             id="tel"
-            type="tel"
+            type="number"
             :bottomBordered="true"
             name="tel"
             v-model="phone"
+            maxlength="18"
           />
         </div>
       </div>
@@ -62,8 +73,8 @@
     </fieldset>
     <div class="form__buttons">
       <my-button
-        @btnClick="sentData"
-        class="button"
+        :disabled="!isValid"
+        :class="['button', { button_is_active: isValid }]"
         :text="textButtonForm"
         type="submit"
       />
@@ -74,30 +85,51 @@
         >
       </p>
     </div>
+    <form-error class="form__error" v-if="getError" />
   </form>
 </template>
 
 <script>
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 export default {
   components: {
     'my-input': Input,
     'my-button': Button,
+    'form-error': FormError,
   },
   methods: {
-    prevent(event) {
+    async sentData(event) {
       event.preventDefault();
-    },
-    async sentData() {
       const answers = {
-        fullName: this.fullName,
-        email: this.email,
-        phone: this.phone,
-        preferred: this.preferred,
+        fullName: this.fullName, //Как вас зовут?
+        email: this.email, //Электронная почта
+        phone: this.phone, //Телефон
+        preferred: this.preferred, //Напишите, если есть предпочтительный способ связи и удобное время
       };
       await this.$store.dispatch('contacts/sentData', answers);
-      this.$store.commit('popup/toggleContactsPopup');
+    },
+  },
+  computed: {
+    validFullname() {
+      return this.fullName.length > 0;
+    },
+    validEmail() {
+      const regex = /^([a-zA-Z0-9]+[_\.-]?)+@(([a-zA-Z0-9]+[_-]?)+\.)+(([a-zA-Z]{2,}))+$/;
+      return regex.test(this.email);
+    },
+    isFullnameError() {
+      return !this.validFullname && this.isFullnameTouched;
+    },
+    isEmailError() {
+      return !this.validEmail && this.isEmailTouched;
+    },
+    isValid() {
+      return this.validFullname && this.validEmail;
+    },
+    getError() {
+      return this.$store.getters['error/getError'];
     },
   },
   data() {
@@ -107,6 +139,9 @@ export default {
       email: '',
       phone: '',
       preferred: '',
+      isFullnameTouched: false,
+      isEmailTouched: false,
+      isPhoneTouched: false,
     };
   },
 };
@@ -115,6 +150,13 @@ export default {
 <style scoped>
 .button {
   width: 226px;
+  background-color: grey;
+  cursor: default;
+}
+
+.button_is_active {
+  background-color: #613a93;
+  cursor: pointer;
 }
 
 .form {
@@ -171,7 +213,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 1.33;
+  line-height: 1;
   color: #000;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -195,6 +237,14 @@ export default {
   font-size: 18px;
   line-height: 1.33;
   color: #000;
+}
+
+.form__error_input {
+  margin-top: 3px;
+  color: #df4b41;
+  text-align: left;
+  font-size: 14px;
+  position: absolute;
 }
 
 @media (max-width: 1350px) {
@@ -269,6 +319,11 @@ export default {
   .form {
     width: 350px;
   }
+
+  .form__error_input {
+    margin-top: 2px;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -295,10 +350,14 @@ export default {
     flex-direction: column;
   }
 
+  .form__input {
+    width: 260px;
+  }
+
   .form__politic {
     font-size: 11px;
     line-height: 13px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 0;
     min-width: 260px;
   }

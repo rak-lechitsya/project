@@ -22,7 +22,7 @@ export const actions = {
   },
   fetchStoryWithId(state, payload) {
     return axios
-      .get(process.env.BASE_URL + '/stories/' + `${payload.id}`)
+      .get(`${process.env.BASE_URL}/stories/${payload.id}`)
       .then(response => {
         return state.commit('setState', {
           name: 'currentStory',

@@ -81,6 +81,7 @@ export default {
       this.$store.commit('popup/toggleContactsPopup');
     },
     toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
       this.$store.commit('popup/toggleStoryPopup');
     },
   },
@@ -98,7 +99,7 @@ export default {
 .share {
   margin: 0 auto;
   width: 100%;
-  padding: 100px 14px 60px;
+  padding: 100px 60px 60px;
   background-color: #f7f7f7;
 }
 
@@ -229,7 +230,7 @@ export default {
 
 @media (min-width: 701px) and (max-width: 1000px) {
   .share {
-    padding: 80px 50px;
+    padding: 80px 40px;
   }
 
   .share__content {

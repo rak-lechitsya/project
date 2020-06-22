@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     toggleStoryPopup() {
+      this.$store.commit('form/finishFalse');
       this.$store.commit('popup/toggleStoryPopup');
     },
   },
@@ -69,12 +70,14 @@ export default {
   width: 290px;
   font-weight: 600;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: black;
 }
 
 .main-header__logo-container {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .main-header__container {
@@ -84,10 +87,8 @@ export default {
 
 .main-header__button {
   margin-left: 40px;
-  background-color: white;
-  color: black;
-  width: 182px;
-  height: 24px;
+  width: 218px;
+  height: 44px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -96,7 +97,7 @@ export default {
 }
 
 .main-header__button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .main-header__mobile-icon {
@@ -113,14 +114,18 @@ export default {
   }
 
   .main-header__button {
-    width: 162px;
-    font-size: 16px;
+    width: 211px;
+    height: 42px;
   }
 }
 
 @media screen and (max-width: 1250px) {
   .main-header__button {
     margin-left: 30px;
+    font-size: 15px;
+    line-height: 18px;
+    width: 201px;
+    height: 38px;
   }
 
   .main-header {
